@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initScrollSpy();
   initBackToTop();
+  initReveal();
 });
 
 /* Navbar Scroll Effect & Mobile Toggle */
@@ -457,6 +458,54 @@ function initScrollSpy() {
 
   window.addEventListener('scroll', updateActiveLink, { passive: true });
   updateActiveLink();
+}
+
+/* Premium Scroll Reveal (IntersectionObserver + stagger) */
+function initReveal() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const selectors = [
+    '.section-header',
+    '.about-content',
+    '.about-image-stack',
+    '.value-card',
+    '.service-card',
+    '.case-card',
+    '.methodology-step',
+    '.contact-info-card',
+    '.contact-form-wrapper',
+    '.dashboard-container',
+    '.calc-card-grid',
+    '.seal-item',
+    '.metric-item',
+    '.faq-item'
+  ];
+
+  const items = document.querySelectorAll(selectors.join(','));
+  if (!items.length) return;
+
+  items.forEach(el => el.classList.add('reveal'));
+
+  // Stagger sibling reveals with a subtle cascade delay
+  const parents = new Set();
+  items.forEach(el => parents.add(el.parentElement));
+  parents.forEach(parent => {
+    const siblings = Array.from(parent.children).filter(c => c.classList.contains('reveal'));
+    siblings.forEach((el, i) => {
+      el.style.transitionDelay = `${Math.min(i * 80, 400)}ms`;
+    });
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+  items.forEach(el => io.observe(el));
 }
 
 /* Back to Top Button Controller */
