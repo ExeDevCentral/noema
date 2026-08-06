@@ -2,6 +2,7 @@
   "name": "noema-consultora",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "description": "Carmen Capli - Noema Consultora de Investigación de Mercado & Inteligencia Estratégica en Paraguay",
   "main": "index.html",
   "scripts": {
