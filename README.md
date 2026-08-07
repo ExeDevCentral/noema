@@ -19,29 +19,41 @@
 
 ## 🛠️ Tecnología y Stack
 
-- **Frontend**: HTML5 Semántico, CSS3 Personalizado (Vanilla CSS con variables HSL/Hex, Glassmorphism, Micro-animaciones), JavaScript (ES6+ Vanilla).
-- **Visualización de Datos**: [Chart.js](https://www.chartjs.org/) (CDN).
-- **Tipografías e Iconos**: Google Fonts (*Cormorant Garamond*, *Plus Jakarta Sans*), FontAwesome 6.4.
+- **Frontend**: React 18 + TypeScript + Vite.
+- **Estilos**: CSS3 personalizado (Design System con variables, Glassmorphism, micro-animaciones) con tema oscuro ambient (#11171D).
+- **Tipografías e Iconos**: Google Fonts (*Cormorant Garamond*, *Plus Jakarta Sans*), FontAwesome 6.4, `country-flag-icons`.
 - **Backend / Serverless**: Vercel Serverless Function (`api/contact.js`) para procesamiento de formularios.
-- **Despliegue Recomendado**: Vercel, Netlify o GitHub Pages.
+- **Despliegue**: Vercel.
 
 ---
 
 ## 📁 Estructura del Proyecto
 
 ```text
-NNOOEEMMAA consultora/
+noema/
 ├── api/
 │   └── contact.js          # Vercel Serverless Function para formulario
-├── assets/
-│   └── images/             # Optimizado: imágenes de heroes, Carmen Capli, etc.
-├── css/
+├── public/
+│   └── assets/images/      # Optimizado: imágenes de heroes, Carmen Capli, etc.
+├── src/
+│   ├── components/
+│   │   ├── Navbar.tsx
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Services.tsx
+│   │   ├── Methodology.tsx
+│   │   ├── FAQ.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   ├── hooks/
+│   │   ├── useRevealOnScroll.ts
+│   │   └── useSmoothScroll.ts
+│   ├── App.tsx
+│   ├── main.tsx
 │   └── styles.css          # Hoja de estilos principal (Design System)
-├── js/
-│   └── main.js             # Controlador JavaScript (Charts, Calculadora, UI, ScrollSpy)
 ├── .gitignore              # Exclusiones de Git
-├── index.html              # Landing Page Ejecutiva Principal
-├── README.md               # Documentación del proyecto
+├── index.html              # Entry point de la aplicación
+├── package.json
 └── vercel.json             # Configuración de cabeceras de seguridad y URLs limpias
 ```
 
@@ -49,18 +61,17 @@ NNOOEEMMAA consultora/
 
 ## 🚀 Instalación y Desarrollo Local
 
-1. Clonar el repositorio:
+1. Instalar dependencias:
    ```bash
-   git clone https://github.com/ExeDevCentral/noema.git
-   cd noema
+   npm install
    ```
 
-2. Abrir con cualquier servidor local (como *Live Server* en VS Code, o utilizando `npx serve`):
+2. Levantar el servidor de desarrollo:
    ```bash
-   npx serve .
+   npm run dev
    ```
 
-3. Abrir en el navegador en `http://localhost:3000`.
+3. Abrir en el navegador en la URL que indique la consola (normalmente `http://localhost:5173`).
 
 ---
 

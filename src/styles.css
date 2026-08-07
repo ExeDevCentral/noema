@@ -1372,6 +1372,25 @@ textarea.form-control {
   min-height: 120px;
 }
 
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #E2A79A;
+  background: rgba(200, 138, 110, 0.12);
+  border: 1px solid rgba(200, 138, 110, 0.35);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 1rem;
+  margin-bottom: 1rem;
+  animation: form-error-in 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes form-error-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1626,7 +1645,7 @@ textarea.form-control {
 .floating-whatsapp {
   position: fixed;
   bottom: 2rem;
-  left: 2rem;
+  right: 2rem;
   z-index: 990;
   width: 54px;
   height: 54px;
@@ -1670,7 +1689,7 @@ textarea.form-control {
 /* ==================== BACK TO TOP FLOATING BUTTON ==================== */
 .back-to-top-btn {
   position: fixed;
-  bottom: 2rem;
+  bottom: 6.5rem;
   right: 2rem;
   width: 48px;
   height: 48px;
@@ -1705,7 +1724,7 @@ textarea.form-control {
 
 @media (max-width: 768px) {
   .back-to-top-btn {
-    bottom: 1.5rem;
+    bottom: 5.5rem;
     right: 1.5rem;
     width: 42px;
     height: 42px;
@@ -1713,7 +1732,7 @@ textarea.form-control {
 
   .floating-whatsapp {
     bottom: 1.5rem;
-    left: 1.5rem;
+    right: 1.5rem;
     width: 48px;
     height: 48px;
     font-size: 1.4rem;
