@@ -26,10 +26,10 @@ export default function Footer() {
           <div className="footer-col">
             <h5>Servicios</h5>
             <ul className="footer-links">
-              <li><a href="#servicios">Investigación Cuantitativa</a></li>
-              <li><a href="#servicios">Estudios Cualitativos</a></li>
-              <li><a href="#servicios">Business Intelligence</a></li>
-              <li><a href="#servicios">Tracking de Marca</a></li>
+              <li><a href="#servicios">Servicio de Campo</a></li>
+              <li><a href="#servicios">Servicio Integral</a></li>
+              <li><a href="#servicios">Relevamiento en Paraguay</a></li>
+              <li><a href="#servicios">Diseño + Ejecución</a></li>
             </ul>
           </div>
 
