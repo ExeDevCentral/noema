@@ -42,6 +42,7 @@ export default function Contact() {
   const [form, setForm] = useState(initialForm)
   const [submitting, setSubmitting] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -52,22 +53,26 @@ export default function Contact() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSubmitting(true)
+    setError('')
 
     try {
-      fetch('/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
-      }).catch(() => {})
-    } catch {
-      /* ignore network errors */
-    }
+      })
 
-    setTimeout(() => {
-      setSubmitting(false)
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario')
+      }
+
       setForm(initialForm)
       setModalOpen(true)
-    }, 1000)
+    } catch {
+      setError('No pudimos enviar tu mensaje. Intentá nuevamente.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const closeModal = () => setModalOpen(false)
@@ -161,6 +166,12 @@ export default function Contact() {
                 <label htmlFor="mensaje">Detalles de su Consulta / Proyecto *</label>
                 <textarea id="mensaje" className="form-control" placeholder="Cuéntenos sobre el objetivo de su estudio o el desafío que busca resolver..." required value={form.mensaje} onChange={handleChange}></textarea>
               </div>
+
+              {error && (
+                <p className="form-error" role="alert">
+                  <i className="fas fa-triangle-exclamation"></i> {error}
+                </p>
+              )}
 
               <button type="submit" className="btn-luxury btn-luxury-primary" disabled={submitting} style={{ width: '100%', borderRadius: 'var(--radius-sm)', padding: '1rem', justifyContent: 'center' }}>
                 {submitting ? (

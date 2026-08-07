@@ -8,6 +8,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CraftedBar from './components/CraftedBar'
 import BackToTop from './components/BackToTop'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 import { useRevealOnScroll } from './hooks/useRevealOnScroll'
 import { useSmoothScrollAndSpy } from './hooks/useSmoothScroll'
 
@@ -37,6 +38,7 @@ export default function App() {
       <Footer />
       <CraftedBar />
       <BackToTop />
+      <FloatingWhatsApp />
     </>
   )
 }
