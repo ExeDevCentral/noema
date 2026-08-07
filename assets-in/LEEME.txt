@@ -1,0 +1,27 @@
+# assets-in — Bandeja de entrada de imágenes
+
+Dejá acá las fotos/iconos que quieras que se integren al proyecto. Las
+reviso, optimizo y muevo a la ubicación definitiva (`public/assets/images/`,
+`src/assets/`, etc.).
+
+## Estructura
+
+| Carpeta            | Qué va acá                                     | Tamaño sugerido |
+|--------------------|------------------------------------------------|-----------------|
+| `assets-in/banner/`        | Las 6 imágenes del banner horizontal (banner-01.webp … banner-06.webp) | ~140px de alto, ancho libre |
+| `assets-in/fotografias/`   | Fotos grandes (hero, equipo, oficina, casos)   | 1200–2000px, webp/jpg |
+| `assets-in/iconos/`        | Iconos y logos pequeños (svg/png)              | 16–128px |
+
+## Reglas
+
+- Nombres en minúsculas, sin espacios ni tildes: `carmen-reunion.webp`, `icono-whatsapp.svg`.
+- Preferí **webp** (o svg para iconos). Si es jpg/png, avisame y lo convierto.
+- El banner **debe** llamarse `banner-01.webp` … `banner-06.webp` para que
+  `src/components/AnimatedBanner.tsx` los detecte automáticamente.
+- No necesitás redimensionar: yo lo hago al integrarlas.
+
+## Flujo
+
+1. Dejás los archivos en la carpeta correspondiente.
+2. Me decís "integrá los assets de `assets-in`".
+3. Los muevo a la ruta definitiva y conecto los componentes.
