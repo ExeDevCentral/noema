@@ -1,5 +1,5 @@
 import BrandLogo from './BrandLogo'
-import PY from 'country-flag-icons/react/3x2/PY'
+import PyFlag from 'country-flag-icons/react/3x2/PY'
 
 export default function Footer() {
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
           <div className="footer-col">
             <h5>Navegación</h5>
             <ul className="footer-links">
-              <li><a href="#nosotros">Quién soy</a></li>
+              <li><a href="#nosotros">Quiénes Somos</a></li>
               <li><a href="#servicios">Servicios</a></li>
               <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -39,14 +39,14 @@ export default function Footer() {
               <i className="fas fa-envelope" style={{ color: 'var(--terracotta-light)', marginRight: '0.5rem' }}></i> contacto@noemaconsultora.com.py
             </p>
             <p style={{ fontSize: '0.875rem', color: 'rgba(250, 248, 245, 0.75)' }}>
-              <PY style={{ width: 28, height: 19, borderRadius: 3, marginRight: '0.5rem', verticalAlign: 'middle', boxShadow: '0 2px 6px rgba(0,0,0,0.4)' }} />
+              <PyFlag style={{ width: 28, height: 19, borderRadius: 3, marginRight: '0.5rem', verticalAlign: 'middle', boxShadow: '0 2px 6px rgba(0,0,0,0.4)' }} />
               Asunción, Paraguay
             </p>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2026 Carmen Capli - Noema Consultora. Todos los derechos reservados.</p>
+          <p>&copy; 2026 Noema Consultora. Todos los derechos reservados.</p>
           <p>Investigación de Mercado &amp; Inteligencia Estratégica en Paraguay</p>
         </div>
       </div>

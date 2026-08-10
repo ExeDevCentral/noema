@@ -1,8 +1,8 @@
-# NOEMA | Carmen Capli — Investigación de Mercado & Inteligencia Estratégica
+# NOEMA — Investigación de Mercado & Inteligencia Estratégica
 
 ![Noema Header Banner](assets/images/heroes/hero_main.jpg)
 
-**Noema** es una consultora especializada en **investigación de mercado cualitativa y cuantitativa, business intelligence y análisis de datos estratégicos** con sede en Asunción, Paraguay, bajo la dirección ejecutiva de **Carmen Capli**.
+**Noema** es una consultora especializada en **investigación de mercado cualitativa y cuantitativa, business intelligence y análisis de datos estratégicos** con sede en Asunción, Paraguay.
 
 ---
 
@@ -34,7 +34,7 @@ noema/
 ├── api/
 │   └── contact.js          # Vercel Serverless Function para formulario
 ├── public/
-│   └── assets/images/      # Optimizado: imágenes de heroes, Carmen Capli, etc.
+│   └── assets/images/      # Optimizado: imágenes de heroes, corporativas, etc.
 ├── src/
 │   ├── components/
 │   │   ├── Navbar.tsx
@@ -78,4 +78,4 @@ noema/
 ## 📜 Licencia & Créditos
 
 Desarrollado y diseñado con precisión ejecutiva por **[Exepaginasweb.com](https://exepaginasweb.com)**.
-© 2026 Carmen Capli - Noema Consultora. Todos los derechos reservados.
+© 2026 Noema Consultora. Todos los derechos reservados.

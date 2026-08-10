@@ -296,3 +296,51 @@
 [2m1:44:39 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Contact.tsx[22m
 [2m1:44:47 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Contact.tsx[22m
 [2m1:44:59 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m3:54:12 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m3:54:18 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m3:54:18 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: [postcss] C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/src/styles.css:1645:1: Unclosed block[39m
+  Plugin: [35mvite:css[39m
+  File: [36mC:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/src/styles.css[39m:1645:0
+[33m  1643|  
+  1644|  /* ==================== FLOATING WHATSAPP BUTTON ==================== */
+  1645|  .back-to-top-btn {
+     |  ^
+  1646|    position: fixed;
+  1647|    bottom: 2rem;[39m
+      at Input.error (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\input.js:135:16)
+      at Parser.unclosedBlock (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parser.js:582:22)
+      at Parser.endFile (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parser.js:342:35)
+      at Parser.parse (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parser.js:483:10)
+      at parse (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parse.js:11:12)
+      at new LazyResult (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\lazy-result.js:171:16)
+      at Processor.process (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\processor.js:53:14)
+      at compileCSS (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36898:59)
+      at async TransformPluginContext.transform (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36171:11)
+      at async PluginContainer.transform (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+[2m3:54:20 PM[22m [31m[1m[vite][22m[39m Pre-transform error: [postcss] C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/src/styles.css:1645:1: Unclosed block
+[2m3:54:20 PM[22m [31m[1m[vite][22m[39m [31mInternal server error: [postcss] C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/src/styles.css:1645:1: Unclosed block[39m
+  Plugin: [35mvite:css[39m
+  File: [36mC:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/src/styles.css[39m:1645:0
+[33m  1643|  
+  1644|  /* ==================== FLOATING WHATSAPP BUTTON ==================== */
+  1645|  .back-to-top-btn {
+     |  ^
+  1646|    position: fixed;
+  1647|    bottom: 2rem;[39m
+      at Input.error (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\input.js:135:16)
+      at Parser.unclosedBlock (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parser.js:582:22)
+      at Parser.endFile (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parser.js:342:35)
+      at Parser.parse (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parser.js:483:10)
+      at parse (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\parse.js:11:12)
+      at new LazyResult (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\lazy-result.js:171:16)
+      at Processor.process (C:\Users\exeme\Desktop\NoemaCLA\noema-main\noema-main\node_modules\postcss\lib\processor.js:53:14)
+      at compileCSS (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36898:59)
+      at async TransformPluginContext.transform (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:36171:11)
+      at async PluginContainer.transform (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///C:/Users/exeme/Desktop/NoemaCLA/noema-main/noema-main/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+[2m3:54:29 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m3:54:32 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m3:54:46 PM[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m

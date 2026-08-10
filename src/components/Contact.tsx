@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import PY from 'country-flag-icons/react/3x2/PY'
+import PyFlag from 'country-flag-icons/react/3x2/PY'
 
 const contactLinks = [
   {
@@ -83,7 +83,7 @@ export default function Contact() {
         <div className="contact-grid">
           <div className="contact-info-card">
             <h3>Hablemos de su próximo estudio de mercado</h3>
-            <p>Déjenos sus datos y nos pondremos en contacto para coordinar una reunión de diagnóstico con Carmen Capli sin compromiso.</p>
+            <p>Déjenos sus datos y nos pondremos en contacto para coordinar una reunión de diagnóstico sin compromiso.</p>
 
             {contactLinks.map((link) => (
               <a
@@ -102,7 +102,7 @@ export default function Contact() {
                     <h5>{link.title}</h5>
                     <p>
                       {link.flag && (
-                        <PY
+                        <PyFlag
                           style={{ width: 28, height: 19, borderRadius: 3, marginRight: '0.4rem', verticalAlign: 'middle' }}
                         />
                       )}
@@ -186,14 +186,22 @@ export default function Contact() {
       </div>
 
       {modalOpen && (
-        <div id="thankYouModal" className="modal-overlay active" aria-hidden="false" onClick={(e) => { if (e.target === e.currentTarget) closeModal() }}>
+        <div
+          id="thankYouModal"
+          className="modal-overlay active"
+          role="dialog"
+          aria-modal="true"
+          tabIndex={-1}
+          onClick={(e) => { if (e.target === e.currentTarget) closeModal() }}
+          onKeyDown={(e) => { if (e.key === 'Escape') closeModal() }}
+        >
           <div className="modal-card">
             <div className="modal-icon">
               <i className="fas fa-check"></i>
             </div>
             <h4>¡Solicitud Recibida!</h4>
-            <p>Gracias por comunicarse con <strong>Carmen Capli - Noema Consultora</strong>. Un consultor senior analizará su requerimiento y se pondrá en contacto en las próximas 24 horas hábiles.</p>
-            <button className="btn-luxury btn-luxury-primary" style={{ padding: '0.75rem 2rem' }} onClick={closeModal}>
+            <p>Gracias por comunicarse con <strong>Noema Consultora</strong>. Un consultor senior analizará su requerimiento y se pondrá en contacto en las próximas 24 horas hábiles.</p>
+            <button type="button" className="btn-luxury btn-luxury-primary" style={{ padding: '0.75rem 2rem' }} onClick={closeModal}>
               Entendido
             </button>
           </div>

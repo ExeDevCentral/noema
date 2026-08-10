@@ -4,7 +4,7 @@ Single-context domain doc for this repo. Read this before touching the codebase;
 
 ## What this is
 
-Corporate landing site for **Noema**, a market-research consultancy directed by **Carmen Capli** in Asunción, Paraguay (coverage MERCOSUR). It is a single-page marketing site: hero, about, services, interactive diagnostic calculator, case studies, interactive charts (Chart.js), methodology, FAQ, and a contact form wired to a Vercel serverless function.
+Corporate landing site for **Noema**, a market-research consultancy in Asunción, Paraguay (coverage MERCOSUR). It is a single-page marketing site: hero, about, services, interactive diagnostic calculator, case studies, interactive charts (Chart.js), methodology, FAQ, and a contact form wired to a Vercel serverless function.
 
 ## Canonical glossary
 

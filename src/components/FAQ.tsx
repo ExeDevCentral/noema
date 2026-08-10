@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const faqs = [
   {
-    question: '¿Cuánto tiempo requiere un estudio de mercado estándar con Carmen Capli - Noema?',
+    question: '¿Cuánto tiempo requiere un estudio de mercado estándar con Noema?',
     answer: (
       <p>
         El tiempo habitual de ejecución oscila entre <strong>15 y 30 días hábiles</strong> según la complejidad del
@@ -63,7 +63,7 @@ export default function FAQ() {
         <div className="faq-container">
           {faqs.map((faq, index) => (
             <div className={`faq-item${openIndex === index ? ' active' : ''}`} key={faq.question}>
-              <button className="faq-question" onClick={() => toggle(index)} aria-expanded={openIndex === index}>
+              <button type="button" className="faq-question" onClick={() => toggle(index)} aria-expanded={openIndex === index}>
                 {faq.question}
                 <i className="fas fa-chevron-down"></i>
               </button>

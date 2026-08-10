@@ -11,9 +11,8 @@ export default function Hero() {
               Transformamos datos complejos en decisiones de alto impacto.
             </h1>
             <p className="hero-description">
-              Bajo la dirección de <strong>Carmen Capli</strong>, en <strong>Noema</strong> combinamos rigor
-              estadístico cuantitativo y análisis cualitativo profundo para guiar el crecimiento de marcas en
-              Paraguay y la región MERCOSUR.
+              En <strong>Noema</strong> combinamos rigor estadístico cuantitativo y análisis cualitativo profundo
+              para guiar el crecimiento de marcas en Paraguay y la región MERCOSUR.
             </p>
             <div className="hero-actions">
               <a href="#contacto" className="btn-luxury btn-luxury-primary">

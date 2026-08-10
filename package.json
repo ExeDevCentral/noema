@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Carmen Capli - Noema Consultora de Investigación de Mercado & Inteligencia Estratégica en Paraguay",
+  "description": "Noema - Consultora de Investigación de Mercado & Inteligencia Estratégica en Paraguay",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -12,17 +12,17 @@
   },
   "keywords": [
     "noema",
-    "carmen-capli",
     "investigacion-de-mercado",
     "paraguay",
     "asuncion"
   ],
-  "author": "Carmen Capli - Noema",
+  "author": "Noema Consultora",
   "license": "ISC",
   "dependencies": {
     "country-flag-icons": "^1.6.20",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "resend": "^6.18.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",

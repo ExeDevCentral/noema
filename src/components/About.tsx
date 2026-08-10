@@ -14,7 +14,7 @@ export default function About() {
             <div className="about-image-main">
               <img
                 src="/assets/images/about/carmen_capli.jpg"
-                alt="Carmen Capli Directora y Fundadora de Noema Consultora en Asunción Paraguay"
+                alt="Noema Consultora de Investigación de Mercado en Asunción Paraguay"
                 width="900"
                 height="672"
                 loading="lazy"
@@ -23,7 +23,7 @@ export default function About() {
             </div>
             <div className="about-quote-box">
               <p>"Investigar el mercado en Paraguay y la región no es acumular datos, es encontrar la verdad estratégica detrás de cada tendencia."</p>
-              <span>Carmen Capli — Fundadora &amp; Directora</span>
+              <span>Noema — Consultora Estratégica</span>
             </div>
           </div>
 
@@ -31,8 +31,7 @@ export default function About() {
             <span className="section-tag">Sobre Noema</span>
             <h2 className="section-title">Claridad conceptual y evidencia objetiva para su empresa en Paraguay.</h2>
             <p className="about-text">
-              <strong>Noema</strong>, fundada y dirigida por <strong>Carmen Capli</strong>, nace con la misión de
-              brindar inteligencia de mercado de alto nivel directivo en Paraguay. Convertimos datos complejos en{' '}
+              <strong>Noema</strong> nace con la misión de brindar inteligencia de mercado de alto nivel directivo en Paraguay. Convertimos datos complejos en{' '}
               <strong>respuestas claras, objetivas y accionables</strong>.
             </p>
             <p className="about-text">

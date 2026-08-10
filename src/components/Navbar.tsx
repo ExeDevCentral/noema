@@ -19,7 +19,7 @@ export default function Navbar() {
         <BrandLogo />
 
         <nav className={`nav-menu${menuOpen ? ' active' : ''}`}>
-          <a href="#nosotros" className="nav-link" onClick={closeMenu}>Quién soy</a>
+          <a href="#nosotros" className="nav-link" onClick={closeMenu}>Quiénes Somos</a>
           <a href="#servicios" className="nav-link" onClick={closeMenu}>Servicios</a>
           <a href="#contacto" className="nav-link" onClick={closeMenu}>Contacto</a>
         </nav>
@@ -38,6 +38,7 @@ export default function Navbar() {
         </div>
 
         <button
+          type="button"
           className="nav-toggle"
           aria-label={menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
           onClick={() => setMenuOpen((open) => !open)}
