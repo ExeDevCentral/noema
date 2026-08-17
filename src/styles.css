@@ -368,61 +368,73 @@ img {
 
 /* Brand Logo Styling */
 .brand-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1rem;
   text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-logo:hover {
+  transform: translateY(-2px);
 }
 
 .brand-official-symbol-img {
-  width: 44px;
-  height: 46px;
+  width: 54px;
+  height: auto;
+  aspect-ratio: 900 / 588;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
-  transition: transform var(--transition-fast);
+  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.55));
+  transition: transform 0.3s ease;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .brand-logo:hover .brand-official-symbol-img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .brand-text-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  line-height: 1.15;
 }
 
 .brand-title {
   font-family: var(--font-sans);
-  font-size: 1.62rem;
+  font-size: 1.75rem;
   font-weight: 800;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.36em;
   color: #FFFFFF;
   line-height: 1;
   text-transform: uppercase;
-  margin-right: -0.38em; /* balances trailing letter spacing */
+  margin-right: -0.36em; /* balances trailing letter spacing */
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
 .brand-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.64rem;
+  font-size: 0.70rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   color: #FFFFFF;
-  opacity: 0.95;
   text-transform: uppercase;
-  margin-top: 5px;
+  margin-top: 4px;
   line-height: 1.2;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
 .brand-flag-badge-container {
   display: inline-flex;
   align-items: center;
-  margin-left: 8px;
-  padding-left: 10px;
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  margin-left: 10px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.28);
   flex-shrink: 0;
 }
+
 
 
 /* Nav Links */
@@ -2513,61 +2525,8 @@ main,
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ==========================================================================
-   OFFICIAL BRAND LOGO & ISOTIPO ADAPTATION
-   ========================================================================== */
-.brand-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.brand-logo:hover {
-  transform: translateY(-2px);
-}
-
-.brand-official-symbol-img {
-  width: 44px;
-  height: auto;
-  aspect-ratio: 1 / 1.05;
-  object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-}
-
-.brand-logo:hover .brand-official-symbol-img {
-  transform: scale(1.05);
-}
-
-.brand-text-block {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.brand-title {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #FFFFFF;
-}
-
-.brand-subtitle {
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #DCA087;
-  margin-top: 3px;
-}
-
 /* Paraguay Flag Badge in Brand Logo */
+
 .brand-header-row {
   display: flex;
   align-items: center;
