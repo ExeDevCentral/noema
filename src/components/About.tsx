@@ -1,6 +1,9 @@
 import ParaguayFlag from './ParaguayFlag'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function About() {
+  const { t } = useLanguage()
+
   return (
     <div className="page-view about-page-view">
       {/* Hero Banner with Lapacho Amarillo Image */}
@@ -8,11 +11,11 @@ export default function About() {
         <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.jpg')" }}></div>
         <div className="banner-overlay"></div>
         <div className="container banner-container">
-          <span className="banner-tag">INFORMACIÓN INSTITUCIONAL</span>
-          <h1 className="banner-title">Sobre NOEMA</h1>
+          <span className="banner-tag">{t.about.bannerTag}</span>
+          <h1 className="banner-title">{t.about.bannerTitle}</h1>
           <p className="banner-subtitle">
             <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
-            Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay.
+            {t.about.bannerSubtitle}
           </p>
         </div>
       </section>
@@ -22,23 +25,20 @@ export default function About() {
         <div className="container">
           <div className="about-text-content-card">
             <h2 className="section-title text-center">
-              Investigación rigurosa para comprender personas, opiniones y comportamientos.
+              {t.about.sectionTitle}
             </h2>
             <div className="about-divider-line"></div>
             
             <p className="lead-paragraph">
-              <strong>Noema</strong> es una consultora de <strong>Investigación y Estudios</strong> que diseña y desarrolla 
-              proyectos cuantitativos y cualitativos para obtener información confiable, relevante y útil.
+              {t.about.lead}
             </p>
             <p className="body-paragraph">
-              Trabajamos en las distintas etapas de un estudio, desde el diseño metodológico y la elaboración de instrumentos 
-              hasta el trabajo de campo, procesamiento y análisis de la información. Desarrollamos estudios integrales 
-              y también acompañamos proyectos en etapas específicas, de acuerdo con las necesidades de cada cliente.
+              {t.about.body}
             </p>
 
             <div className="about-work-section-block" style={{ marginTop: '48px' }}>
               <h3 className="section-subtitle-institutional text-center" style={{ marginBottom: '32px', fontFamily: 'var(--font-serif)', fontSize: '2.2rem', color: '#FFFFFF' }}>
-                Cómo trabajamos
+                {t.about.howWeWork}
               </h3>
 
               <div className="home-pillars-2x2-grid">
@@ -47,8 +47,8 @@ export default function About() {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-sliders"></i>
                   </div>
-                  <h4>Investigación a medida</h4>
-                  <p>Cada proyecto parte de una pregunta y se construye con la metodología más adecuada para responderla.</p>
+                  <h4>{t.hero.pillar1Title}</h4>
+                  <p>{t.hero.pillar1Desc}</p>
                 </div>
 
                 {/* 2. Del diseño al campo */}
@@ -56,8 +56,8 @@ export default function About() {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-layer-group"></i>
                   </div>
-                  <h4>Del diseño al campo</h4>
-                  <p>Podemos desarrollar un estudio de manera integral o participar en etapas específicas, según las necesidades de cada proyecto.</p>
+                  <h4>{t.hero.pillar2Title}</h4>
+                  <p>{t.hero.pillar2Desc}</p>
                 </div>
 
                 {/* 3. Campo con experiencia */}
@@ -65,8 +65,8 @@ export default function About() {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-users-viewfinder"></i>
                   </div>
-                  <h4>Campo con experiencia</h4>
-                  <p>Planificamos, coordinamos y ejecutamos trabajos de campo cuantitativos y cualitativos, con especial atención a la calidad del proceso.</p>
+                  <h4>{t.hero.pillar3Title}</h4>
+                  <p>{t.hero.pillar3Desc}</p>
                 </div>
 
                 {/* 4. Conocimiento del contexto */}
@@ -74,8 +74,8 @@ export default function About() {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-location-dot"></i>
                   </div>
-                  <h4>Conocimiento del contexto</h4>
-                  <p>Investigamos desde Paraguay, comprendiendo las particularidades de sus personas, mercados y realidades sociales.</p>
+                  <h4>{t.hero.pillar4Title}</h4>
+                  <p>{t.hero.pillar4Desc} <ParaguayFlag size="sm" /></p>
                 </div>
               </div>
             </div>
@@ -85,5 +85,3 @@ export default function About() {
     </div>
   )
 }
-
-

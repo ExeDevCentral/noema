@@ -1,33 +1,6 @@
 import { FormEvent, useState } from 'react'
 import ParaguayFlag from './ParaguayFlag'
-
-const contactLinks = [
-  {
-    href: 'mailto:contacto@noemaconsultora.com.py',
-    target: undefined as string | undefined,
-    icon: 'fa-envelope',
-    title: 'Correo Electrónico',
-    text: 'contacto@noemaconsultora.com.py',
-    label: 'Enviar correo a contacto@noemaconsultora.com.py',
-  },
-  {
-    href: 'https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación',
-    target: '_blank',
-    icon: 'fab fa-whatsapp',
-    title: 'Teléfono / WhatsApp',
-    text: '+595 972 536 004',
-    label: 'Abrir WhatsApp al +595 972 536 004',
-  },
-  {
-    href: 'https://maps.google.com/?q=Encarnacion,Paraguay',
-    target: '_blank',
-    icon: 'fa-location-dot',
-    title: 'Ubicación',
-    text: 'Encarnación, Paraguay | Cobertura en todo el país',
-    label: 'Ver ubicación en Google Maps',
-    flag: true,
-  },
-]
+import { useLanguage } from '../context/LanguageContext'
 
 const initialForm = {
   nombre: '',
@@ -39,10 +12,39 @@ const initialForm = {
 }
 
 export default function Contact() {
+  const { t } = useLanguage()
   const [form, setForm] = useState(initialForm)
   const [submitting, setSubmitting] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const [error, setError] = useState('')
+
+  const contactLinks = [
+    {
+      href: 'mailto:contacto@noemaconsultora.com.py',
+      target: undefined as string | undefined,
+      icon: 'fa-envelope',
+      title: t.contact.emailLabel.replace(' *', ''),
+      text: 'contacto@noemaconsultora.com.py',
+      label: 'contacto@noemaconsultora.com.py',
+    },
+    {
+      href: 'https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación',
+      target: '_blank',
+      icon: 'fab fa-whatsapp',
+      title: t.contact.phoneLabel.replace(' *', ''),
+      text: '+595 972 536 004',
+      label: 'WhatsApp +595 972 536 004',
+    },
+    {
+      href: 'https://maps.google.com/?q=Encarnacion,Paraguay',
+      target: '_blank',
+      icon: 'fa-location-dot',
+      title: t.contact.locationTitle,
+      text: t.contact.locationText,
+      label: 'Google Maps',
+      flag: true,
+    },
+  ]
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -84,10 +86,11 @@ export default function Contact() {
         <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_rosado.jpg')" }}></div>
         <div className="banner-overlay"></div>
         <div className="container banner-container">
-          <span className="banner-tag">ATENCIÓN DIRECTA</span>
-          <h1 className="banner-title">Contacto</h1>
+          <span className="banner-tag">{t.contact.bannerTag}</span>
+          <h1 className="banner-title">{t.contact.bannerTitle}</h1>
           <p className="banner-subtitle">
-            Escríbenos para conversar sobre tu próximo proyecto de investigación en Paraguay.
+            <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
+            {t.contact.bannerSubtitle}
           </p>
         </div>
       </section>
@@ -97,8 +100,8 @@ export default function Contact() {
         <div className="container">
           <div className="contact-grid">
             <div className="contact-info-card">
-              <h3>Hablemos de su próximo estudio</h3>
-              <p>Déjenos sus datos y nos pondremos en contacto para coordinar una reunión de diagnóstico sin compromiso.</p>
+              <h3>{t.contact.cardHeading}</h3>
+              <p>{t.contact.cardDesc}</p>
 
               {contactLinks.map((link) => (
                 <a
@@ -130,52 +133,91 @@ export default function Contact() {
                   <i className="fas fa-clock"></i>
                 </div>
                 <div className="contact-detail-text">
-                  <h5>Horario Institucional</h5>
-                  <p>Lunes a Viernes de 08:00 a 17:00 hs</p>
+                  <h5>{t.contact.scheduleTitle}</h5>
+                  <p>{t.contact.scheduleText}</p>
                 </div>
               </div>
             </div>
 
             <div className="contact-form-wrapper">
               <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--navy-primary)' }}>
-                Envíanos una consulta
+                {t.contact.formHeading}
               </h3>
 
               <form id="noemaContactForm" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="nombre">Nombre Completo *</label>
-                    <input type="text" id="nombre" className="form-control" placeholder="Ej. Lic. Carlos Benítez" required value={form.nombre} onChange={handleChange} />
+                    <label htmlFor="nombre">{t.contact.nameLabel}</label>
+                    <input 
+                      type="text" 
+                      id="nombre" 
+                      className="form-control" 
+                      placeholder={t.contact.namePlaceholder} 
+                      required 
+                      value={form.nombre} 
+                      onChange={handleChange} 
+                    />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="empresa">Empresa / Organización *</label>
-                    <input type="text" id="empresa" className="form-control" placeholder="Ej. Organización / Empresa" required value={form.empresa} onChange={handleChange} />
+                    <label htmlFor="empresa">{t.contact.companyLabel}</label>
+                    <input 
+                      type="text" 
+                      id="empresa" 
+                      className="form-control" 
+                      placeholder={t.contact.companyPlaceholder} 
+                      value={form.empresa} 
+                      onChange={handleChange} 
+                    />
                   </div>
                 </div>
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label htmlFor="email">Correo Electrónico *</label>
-                    <input type="email" id="email" className="form-control" placeholder="contacto@empresa.com" required value={form.email} onChange={handleChange} />
+                    <label htmlFor="email">{t.contact.emailLabel}</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      className="form-control" 
+                      placeholder={t.contact.emailPlaceholder} 
+                      required 
+                      value={form.email} 
+                      onChange={handleChange} 
+                    />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="telefono">Teléfono de Contacto</label>
-                    <input type="tel" id="telefono" className="form-control" placeholder="+595 972 ..." value={form.telefono} onChange={handleChange} />
+                    <label htmlFor="telefono">{t.contact.phoneLabel}</label>
+                    <input 
+                      type="tel" 
+                      id="telefono" 
+                      className="form-control" 
+                      placeholder={t.contact.phonePlaceholder} 
+                      value={form.telefono} 
+                      onChange={handleChange} 
+                    />
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="servicio">Tipo de Servicio Requerido *</label>
+                  <label htmlFor="servicio">{t.contact.serviceLabel}</label>
                   <select id="servicio" className="form-control" required value={form.servicio} onChange={handleChange}>
-                    <option value="" disabled>Seleccione una opción...</option>
-                    <option value="campo">Servicio de Campo (para agencias / consultoras)</option>
-                    <option value="integral">Servicio Integral (estudio a medida)</option>
+                    <option value="" disabled>{t.contact.serviceOptionDefault}</option>
+                    <option value="campo">{t.contact.serviceOption1}</option>
+                    <option value="integral">{t.contact.serviceOption2}</option>
+                    <option value="opinion">{t.contact.serviceOption3}</option>
+                    <option value="otro">{t.contact.serviceOption4}</option>
                   </select>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="mensaje">Detalles de su Consulta / Proyecto *</label>
-                  <textarea id="mensaje" className="form-control" placeholder="Cuéntenos sobre el objetivo de su estudio o la consulta que desea realizar..." required value={form.mensaje} onChange={handleChange}></textarea>
+                  <label htmlFor="mensaje">{t.contact.messageLabel}</label>
+                  <textarea 
+                    id="mensaje" 
+                    className="form-control" 
+                    placeholder={t.contact.messagePlaceholder} 
+                    required 
+                    value={form.mensaje} 
+                    onChange={handleChange}
+                  ></textarea>
                 </div>
 
                 {error && (
@@ -186,9 +228,9 @@ export default function Contact() {
 
                 <button type="submit" className="btn-luxury btn-luxury-primary" disabled={submitting} style={{ width: '100%', borderRadius: 'var(--radius-sm)', padding: '1rem', justifyContent: 'center' }}>
                   {submitting ? (
-                    <><i className="fas fa-spinner fa-spin"></i> Procesando...</>
+                    <><i className="fas fa-spinner fa-spin"></i> {t.contact.submittingBtn}</>
                   ) : (
-                    <>Enviar Mensaje <i className="fas fa-paper-plane ms-2"></i></>
+                    <>{t.contact.submitBtn} <i className="fas fa-paper-plane ms-2"></i></>
                   )}
                 </button>
               </form>
@@ -211,10 +253,10 @@ export default function Contact() {
             <div className="modal-icon">
               <i className="fas fa-check"></i>
             </div>
-            <h4>¡Solicitud Recibida!</h4>
-            <p>Gracias por comunicarse con <strong>Noema — Investigación y Estudios</strong>. Analizaremos su requerimiento y nos pondremos en contacto en las próximas horas.</p>
+            <h4>{t.contact.modalTitle}</h4>
+            <p>{t.contact.modalText}</p>
             <button type="button" className="btn-luxury btn-luxury-primary" style={{ padding: '0.75rem 2rem' }} onClick={closeModal}>
-              Entendido
+              {t.contact.modalClose}
             </button>
           </div>
         </div>
@@ -222,4 +264,3 @@ export default function Contact() {
     </div>
   )
 }
-

@@ -9,6 +9,7 @@ import CraftedBar from './components/CraftedBar'
 import BackToTop from './components/BackToTop'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import MaintenancePage from './components/MaintenancePage'
+import { LanguageProvider } from './context/LanguageContext'
 import { useRevealOnScroll } from './hooks/useRevealOnScroll'
 
 export default function App() {
@@ -51,7 +52,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <LanguageProvider>
       <div className="ambient-bg" aria-hidden="true">
         <div className="ambient-glow"></div>
         <div className="ambient-grain"></div>
@@ -74,8 +75,6 @@ export default function App() {
       <CraftedBar />
       <BackToTop />
       <FloatingWhatsApp />
-    </>
+    </LanguageProvider>
   )
 }
-
-

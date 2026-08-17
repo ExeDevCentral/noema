@@ -1,11 +1,14 @@
 import { PageType } from './Navbar'
 import ParaguayFlag from './ParaguayFlag'
+import { useLanguage } from '../context/LanguageContext'
 
 interface HeroProps {
   onNavigate?: (page: PageType) => void
 }
 
 export default function Hero({ onNavigate }: HeroProps) {
+  const { t } = useLanguage()
+
   return (
     <>
       {/* 1. Header Statement & 3 Hero Navigation Cards */}
@@ -13,16 +16,16 @@ export default function Hero({ onNavigate }: HeroProps) {
         <div className="container">
           <div className="hero-statement-wrapper">
             <h1 className="hero-title-main">
-              Investigamos para comprender.
+              {t.hero.titleMain}
             </h1>
 
             <p className="hero-description-main">
-              Diseñamos y desarrollamos <strong>estudios cuantitativos y cualitativos</strong> para obtener información confiable y relevante.
+              {t.hero.descriptionMain}
             </p>
 
             <p className="hero-tagline-text">
               <ParaguayFlag size="sm" style={{ marginRight: '8px' }} />
-              <strong>Cuantitativo</strong> · <strong>Cualitativo</strong> · <strong>Trabajo de campo en Paraguay</strong>
+              {t.hero.tagline}
             </p>
 
             {/* The 3 Lapacho Navigation Cards */}
@@ -33,6 +36,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 onClick={() => onNavigate && onNavigate('sobre-noema')}
                 role="button"
                 tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate && onNavigate('sobre-noema') }}
               >
                 <div 
                   className="hero-card-bg-img" 
@@ -40,10 +44,10 @@ export default function Hero({ onNavigate }: HeroProps) {
                 ></div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
-                  <span className="hero-card-tag">INFORMACIÓN INSTITUCIONAL</span>
-                  <h3>Sobre NOEMA</h3>
-                  <p>Nuestra metodología, filosofía de trabajo y visión desde Paraguay.</p>
-                  <span className="card-link">Ver más &rarr;</span>
+                  <span className="hero-card-tag">{t.hero.card1Tag}</span>
+                  <h3>{t.hero.card1Title}</h3>
+                  <p>{t.hero.card1Desc}</p>
+                  <span className="card-link">{t.hero.card1Link}</span>
                 </div>
               </div>
 
@@ -53,6 +57,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 onClick={() => onNavigate && onNavigate('servicios')}
                 role="button"
                 tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate && onNavigate('servicios') }}
               >
                 <div 
                   className="hero-card-bg-img" 
@@ -60,10 +65,10 @@ export default function Hero({ onNavigate }: HeroProps) {
                 ></div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
-                  <span className="hero-card-tag">SOLUCIONES A MEDIDA</span>
-                  <h3>Servicios de Investigación</h3>
-                  <p>Estudios cuantitativos, cualitativos y servicio especializado de campo.</p>
-                  <span className="card-link">Ver servicios &rarr;</span>
+                  <span className="hero-card-tag">{t.hero.card2Tag}</span>
+                  <h3>{t.hero.card2Title}</h3>
+                  <p>{t.hero.card2Desc}</p>
+                  <span className="card-link">{t.hero.card2Link}</span>
                 </div>
               </div>
 
@@ -73,6 +78,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                 onClick={() => onNavigate && onNavigate('contacto')}
                 role="button"
                 tabIndex={0}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate && onNavigate('contacto') }}
               >
                 <div 
                   className="hero-card-bg-img" 
@@ -80,10 +86,10 @@ export default function Hero({ onNavigate }: HeroProps) {
                 ></div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
-                  <span className="hero-card-tag">ATENCIÓN DIRECTA</span>
-                  <h3>Contacto</h3>
-                  <p>Escríbenos para conversar sobre tu proyecto o estudio en Paraguay.</p>
-                  <span className="card-link">Contactar &rarr;</span>
+                  <span className="hero-card-tag">{t.hero.card3Tag}</span>
+                  <h3>{t.hero.card3Title}</h3>
+                  <p>{t.hero.card3Desc}</p>
+                  <span className="card-link">{t.hero.card3Link}</span>
                 </div>
               </div>
             </div>
@@ -102,33 +108,35 @@ export default function Hero({ onNavigate }: HeroProps) {
                   src="/assets/images/about_consulting.jpg" 
                   alt="Noema Consultoría e Investigación en Paraguay" 
                   className="home-about-img"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="home-about-quote-card">
                   <p className="quote-text">
-                    &ldquo;Investigar el mercado en Paraguay y la región no es acumular datos, es encontrar la verdad estratégica detrás de cada tendencia.&rdquo;
+                    {t.hero.quote}
                   </p>
-                  <span className="quote-author">NOEMA — INVESTIGACIÓN Y ESTUDIOS</span>
+                  <span className="quote-author">{t.hero.quoteAuthor}</span>
                 </div>
               </div>
             </div>
 
             {/* Right Column: Text & 4 Pillar Cards */}
             <div className="home-about-content-col">
-              <span className="section-tag-small">SOBRE NOEMA</span>
+              <span className="section-tag-small">{t.hero.sobreTag}</span>
               
               <h2 className="home-about-title">
-                Investigación rigurosa para comprender personas, opiniones y comportamientos.
+                {t.hero.sobreTitle}
               </h2>
 
               <p className="home-about-lead">
-                <strong>Noema</strong> es una consultora de <strong>Investigación y Estudios</strong> que diseña y desarrolla proyectos cuantitativos y cualitativos para obtener información confiable, relevante y útil.
+                {t.hero.sobreLead}
               </p>
 
               <p className="home-about-body">
-                Trabajamos en las distintas etapas de un estudio, desde el diseño metodológico y la elaboración de instrumentos hasta el trabajo de campo, procesamiento y análisis de la información. Desarrollamos estudios integrales y también acompañamos proyectos en etapas específicas, de acuerdo con las necesidades de cada cliente.
+                {t.hero.sobreBody}
               </p>
 
-              <h3 className="home-about-subtitle">Cómo trabajamos</h3>
+              <h3 className="home-about-subtitle">{t.hero.howWeWork}</h3>
 
               {/* 4 Cards Grid */}
               <div className="home-pillars-2x2-grid">
@@ -137,8 +145,8 @@ export default function Hero({ onNavigate }: HeroProps) {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-sliders"></i>
                   </div>
-                  <h4>Investigación a medida</h4>
-                  <p>Cada proyecto parte de una pregunta y se construye con la metodología más adecuada para responderla.</p>
+                  <h4>{t.hero.pillar1Title}</h4>
+                  <p>{t.hero.pillar1Desc}</p>
                 </div>
 
                 {/* 2. Del diseño al campo */}
@@ -146,8 +154,8 @@ export default function Hero({ onNavigate }: HeroProps) {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-layer-group"></i>
                   </div>
-                  <h4>Del diseño al campo</h4>
-                  <p>Podemos desarrollar un estudio de manera integral o participar en etapas específicas, según las necesidades de cada proyecto.</p>
+                  <h4>{t.hero.pillar2Title}</h4>
+                  <p>{t.hero.pillar2Desc}</p>
                 </div>
 
                 {/* 3. Campo con experiencia */}
@@ -155,8 +163,8 @@ export default function Hero({ onNavigate }: HeroProps) {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-users-viewfinder"></i>
                   </div>
-                  <h4>Campo con experiencia</h4>
-                  <p>Planificamos, coordinamos y ejecutamos trabajos de campo cuantitativos y cualitativos, con especial atención a la calidad del proceso.</p>
+                  <h4>{t.hero.pillar3Title}</h4>
+                  <p>{t.hero.pillar3Desc}</p>
                 </div>
 
                 {/* 4. Conocimiento del contexto */}
@@ -164,8 +172,8 @@ export default function Hero({ onNavigate }: HeroProps) {
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-location-dot"></i>
                   </div>
-                  <h4>Conocimiento del contexto</h4>
-                  <p>Investigamos desde Paraguay <ParaguayFlag size="sm" />, comprendiendo las particularidades de sus personas, mercados y realidades sociales.</p>
+                  <h4>{t.hero.pillar4Title}</h4>
+                  <p>{t.hero.pillar4Desc} <ParaguayFlag size="sm" /></p>
                 </div>
               </div>
             </div>
@@ -175,6 +183,3 @@ export default function Hero({ onNavigate }: HeroProps) {
     </>
   )
 }
-
-
-

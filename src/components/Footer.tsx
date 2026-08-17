@@ -1,12 +1,15 @@
 import BrandLogo from './BrandLogo'
 import { PageType } from './Navbar'
 import ParaguayFlag from './ParaguayFlag'
+import { useLanguage } from '../context/LanguageContext'
 
 interface FooterProps {
   onNavigate: (page: PageType) => void
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
+  const { t } = useLanguage()
+
   return (
     <footer className="footer">
       <div className="container">
@@ -14,12 +17,12 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="footer-brand-col">
             <BrandLogo light onClick={() => onNavigate('inicio')} />
             <p className="footer-tagline">
-              Cuantitativo · Cualitativo · Trabajo de campo en Paraguay
+              {t.footer.tagline}
             </p>
           </div>
 
           <div className="footer-contact-col">
-            <h5 className="footer-col-title">Contacto Directo</h5>
+            <h5 className="footer-col-title">{t.footer.directContact}</h5>
             
             <div className="footer-contact-item">
               <i className="fas fa-envelope footer-icon"></i>
@@ -29,7 +32,6 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
 
             <div className="footer-contact-item">
-              {/* WhatsApp icon in subtle terracotta/ivory instead of bright green */}
               <i className="fab fa-whatsapp footer-icon wa-subtle-icon"></i>
               <a 
                 href="https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación" 
@@ -42,22 +44,20 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
 
             <div className="footer-contact-item">
-              {/* Location Icon with Paraguay Flag */}
               <i className="fas fa-location-dot footer-icon"></i>
               <span className="footer-text">
                 <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
-                Encarnación, Paraguay
+                {t.footer.location}
               </span>
             </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} NOEMA — Investigación y Estudios. Todos los derechos reservados.</p>
-          <p className="guarani-motto">Ñeakãngeta ha pyʼamongeta</p>
+          <p>&copy; {new Date().getFullYear()} NOEMA — {t.hero.quoteAuthor.replace('NOEMA — ', '')}. {t.footer.rights}</p>
+          <p className="guarani-motto">{t.footer.guaraniMotto}</p>
         </div>
       </div>
     </footer>
   )
 }
-

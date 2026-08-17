@@ -3554,6 +3554,264 @@ body .nav-link-btn.active {
   margin-top: 40px;
 }
 
+/* ==========================================================================
+   LANGUAGE SWITCHER BUTTON STYLES
+   ========================================================================== */
+.lang-switcher-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(220, 160, 135, 0.35);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  outline: none;
+  user-select: none;
+}
+
+.lang-switcher-btn:hover {
+  background: rgba(220, 160, 135, 0.2);
+  border-color: #DCA087;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(220, 160, 135, 0.35);
+  color: #FFFFFF;
+}
+
+.lang-switcher-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.lang-code-tag {
+  background: #DCA087;
+  color: #162330;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.lang-name-label {
+  color: #FAF8F5;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.nav-mobile-lang-wrapper {
+  display: none;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   SMOOTH SCROLLING & HARDWARE-ACCELERATED TRANSITIONS
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+/* GPU Acceleration without repainting */
+.hero-nav-card,
+.home-about-quote-card,
+.home-pillar-card,
+.work-mode-card,
+.contact-info-card,
+.contact-form-wrapper {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ==========================================================================
+   ULTRA-RESPONSIVE ADAPTATIONS (MOBILE, TABLET, NOTEBOOK, PC, 4K TV)
+   ========================================================================== */
+
+/* 1. Large Displays & 4K TVs (1920px - 2560px+) */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1520px;
+  }
+  .hero-title-main {
+    font-size: clamp(3.5rem, 4.5vw, 5rem);
+  }
+  .hero-description-main {
+    font-size: 1.5rem;
+    max-width: 900px;
+  }
+  .hero-nav-card {
+    min-height: 290px;
+    padding: 34px 28px;
+  }
+  .hero-nav-card h3 {
+    font-size: 1.85rem;
+  }
+  .home-about-title {
+    font-size: 2.8rem;
+  }
+}
+
+/* 2. Laptops & Notebooks (1024px - 1440px) */
+@media (max-width: 1200px) {
+  .hero-nav-cards-grid {
+    gap: 20px;
+  }
+  .hero-nav-card {
+    min-height: 240px;
+    padding: 22px 18px;
+  }
+  .home-about-grid {
+    gap: 2.5rem;
+  }
+}
+
+/* 3. Tablets & Small Laptops (768px - 1024px) */
+@media (max-width: 1024px) {
+  .nav-desktop-lang .lang-name-label {
+    display: none;
+  }
+  .home-about-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .home-about-image-col {
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .work-modes-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* 4. Mobile Devices & Phablets (max-width: 768px) */
+@media (max-width: 768px) {
+  .nav-desktop-lang {
+    display: none;
+  }
+  .nav-mobile-lang-wrapper {
+    display: flex;
+  }
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+  }
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: rgba(22, 35, 48, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    z-index: 999;
+  }
+  .nav-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav-link-btn {
+    font-size: 1.1rem;
+    color: #FFFFFF;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+  }
+  .hero-nav-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 32px;
+  }
+  .hero-nav-card {
+    min-height: 220px;
+    padding: 24px 20px;
+  }
+  .home-pillars-2x2-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .home-about-quote-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    margin-top: -20px;
+  }
+  .brand-title {
+    font-size: 1.35rem;
+    letter-spacing: 0.3em;
+  }
+  .brand-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+  }
+  .hero-tagline-text {
+    font-size: 0.82rem;
+    letter-spacing: 1px;
+    padding: 6px 16px;
+  }
+}
+
+/* 5. Extra Small Mobiles (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-title-main {
+    font-size: 2rem;
+  }
+  .hero-description-main {
+    font-size: 1.05rem;
+  }
+  .hero-nav-card {
+    min-height: 200px;
+    padding: 20px 16px;
+  }
+  .hero-nav-card h3 {
+    font-size: 1.35rem;
+  }
+  .home-about-title {
+    font-size: 1.65rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
 
 
 

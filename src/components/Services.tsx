@@ -1,6 +1,9 @@
 import ParaguayFlag from './ParaguayFlag'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Services() {
+  const { t } = useLanguage()
+
   return (
     <div className="page-view services-page-view">
       {/* Hero Banner with Lapacho Blanco Image */}
@@ -8,11 +11,11 @@ export default function Services() {
         <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }}></div>
         <div className="banner-overlay"></div>
         <div className="container banner-container">
-          <span className="banner-tag">SOLUCIONES DE INVESTIGACIÓN</span>
-          <h1 className="banner-title">Servicios de Investigación</h1>
+          <span className="banner-tag">{t.services.bannerTag}</span>
+          <h1 className="banner-title">{t.services.bannerTitle}</h1>
           <p className="banner-subtitle">
             <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
-            Investigación para empresas, organizaciones e instituciones en Paraguay.
+            {t.services.bannerSubtitle}
           </p>
         </div>
       </section>
@@ -22,17 +25,15 @@ export default function Services() {
         <div className="container">
           <div className="services-intro-card">
             <h2 className="section-title text-center">
-              Investigación para empresas, organizaciones e instituciones
+              {t.services.introTitle}
             </h2>
             <div className="about-divider-line"></div>
             
             <p className="lead-paragraph">
-              Trabajamos con empresas, organizaciones sociales, ONG e instituciones públicas que necesitan conocer mejor 
-              a sus públicos, comprender una realidad, evaluar iniciativas o tomar decisiones basadas en información.
+              {t.services.introLead}
             </p>
             <p className="body-paragraph">
-              Diseñamos y desarrollamos estudios cuantitativos y cualitativos a medida, adaptados a los objetivos 
-              y características de cada proyecto.
+              {t.services.introBody}
             </p>
           </div>
 
@@ -48,35 +49,21 @@ export default function Services() {
                   <span className="work-mode-number">01</span>
                 </div>
 
-                <span className="work-mode-tag">01 · PARA AGENCIAS Y CONSULTORAS</span>
-                <h3 className="work-mode-title">Servicio de Campo</h3>
+                <span className="work-mode-tag">{t.services.mode1Tag}</span>
+                <h3 className="work-mode-title">{t.services.mode1Title}</h3>
                 <p className="work-mode-desc">
-                  Somos un equipo especializado en la ejecución de trabajos de campo en Paraguay <ParaguayFlag size="sm" />. Nos integramos a proyectos de otras agencias y consultoras para planificar, coordinar y realizar relevamientos cuantitativos y cualitativos, con seguimiento y control de calidad.
+                  {t.services.mode1Desc} <ParaguayFlag size="sm" />
                 </p>
 
                 <div className="work-mode-divider"></div>
 
                 <ul className="work-mode-checklist">
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Planificación y coordinación del trabajo de campo</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Encuestas presenciales y telefónicas</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Entrevistas en profundidad y grupos</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Reclutamiento de participantes</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Supervisión y control de calidad</span>
-                  </li>
+                  {t.services.mode1Items.map((item, idx) => (
+                    <li key={idx}>
+                      <i className="fas fa-check check-icon"></i>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -89,35 +76,21 @@ export default function Services() {
                   <span className="work-mode-number">02</span>
                 </div>
 
-                <span className="work-mode-tag terracotta-tag">02 · ESTUDIOS A MEDIDA</span>
-                <h3 className="work-mode-title">Servicio Integral</h3>
+                <span className="work-mode-tag terracotta-tag">{t.services.mode2Tag}</span>
+                <h3 className="work-mode-title">{t.services.mode2Title}</h3>
                 <p className="work-mode-desc">
-                  Diseñamos y desarrollamos estudios de investigación de acuerdo con las necesidades de cada proyecto, desde la definición metodológica hasta la entrega de resultados.
+                  {t.services.mode2Desc}
                 </p>
 
                 <div className="work-mode-divider"></div>
 
                 <ul className="work-mode-checklist">
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Diseño metodológico y de instrumentos</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Investigación cuantitativa y cualitativa</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Recolección y procesamiento de datos</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Análisis e interpretación de resultados</span>
-                  </li>
-                  <li>
-                    <i className="fas fa-check check-icon"></i>
-                    <span>Informe final y presentación de resultados</span>
-                  </li>
+                  {t.services.mode2Items.map((item, idx) => (
+                    <li key={idx}>
+                      <i className="fas fa-check check-icon"></i>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -127,6 +100,3 @@ export default function Services() {
     </div>
   )
 }
-
-
-
