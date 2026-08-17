@@ -33,10 +33,10 @@ export default function Hero({ onNavigate }: HeroProps) {
               {/* Card 1: Sobre NOEMA */}
               <div 
                 className="hero-nav-card" 
-                onClick={() => onNavigate && onNavigate('sobre-noema')}
+                onClick={() => onNavigate?.('sobre-noema')}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate && onNavigate('sobre-noema') }}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate?.('sobre-noema') }}
               >
                 <div 
                   className="hero-card-bg-img" 
@@ -54,10 +54,10 @@ export default function Hero({ onNavigate }: HeroProps) {
               {/* Card 2: Servicios de Investigación */}
               <div 
                 className="hero-nav-card" 
-                onClick={() => onNavigate && onNavigate('servicios')}
+                onClick={() => onNavigate?.('servicios')}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate && onNavigate('servicios') }}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate?.('servicios') }}
               >
                 <div 
                   className="hero-card-bg-img" 
@@ -75,10 +75,10 @@ export default function Hero({ onNavigate }: HeroProps) {
               {/* Card 3: Contacto */}
               <div 
                 className="hero-nav-card" 
-                onClick={() => onNavigate && onNavigate('contacto')}
+                onClick={() => onNavigate?.('contacto')}
                 role="button"
                 tabIndex={0}
-                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate && onNavigate('contacto') }}
+                onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onNavigate?.('contacto') }}
               >
                 <div 
                   className="hero-card-bg-img" 

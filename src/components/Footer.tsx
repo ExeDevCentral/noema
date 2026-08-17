@@ -7,7 +7,7 @@ interface FooterProps {
   onNavigate: (page: PageType) => void
 }
 
-export default function Footer({ onNavigate }: FooterProps) {
+export default function Footer({ onNavigate }: Readonly<FooterProps>) {
   const { t } = useLanguage()
 
   return (
