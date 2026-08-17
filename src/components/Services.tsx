@@ -1,42 +1,3 @@
-const researchTopics = [
-  {
-    title: 'Hábitos y comportamientos',
-    description: 'Prácticas, usos, necesidades y formas de relacionarse con productos, servicios o iniciativas.',
-    icon: 'fa-user-gear',
-    overlayClass: 'overlay-blue',
-  },
-  {
-    title: 'Percepciones y posicionamiento',
-    description: 'Cómo una marca, organización, institución o iniciativa es percibida por sus públicos.',
-    icon: 'fa-eye',
-    overlayClass: 'overlay-purple',
-  },
-  {
-    title: 'Satisfacción y experiencia',
-    description: 'Experiencias, expectativas y niveles de satisfacción con productos, servicios o propuestas.',
-    icon: 'fa-face-smile',
-    overlayClass: 'overlay-terracotta',
-  },
-  {
-    title: 'Evaluación e impacto',
-    description: 'Resultados, alcance y efectos de programas, proyectos e iniciativas en sus públicos o beneficiarios.',
-    icon: 'fa-chart-line',
-    overlayClass: 'overlay-sage',
-  },
-  {
-    title: 'Opiniones y actitudes',
-    description: 'Percepciones y actitudes frente a temas, instituciones, propuestas o situaciones específicas.',
-    icon: 'fa-comments',
-    overlayClass: 'overlay-navy',
-  },
-  {
-    title: 'Estudios ad hoc',
-    description: 'Investigaciones diseñadas específicamente para responder preguntas particulares.',
-    icon: 'fa-sliders',
-    overlayClass: 'overlay-gold',
-  },
-]
-
 export default function Services() {
   return (
     <div className="page-view services-page-view">
@@ -72,73 +33,88 @@ export default function Services() {
             </p>
           </div>
 
-          {/* ¿Qué podemos investigar? Grid with image overlays */}
-          <div className="what-we-research-section">
-            <div className="section-header text-center">
-              <span className="section-tag">Áreas de Especialidad</span>
-              <h2 className="section-title">¿Qué podemos investigar?</h2>
-            </div>
-
-            <div className="research-topics-grid">
-              {researchTopics.map((topic) => (
-                <div className={`research-topic-card ${topic.overlayClass}`} key={topic.title}>
-                  <div className="topic-card-bg"></div>
-                  <div className="topic-card-content">
-                    <div className="topic-icon">
-                      <i className={`fas ${topic.icon}`}></i>
-                    </div>
-                    <h3>{topic.title}</h3>
-                    <p>{topic.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Dos formas de trabajar juntos */}
+          {/* 2 Large Cards: Modalidades de Trabajo */}
           <div className="work-modes-section">
-            <div className="section-header text-center">
-              <span className="section-tag">Modalidades de Trabajo</span>
-              <h2 className="section-title">Investigación de campo y estudios integrales</h2>
-              <p>
-                Dos formas de trabajar juntos: nos integramos a proyectos de otras agencias para desarrollar el trabajo de campo, 
-                o llevamos adelante estudios completos de acuerdo con los objetivos de cada proyecto.
-              </p>
-            </div>
-
             <div className="work-modes-grid">
-              {/* Mode 1 */}
+              {/* Card 01 · Servicio de Campo */}
               <div className="work-mode-card">
-                <div className="mode-badge">01 · PARA AGENCIAS Y CONSULTORAS</div>
-                <h3 className="mode-title">Servicio de Campo</h3>
-                <p className="mode-text">
-                  Somos un equipo especializado en la ejecución de trabajos de campo en Paraguay. Nos integramos a proyectos 
-                  de otras agencias y consultoras para planificar, coordinar y realizar relevamientos cuantitativos y cualitativos, 
-                  con seguimiento y control de calidad.
+                <div className="work-mode-header">
+                  <div className="work-mode-icon-box">
+                    <i className="fas fa-map-location-dot"></i>
+                  </div>
+                  <span className="work-mode-number">01</span>
+                </div>
+
+                <span className="work-mode-tag">01 · PARA AGENCIAS Y CONSULTORAS</span>
+                <h3 className="work-mode-title">Servicio de Campo</h3>
+                <p className="work-mode-desc">
+                  Somos un equipo especializado en la ejecución de trabajos de campo en Paraguay. Nos integramos a proyectos de otras agencias y consultoras para planificar, coordinar y realizar relevamientos cuantitativos y cualitativos, con seguimiento y control de calidad.
                 </p>
-                <ul className="mode-checklist">
-                  <li><i className="fas fa-check-circle"></i> Planificación y coordinación del trabajo de campo</li>
-                  <li><i className="fas fa-check-circle"></i> Encuestas presenciales y telefónicas</li>
-                  <li><i className="fas fa-check-circle"></i> Entrevistas en profundidad y grupos</li>
-                  <li><i className="fas fa-check-circle"></i> Reclutamiento de participantes</li>
-                  <li><i className="fas fa-check-circle"></i> Supervisión y control de calidad</li>
+
+                <div className="work-mode-divider"></div>
+
+                <ul className="work-mode-checklist">
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Planificación y coordinación del trabajo de campo</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Encuestas presenciales y telefónicas</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Entrevistas en profundidad y grupos</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Reclutamiento de participantes</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Supervisión y control de calidad</span>
+                  </li>
                 </ul>
               </div>
 
-              {/* Mode 2 */}
-              <div className="work-mode-card featured">
-                <div className="mode-badge">02 · ESTUDIOS A MEDIDA</div>
-                <h3 className="mode-title">Servicio Integral</h3>
-                <p className="mode-text">
-                  Diseñamos y desarrollamos estudios de investigación de acuerdo con las necesidades de cada proyecto, 
-                  desde la definición metodológica hasta la entrega de resultados.
+              {/* Card 02 · Servicio Integral */}
+              <div className="work-mode-card featured-mode-card">
+                <div className="work-mode-header">
+                  <div className="work-mode-icon-box terracotta-icon-box">
+                    <i className="fas fa-diagram-project"></i>
+                  </div>
+                  <span className="work-mode-number">02</span>
+                </div>
+
+                <span className="work-mode-tag terracotta-tag">02 · ESTUDIOS A MEDIDA</span>
+                <h3 className="work-mode-title">Servicio Integral</h3>
+                <p className="work-mode-desc">
+                  Diseñamos y desarrollamos estudios de investigación de acuerdo con las necesidades de cada proyecto, desde la definición metodológica hasta la entrega de resultados.
                 </p>
-                <ul className="mode-checklist">
-                  <li><i className="fas fa-check-circle"></i> Diseño metodológico y de instrumentos</li>
-                  <li><i className="fas fa-check-circle"></i> Investigación cuantitativa y cualitativa</li>
-                  <li><i className="fas fa-check-circle"></i> Recolección y procesamiento de datos</li>
-                  <li><i className="fas fa-check-circle"></i> Análisis e interpretación de resultados</li>
-                  <li><i className="fas fa-check-circle"></i> Informe final y presentación de resultados</li>
+
+                <div className="work-mode-divider"></div>
+
+                <ul className="work-mode-checklist">
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Diseño metodológico y de instrumentos</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Investigación cuantitativa y cualitativa</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Recolección y procesamiento de datos</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Análisis e interpretación de resultados</span>
+                  </li>
+                  <li>
+                    <i className="fas fa-check check-icon"></i>
+                    <span>Informe final y presentación de resultados</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -148,4 +124,6 @@ export default function Services() {
     </div>
   )
 }
+
+
 

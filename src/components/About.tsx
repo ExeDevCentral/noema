@@ -1,28 +1,3 @@
-import Methodology from './Methodology'
-
-const pillars = [
-  {
-    icon: 'fa-bullseye',
-    title: 'Investigación a medida',
-    text: 'Cada proyecto parte de una pregunta y se construye con la metodología más adecuada para responderla.',
-  },
-  {
-    icon: 'fa-diagram-project',
-    title: 'Del diseño al campo',
-    text: 'Podemos desarrollar un estudio de manera integral o participar en etapas específicas, según las necesidades de cada proyecto.',
-  },
-  {
-    icon: 'fa-clipboard-check',
-    title: 'Campo con experiencia',
-    text: 'Planificamos, coordinamos y ejecutamos trabajos de campo cuantitativos y cualitativos, con especial atención a la calidad del proceso.',
-  },
-  {
-    icon: 'fa-earth-americas',
-    title: 'Conocimiento del contexto',
-    text: 'Investigamos desde Paraguay, comprendiendo las particularidades de sus personas, mercados y realidades sociales.',
-  },
-]
-
 export default function About() {
   return (
     <div className="page-view about-page-view">
@@ -57,33 +32,55 @@ export default function About() {
               hasta el trabajo de campo, procesamiento y análisis de la información. Desarrollamos estudios integrales 
               y también acompañamos proyectos en etapas específicas, de acuerdo con las necesidades de cada cliente.
             </p>
-          </div>
 
-          {/* Cómo Trabajamos Section */}
-          <div className="how-we-work-section">
-            <div className="section-header text-center">
-              <span className="section-tag">Metodología &amp; Valores</span>
-              <h2 className="section-title">Cómo trabajamos</h2>
-            </div>
+            <div className="about-work-section-block" style={{ marginTop: '48px' }}>
+              <h3 className="section-subtitle-institutional text-center" style={{ marginBottom: '32px', fontFamily: 'var(--font-serif)', fontSize: '2.2rem', color: '#FFFFFF' }}>
+                Cómo trabajamos
+              </h3>
 
-            <div className="pillars-grid">
-              {pillars.map((pillar) => (
-                <div className="pillar-card" key={pillar.title}>
-                  <div className="pillar-icon">
-                    <i className={`fas ${pillar.icon}`}></i>
+              <div className="home-pillars-2x2-grid">
+                {/* 1. Investigación a medida */}
+                <div className="home-pillar-card">
+                  <div className="home-pillar-icon-box">
+                    <i className="fas fa-sliders"></i>
                   </div>
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.text}</p>
+                  <h4>Investigación a medida</h4>
+                  <p>Cada proyecto parte de una pregunta y se construye con la metodología más adecuada para responderla.</p>
                 </div>
-              ))}
+
+                {/* 2. Del diseño al campo */}
+                <div className="home-pillar-card">
+                  <div className="home-pillar-icon-box">
+                    <i className="fas fa-layer-group"></i>
+                  </div>
+                  <h4>Del diseño al campo</h4>
+                  <p>Podemos desarrollar un estudio de manera integral o participar en etapas específicas, según las necesidades de cada proyecto.</p>
+                </div>
+
+                {/* 3. Campo con experiencia */}
+                <div className="home-pillar-card">
+                  <div className="home-pillar-icon-box">
+                    <i className="fas fa-users-viewfinder"></i>
+                  </div>
+                  <h4>Campo con experiencia</h4>
+                  <p>Planificamos, coordinamos y ejecutamos trabajos de campo cuantitativos y cualitativos, con especial atención a la calidad del proceso.</p>
+                </div>
+
+                {/* 4. Conocimiento del contexto */}
+                <div className="home-pillar-card">
+                  <div className="home-pillar-icon-box">
+                    <i className="fas fa-location-dot"></i>
+                  </div>
+                  <h4>Conocimiento del contexto</h4>
+                  <p>Investigamos desde Paraguay, comprendiendo las particularidades de sus personas, mercados y realidades sociales.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Embedded Timeline */}
-      <Methodology />
     </div>
   )
 }
+
 
