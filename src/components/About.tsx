@@ -1,7 +1,12 @@
 import ParaguayFlag from './ParaguayFlag'
+import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
 
-export default function About() {
+interface AboutProps {
+  onNavigate?: (page: PageType) => void
+}
+
+export default function About({ onNavigate }: Readonly<AboutProps>) {
   const { t } = useLanguage()
 
   return (
@@ -75,9 +80,20 @@ export default function About() {
                     <i className="fas fa-location-dot"></i>
                   </div>
                   <h4>{t.hero.pillar4Title}</h4>
-                  <p>{t.hero.pillar4Desc} <ParaguayFlag size="sm" /></p>
+                  <p>{t.hero.pillar4Desc}</p>
                 </div>
               </div>
+            </div>
+
+            {/* Back to Home Button */}
+            <div className="page-back-home-wrapper">
+              <button 
+                type="button" 
+                className="btn-back-home"
+                onClick={() => onNavigate?.('inicio')}
+              >
+                <i className="fas fa-arrow-left"></i> Volver al inicio
+              </button>
             </div>
           </div>
         </div>
@@ -85,3 +101,4 @@ export default function About() {
     </div>
   )
 }
+

@@ -1,7 +1,11 @@
-import ParaguayFlag from './ParaguayFlag'
+import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
 
-export default function Services() {
+interface ServicesProps {
+  onNavigate?: (page: PageType) => void
+}
+
+export default function Services({ onNavigate }: Readonly<ServicesProps>) {
   const { t } = useLanguage()
 
   return (
@@ -11,10 +15,8 @@ export default function Services() {
         <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }}></div>
         <div className="banner-overlay"></div>
         <div className="container banner-container">
-          <span className="banner-tag">{t.services.bannerTag}</span>
           <h1 className="banner-title">{t.services.bannerTitle}</h1>
           <p className="banner-subtitle">
-            <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
             {t.services.bannerSubtitle}
           </p>
         </div>
@@ -24,7 +26,7 @@ export default function Services() {
       <section className="section services-main-section">
         <div className="container">
           <div className="services-intro-card">
-            <h2 className="section-title text-center">
+            <h2 className="section-title text-center" style={{ whiteSpace: 'normal', maxWidth: '900px', margin: '0 auto 1.5rem auto' }}>
               {t.services.introTitle}
             </h2>
             <div className="about-divider-line"></div>
@@ -40,26 +42,25 @@ export default function Services() {
           {/* 2 Large Cards: Modalidades de Trabajo */}
           <div className="work-modes-section">
             <div className="work-modes-grid">
-              {/* Card 01 · Servicio de Campo */}
+              {/* Card 1: Para Agencias y Consultoras / Servicio de Campo */}
               <div className="work-mode-card">
-                <div className="work-mode-header">
-                  <div className="work-mode-icon-box">
+                <div className="work-mode-header-aligned">
+                  <div className="work-mode-icon-box white-icon-box">
                     <i className="fas fa-map-location-dot"></i>
                   </div>
-                  <span className="work-mode-number">01</span>
+                  <h3 className="work-mode-title-aligned">{t.services.mode1Title}</h3>
                 </div>
 
                 <span className="work-mode-tag">{t.services.mode1Tag}</span>
-                <h3 className="work-mode-title">{t.services.mode1Title}</h3>
                 <p className="work-mode-desc">
-                  {t.services.mode1Desc} <ParaguayFlag size="sm" />
+                  {t.services.mode1Desc}
                 </p>
 
                 <div className="work-mode-divider"></div>
 
                 <ul className="work-mode-checklist">
-                  {t.services.mode1Items.map((item, idx) => (
-                    <li key={idx}>
+                  {t.services.mode1Items.map((item) => (
+                    <li key={item}>
                       <i className="fas fa-check check-icon"></i>
                       <span>{item}</span>
                     </li>
@@ -67,17 +68,16 @@ export default function Services() {
                 </ul>
               </div>
 
-              {/* Card 02 · Servicio Integral */}
+              {/* Card 2: Estudios a Medida / Servicio Integral */}
               <div className="work-mode-card featured-mode-card">
-                <div className="work-mode-header">
-                  <div className="work-mode-icon-box terracotta-icon-box">
+                <div className="work-mode-header-aligned">
+                  <div className="work-mode-icon-box white-icon-box">
                     <i className="fas fa-diagram-project"></i>
                   </div>
-                  <span className="work-mode-number">02</span>
+                  <h3 className="work-mode-title-aligned">{t.services.mode2Title}</h3>
                 </div>
 
                 <span className="work-mode-tag terracotta-tag">{t.services.mode2Tag}</span>
-                <h3 className="work-mode-title">{t.services.mode2Title}</h3>
                 <p className="work-mode-desc">
                   {t.services.mode2Desc}
                 </p>
@@ -85,8 +85,8 @@ export default function Services() {
                 <div className="work-mode-divider"></div>
 
                 <ul className="work-mode-checklist">
-                  {t.services.mode2Items.map((item, idx) => (
-                    <li key={idx}>
+                  {t.services.mode2Items.map((item) => (
+                    <li key={item}>
                       <i className="fas fa-check check-icon"></i>
                       <span>{item}</span>
                     </li>
@@ -94,9 +94,21 @@ export default function Services() {
                 </ul>
               </div>
             </div>
+
+            {/* Back to Home Button */}
+            <div className="page-back-home-wrapper" style={{ marginTop: '48px' }}>
+              <button 
+                type="button" 
+                className="btn-back-home"
+                onClick={() => onNavigate?.('inicio')}
+              >
+                <i className="fas fa-arrow-left"></i> Volver al inicio
+              </button>
+            </div>
           </div>
         </div>
       </section>
     </div>
   )
 }
+

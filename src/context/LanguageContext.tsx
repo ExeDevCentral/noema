@@ -105,12 +105,16 @@ export interface Translations {
   }
   footer: {
     tagline: string
+    description: string
+    navTitle: string
+    contactTitle: string
     directContact: string
     location: string
     rights: string
     guaraniMotto: string
   }
 }
+
 
 export const translations: Record<Language, Translations> = {
   es: {
@@ -124,7 +128,7 @@ export const translations: Record<Language, Translations> = {
       langName: 'Guaraní',
     },
     hero: {
-      titleMain: 'Investigamos para comprender.',
+      titleMain: 'Investigamos para comprender',
       descriptionMain: 'Diseñamos y desarrollamos estudios cuantitativos y cualitativos para obtener información confiable y relevante.',
       tagline: 'Cuantitativo · Cualitativo · Trabajo de campo en Paraguay',
       fieldWorkBadge: 'Relevamiento en Paraguay',
@@ -132,7 +136,7 @@ export const translations: Record<Language, Translations> = {
       card1Title: 'Sobre NOEMA',
       card1Desc: 'Investigación y estudios diseñados para generar evidencia confiable en Paraguay.',
       card1Link: 'Conocer Más →',
-      card2Tag: 'METODOLOGÍA',
+      card2Tag: 'LO QUE HACEMOS',
       card2Title: 'Servicios',
       card2Desc: 'Estudios a medida y relevamiento de campo para agencias, empresas y organizaciones.',
       card2Link: 'Ver Servicios →',
@@ -160,19 +164,19 @@ export const translations: Record<Language, Translations> = {
       bannerTag: 'INFORMACIÓN INSTITUCIONAL',
       bannerTitle: 'Sobre NOEMA',
       bannerSubtitle: 'Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay.',
-      sectionTitle: 'Investigación riguroosa para comprender personas, opiniones y comportamientos.',
+      sectionTitle: 'Investigación rigurosa para comprender personas, opiniones y comportamientos.',
       lead: 'Noema es una consultora de Investigación y Estudios que diseña y desarrolla proyectos cuantitativos y cualitativos para obtener información confiable, relevante y útil.',
       body: 'Trabajamos en las distintas etapas de un estudio, desde el diseño metodológico y la elaboración de instrumentos hasta el trabajo de campo, procesamiento y análisis de la información. Desarrollamos estudios integrales y también acompañamos proyectos en etapas específicas, de acuerdo con las necesidades de cada cliente.',
       howWeWork: 'Cómo trabajamos',
     },
     services: {
-      bannerTag: 'SOLUCIONES DE INVESTIGACIÓN',
+      bannerTag: 'SERVICIOS',
       bannerTitle: 'Servicios de Investigación',
       bannerSubtitle: 'Investigación para empresas, organizaciones e instituciones en Paraguay.',
-      introTitle: 'Investigación para empresas, organizaciones e instituciones',
+      introTitle: 'Investigación para empresas, organizaciones e instituciones en Paraguay',
       introLead: 'Trabajamos con empresas, organizaciones sociales, ONG e instituciones públicas que necesitan conocer mejor a sus públicos, comprender una realidad, evaluar iniciativas o tomar decisiones basadas en información.',
       introBody: 'Diseñamos y desarrollamos estudios cuantitativos y cualitativos a medida, adaptados a los objetivos y características de cada proyecto.',
-      mode1Tag: '01 · PARA AGENCIAS Y CONSULTORAS',
+      mode1Tag: 'PARA AGENCIAS Y CONSULTORAS',
       mode1Title: 'Servicio de Campo',
       mode1Desc: 'Somos un equipo especializado en la ejecución de trabajos de campo en Paraguay. Nos integramos a proyectos de otras agencias y consultoras para planificar, coordinar y realizar relevamientos cuantitativos y cualitativos, con seguimiento y control de calidad.',
       mode1Items: [
@@ -182,7 +186,7 @@ export const translations: Record<Language, Translations> = {
         'Reclutamiento de participantes',
         'Supervisión y control de calidad',
       ],
-      mode2Tag: '02 · ESTUDIOS A MEDIDA',
+      mode2Tag: 'ESTUDIOS A MEDIDA',
       mode2Title: 'Servicio Integral',
       mode2Desc: 'Acompañamos a nuestros clientes en todo el proceso de investigación, desde la definición de objetivos hasta la entrega de informes y análisis para la toma de decisiones.',
       mode2Items: [
@@ -200,7 +204,7 @@ export const translations: Record<Language, Translations> = {
       cardHeading: 'Hablemos de su próximo estudio',
       cardDesc: 'Déjenos sus datos y nos pondremos en contacto para coordinar una reunión de diagnóstico sin compromiso.',
       locationTitle: 'Ubicación',
-      locationText: 'Encarnación, Paraguay | Cobertura en todo el país',
+      locationText: 'Encarnación, Paraguay',
       scheduleTitle: 'Horario Institucional',
       scheduleText: 'Lunes a Viernes de 08:00 a 17:00 hs',
       formHeading: 'Envíanos una consulta',
@@ -214,7 +218,7 @@ export const translations: Record<Language, Translations> = {
       phonePlaceholder: '+595 9XX XXX XXX',
       serviceLabel: '¿En qué servicio estás interesado? *',
       serviceOptionDefault: 'Selecciona una opción',
-      serviceOption1: 'Servicio de Campo (Para agencias/consultoras)',
+      serviceOption1: 'Servicio de Campo',
       serviceOption2: 'Servicio Integral de Investigación',
       serviceOption3: 'Estudio de Opinión Pública / Social',
       serviceOption4: 'Otro tipo de relevamiento',
@@ -228,12 +232,16 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline: 'Cuantitativo · Cualitativo · Trabajo de campo en Paraguay',
+      description: 'Consultora de Investigación y Estudios especializada en metodologías cuantitativas, cualitativas y relevamiento de campo en Paraguay.',
+      navTitle: 'Navegación',
+      contactTitle: 'Contacto Directo',
       directContact: 'Contacto Directo',
       location: 'Encarnación, Paraguay',
       rights: 'Todos los derechos reservados.',
-      guaraniMotto: 'Ñeakãngeta ha pyʼamongeta',
+      guaraniMotto: 'Ñeʼẽkãnguéta ha pyʼamongueta',
     },
   },
+
   gn: {
     nav: {
       inicio: 'Ñepyrũ',
@@ -280,28 +288,27 @@ export const translations: Record<Language, Translations> = {
     about: {
       bannerTag: 'MARANDU INSTITUCIONAL',
       bannerTitle: 'NOEMA Rehegua',
-      bannerSubtitle: 'Ñehesaʼỹijo ha tembiapo oñembosakoʼíva ogueru hag̃ua marandu jeroviapy ha tekotevẽva Paraguáipe.',
-      sectionTitle: 'Ñehesaʼỹijo añetegua roikũmby hag̃ua tekovekuéra, hembipota ha hembiapo.',
-      lead: 'Noema haʼe peteĩ consultora Ñehesaʼỹijo ha Estudio rehegua ombosakoʼíva ha omboguata tembiapo ogueru hag̃ua marandu añete, tekotevẽva ha ideprovéchova.',
-      body: 'Rombaʼapo opa hendápe peteĩ estudio-pe: metodología ñembosakoʼígui, kuatia jepuru, ñembaʼapo kógagui ha marandu ñehesaʼỹijo peve. Rojapo tembiapo tuichakue ha avei roipytyvõ etapa oikotevẽháicha káda cliente.',
+      bannerSubtitle: 'Ñehesaʼỹijo ha tembiapo oñembosakoʼíva oguereko hag̃ua marandu añetegua ha tekotevẽva Paraguáipe.',
+      sectionTitle: 'Ñehesaʼỹijo mbarete oñentende hag̃ua tapichakuéra, hemiandu ha heko.',
+      lead: 'Noema haʼe peteĩ consultora de Investigación ha Estudios ombosakoʼíva tembiapo cuantitativo ha cualitativo oguereko hag̃ua marandu añetegua, tekotevẽva ha ipurukuaáva.',
+      body: 'Rombaʼapo opaite etapa-pe: diseño metodológico guive, tembipuru apo, kóga rembiapo, marandu ñembyaty ha ñehesaʼỹijo peve. Rojapo tembiapo tuichakue térã roipytyvõ etapa oñekotevẽvape.',
       howWeWork: 'Mbaʼéichapa rombaʼapo',
     },
     services: {
-      bannerTag: 'ÑEHESAʼỸIJO POKATU',
-      bannerTitle: 'Tembiapo Kuéra Ñehesaʼỹijo rehegua',
-      bannerSubtitle: 'Ñehesaʼỹijo empresa, atykuéra ha tetã rembipota rehegua Paraguáipe.',
-      introTitle: 'Ñehesaʼỹijo empresa, atykuéra ha institución-pe g̃uarã',
-      introLead: 'Rombaʼapo empresa, atyguasu, ONG ha institución ndive oikuaaséva hetavépe hembiaporã, oikũmby hag̃ua tekove ha ojapyhy hag̃ua tape marandu añete reheve.',
-      introBody: 'Rombosakoʼi ha romboguata estudio kuantitativo ha kualitativo tekotevẽháicha káda tembiaporã.',
-      mode1Tag: '01 · AGENCIA HA CONSULTORA-PE G̃UARÃ',
+      bannerTag: 'TEMBIAPO MBAʼAPOHÁPE',
+      bannerTitle: 'Tembiapo Ñehesaʼỹijópe',
+      bannerSubtitle: 'Ñehesaʼỹijo empresa, atykuéra ha institución-pe g̃uarã Paraguáipe.',
+      introTitle: 'Ñehesaʼỹijo empresa, atykuéra ha institución-pe g̃uarã Paraguáipe',
+      introLead: 'Rombaʼapo empresa, aty tekoha rehegua, ONG ha institución pública ndive oikotevẽva oikuaa porãve tapichakuérape, ohesaʼỹijo tekoha, ohecha tembiapokue térã ojapyhy decisión marandu añetegua rupive.',
+      introBody: 'Rombosakoʼi ha romboguata estudio cuantitativo ha cualitativo peteĩteĩva hembipotápe g̃uarã.',
+      mode1Tag: 'AGENCIA HA CONSULTORA-PE G̃UARÃ',
       mode1Title: 'Kóga Rembiapo (Servicio de Campo)',
-      mode1Desc: 'Ore haʼe peteĩ aty ikatupyrýva kóga rembiapópe Paraguái tuichakue. Roike ambue agencia ha consultora tembiapópe romboguata hag̃ua relevamiento kuantitativo ha kualitativo, tekokatu ha jesareko reheve.',
+      mode1Desc: 'Ore haʼe peteĩ equipo ikatupyrýva kóga rembiapo apópe Paraguáipe. Roñomoirũ ambue agencia ha consultora ndive roplanifika, rocoordina ha rojapo hag̃ua relevamiento cuantitativo ha cualitativo, jesareko ha tekokatu reheve.',
       mode1Items: [
         'Kóga rembiapo ñembosakoʼi ha ñemboguata',
         'Porandu tapichápe hovake ha pumbyry rupi',
         'Ñomongeta pypuku ha atykuéra ndive (Focus Groups)',
         'Tapichakuéra jeporavo tembiaporã',
-        'Jesareko ha tekokatu ñangareko',
       ],
       mode2Tag: '02 · ESTUDIO TEKOTEVẼHÁICHA',
       mode2Title: 'Tembiapo Tuichakue (Servicio Integral)',
@@ -349,10 +356,13 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       tagline: 'Papapykuaa · Tekokuaa · Kóga rembiapo Paraguáipe',
+      description: 'Consultora de Investigación ha Estudios ohesaʼỹijóva tembiapo cuantitativo, cualitativo ha kóga rembiapo Paraguáipe.',
+      navTitle: 'Navegación',
+      contactTitle: 'Ñomongeta Voi',
       directContact: 'Ñomongeta Voi',
       location: 'Encarnación, Paraguái',
       rights: 'Opa derécho oñeñangareko.',
-      guaraniMotto: 'Ñeakãngeta ha pyʼamongeta',
+      guaraniMotto: 'Ñeʼẽkãnguéta ha pyʼamongueta',
     },
   },
 }
@@ -366,28 +376,43 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>(() => {
+interface LanguageProviderProps {
+  children: React.ReactNode
+}
+
+export function LanguageProvider({ children }: Readonly<LanguageProviderProps>) {
+  const [language, setLanguage] = useState<Language>(() => {
     const saved = localStorage.getItem('noema_lang') as Language
     return saved === 'gn' || saved === 'es' ? saved : 'es'
   })
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang)
+  const updateLanguage = (lang: Language) => {
+    setLanguage(lang)
     localStorage.setItem('noema_lang', lang)
     document.documentElement.lang = lang === 'gn' ? 'gn' : 'es'
   }
 
   const toggleLanguage = () => {
-    setLanguage(language === 'es' ? 'gn' : 'es')
+    setLanguage((prev) => {
+      const next = prev === 'es' ? 'gn' : 'es'
+      localStorage.setItem('noema_lang', next)
+      return next
+    })
   }
 
   useEffect(() => {
     document.documentElement.lang = language === 'gn' ? 'gn' : 'es'
   }, [language])
 
+  const contextValue = React.useMemo(() => ({
+    language,
+    setLanguage: updateLanguage,
+    toggleLanguage,
+    t: translations[language],
+  }), [language])
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage, t: translations[language] }}>
+    <LanguageContext.Provider value={contextValue}>
       {children}
     </LanguageContext.Provider>
   )
@@ -400,3 +425,4 @@ export function useLanguage() {
   }
   return context
 }
+

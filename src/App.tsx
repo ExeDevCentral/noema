@@ -66,10 +66,11 @@ export default function App() {
 
       <main className="main-content-view">
         {activePage === 'inicio' && <Hero onNavigate={navigateTo} />}
-        {activePage === 'sobre-noema' && <About />}
-        {activePage === 'servicios' && <Services />}
-        {activePage === 'contacto' && <Contact />}
+        {activePage === 'sobre-noema' && <About onNavigate={navigateTo} />}
+        {activePage === 'servicios' && <Services onNavigate={navigateTo} />}
+        {activePage === 'contacto' && <Contact onNavigate={navigateTo} />}
       </main>
+
 
       <Footer onNavigate={navigateTo} />
       <CraftedBar />

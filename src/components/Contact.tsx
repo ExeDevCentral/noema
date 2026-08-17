@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react'
+import { PageType } from './Navbar'
 import ParaguayFlag from './ParaguayFlag'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -11,40 +12,16 @@ const initialForm = {
   mensaje: '',
 }
 
-export default function Contact() {
+interface ContactProps {
+  onNavigate?: (page: PageType) => void
+}
+
+export default function Contact({ onNavigate }: Readonly<ContactProps>) {
   const { t } = useLanguage()
   const [form, setForm] = useState(initialForm)
   const [submitting, setSubmitting] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const [error, setError] = useState('')
-
-  const contactLinks = [
-    {
-      href: 'mailto:contacto@noema.com.py',
-      target: undefined as string | undefined,
-      icon: 'fa-envelope',
-      title: t.contact.emailLabel.replace(' *', ''),
-      text: 'contacto@noema.com.py',
-      label: 'contacto@noema.com.py',
-    },
-    {
-      href: 'https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación',
-      target: '_blank',
-      icon: 'fab fa-whatsapp',
-      title: t.contact.phoneLabel.replace(' *', ''),
-      text: '+595 972 536 004',
-      label: 'WhatsApp +595 972 536 004',
-    },
-    {
-      href: 'https://maps.google.com/?q=Encarnacion,Paraguay',
-      target: '_blank',
-      icon: 'fa-location-dot',
-      title: t.contact.locationTitle,
-      text: t.contact.locationText,
-      label: 'Google Maps',
-      flag: true,
-    },
-  ]
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
@@ -86,63 +63,27 @@ export default function Contact() {
         <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_rosado.jpg')" }}></div>
         <div className="banner-overlay"></div>
         <div className="container banner-container">
-          <span className="banner-tag">{t.contact.bannerTag}</span>
           <h1 className="banner-title">{t.contact.bannerTitle}</h1>
           <p className="banner-subtitle">
-            <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
             {t.contact.bannerSubtitle}
           </p>
         </div>
       </section>
 
-      {/* Form & Details Grid */}
+      {/* Form Section */}
       <section className="section contact-main-section">
         <div className="container">
-          <div className="contact-grid">
-            <div className="contact-info-card">
-              <h3>{t.contact.cardHeading}</h3>
-              <p>{t.contact.cardDesc}</p>
-
-              {contactLinks.map((link) => (
-                <a
-                  className="contact-detail-link"
-                  href={link.href}
-                  key={link.icon}
-                  target={link.target}
-                  rel={link.target === '_blank' ? 'noopener' : undefined}
-                  aria-label={link.label}
-                >
-                  <div className="contact-detail-item">
-                    <div className="contact-detail-icon">
-                      <i className={link.icon}></i>
-                    </div>
-                    <div className="contact-detail-text">
-                      <h5>
-                        {link.flag && <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />}
-                        {link.title}
-                      </h5>
-                      <p>{link.text}</p>
-                    </div>
-                    <i className="fas fa-arrow-up-right-from-square contact-detail-arrow"></i>
-                  </div>
-                </a>
-              ))}
-
-              <div className="contact-detail-item">
-                <div className="contact-detail-icon">
-                  <i className="fas fa-clock"></i>
-                </div>
-                <div className="contact-detail-text">
-                  <h5>{t.contact.scheduleTitle}</h5>
-                  <p>{t.contact.scheduleText}</p>
-                </div>
+          <div className="contact-single-card-wrapper">
+            <div className="contact-form-wrapper contact-form-centered">
+              <div className="contact-form-header text-center">
+                <span className="section-tag-small">CONSULTAS Y PROPUESTAS</span>
+                <h2 className="contact-main-heading">
+                  {t.contact.formHeading}
+                </h2>
+                <p className="contact-main-subtext">
+                  Escríbenos directamente o completá el formulario. Atendemos consultas de lunes a viernes de 08:00 a 17:00 hs.
+                </p>
               </div>
-            </div>
-
-            <div className="contact-form-wrapper">
-              <h3 style={{ fontSize: '1.8rem', marginBottom: '1.5rem', color: 'var(--navy-primary)' }}>
-                {t.contact.formHeading}
-              </h3>
 
               <form id="noemaContactForm" onSubmit={handleSubmit}>
                 <div className="form-row">
@@ -199,7 +140,7 @@ export default function Contact() {
 
                 <div className="form-group">
                   <label htmlFor="servicio">{t.contact.serviceLabel}</label>
-                  <select id="servicio" className="form-control" required value={form.servicio} onChange={handleChange}>
+                  <select id="servicio" className="form-control select-custom" required value={form.servicio} onChange={handleChange}>
                     <option value="" disabled>{t.contact.serviceOptionDefault}</option>
                     <option value="campo">{t.contact.serviceOption1}</option>
                     <option value="integral">{t.contact.serviceOption2}</option>
@@ -234,6 +175,30 @@ export default function Contact() {
                   )}
                 </button>
               </form>
+
+              {/* Direct Info Pills */}
+              <div className="contact-direct-pills">
+                <a href="mailto:contacto@noema.com.py" className="contact-pill">
+                  <i className="fas fa-envelope"></i> contacto@noema.com.py
+                </a>
+                <span className="contact-pill">
+                  <i className="fas fa-clock"></i> Lunes a Viernes 08:00 - 17:00 hs
+                </span>
+                <span className="contact-pill">
+                  <i className="fas fa-location-dot"></i> Encarnación, Paraguay <ParaguayFlag size="sm" style={{ marginLeft: '4px' }} />
+                </span>
+              </div>
+            </div>
+
+            {/* Back to Home Button */}
+            <div className="page-back-home-wrapper" style={{ marginTop: '40px' }}>
+              <button 
+                type="button" 
+                className="btn-back-home"
+                onClick={() => onNavigate?.('inicio')}
+              >
+                <i className="fas fa-arrow-left"></i> Volver al inicio
+              </button>
             </div>
           </div>
         </div>
@@ -264,3 +229,4 @@ export default function Contact() {
     </div>
   )
 }
+
