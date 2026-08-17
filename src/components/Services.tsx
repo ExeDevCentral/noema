@@ -73,7 +73,7 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
               </div>
 
               {/* Card 2: Estudios a Medida / Servicio Integral */}
-              <div className="work-mode-card featured-mode-card">
+              <div className="work-mode-card">
                 <div className="work-mode-top-block">
                   <div className="work-mode-header-aligned">
                     <div className="work-mode-icon-box">
@@ -82,7 +82,7 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
                     <h3 className="work-mode-title-aligned">{t.services.mode2Title}</h3>
                   </div>
 
-                  <span className="work-mode-tag terracotta-tag">{t.services.mode2Tag}</span>
+                  <span className="work-mode-tag">{t.services.mode2Tag}</span>
                   <p className="work-mode-desc">
                     {t.services.mode2Desc}
                   </p>
@@ -101,6 +101,7 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
                   </ul>
                 </div>
               </div>
+
 
             </div>
 
