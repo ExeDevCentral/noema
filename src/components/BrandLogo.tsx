@@ -23,9 +23,10 @@ export default function BrandLogo({ showFlag = true, onClick }: Readonly<BrandLo
         src="/assets/images/logo_symbol_white.png" 
         alt="NOEMA Isotipo" 
         className="brand-official-symbol-img brand-symbol-white"
-        width="72"
-        height="47"
+        width="54"
+        height="48"
       />
+
 
 
 
