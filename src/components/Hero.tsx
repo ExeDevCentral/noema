@@ -9,42 +9,16 @@ export default function Hero({ onNavigate }: HeroProps) {
     <section id="inicio" className="hero-section">
       <div className="container">
         <div className="hero-card-glow">
-          <div className="hero-badge">
-            <span className="badge-flag"></span>
-            INVESTIGACIÓN Y ESTUDIOS EN PARAGUAY
-          </div>
-
-          <h1 className="hero-title">
+          <h1 className="hero-title-main">
             Investigamos para comprender.
           </h1>
 
-          <p className="hero-description">
-            Diseñamos y desarrollamos estudios cuantitativos y cualitativos para obtener información confiable y relevante.
+          <p className="hero-description-main">
+            Diseñamos y desarrollamos <strong>estudios cuantitativos y cualitativos</strong> para obtener información confiable y relevante.
           </p>
 
-          <div className="hero-pills-row">
-            <span className="hero-pill"><i className="fas fa-chart-pie me-2"></i>Cuantitativo</span>
-            <span className="hero-pill-dot">•</span>
-            <span className="hero-pill"><i className="fas fa-comments me-2"></i>Cualitativo</span>
-            <span className="hero-pill-dot">•</span>
-            <span className="hero-pill"><i className="fas fa-location-dot me-2"></i>Trabajo de campo</span>
-          </div>
-
-          <div className="hero-actions">
-            <button 
-              type="button" 
-              className="btn-primary-custom"
-              onClick={() => onNavigate('servicios')}
-            >
-              Ver Servicios de Investigación <i className="fas fa-arrow-right ms-2"></i>
-            </button>
-            <button 
-              type="button" 
-              className="btn-secondary-custom"
-              onClick={() => onNavigate('sobre-noema')}
-            >
-              Conocer Sobre NOEMA <i className="fas fa-chevron-right ms-2"></i>
-            </button>
+          <div className="hero-tagline-text">
+            <strong>Cuantitativo</strong> · <strong>Cualitativo</strong> · <strong>Trabajo de campo</strong>
           </div>
         </div>
 

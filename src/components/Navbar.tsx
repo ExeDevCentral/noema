@@ -55,7 +55,7 @@ export default function Navbar({ activePage, setActivePage }: NavbarProps) {
 
         <div className="nav-actions">
           <a
-            href="https://wa.me/595981400800?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación"
+            href="https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp"
