@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import BrandLogo from './BrandLogo'
 import { useLanguage } from '../context/LanguageContext'
-
 
 export type PageType = 'inicio' | 'sobre-noema' | 'servicios' | 'contacto'
 
@@ -15,27 +14,62 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
   const [scrolled, setScrolled] = useState(false)
   const { t } = useLanguage()
 
+  // Track scroll position for sticky glassmorphism effect
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+
+    handleScroll() // Initial check
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (page: PageType) => {
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
+  // Close on Escape key press
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menuOpen) {
+        setMenuOpen(false)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [menuOpen])
+
+  const handleNavClick = useCallback((page: PageType) => {
     setActivePage(page)
     setMenuOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+  }, [setActivePage])
 
   return (
-    <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
+    <header 
+      className={`navbar${scrolled ? ' scrolled' : ''}`}
+      role="banner"
+    >
       <div className="container nav-container">
         <div className="nav-brand-wrapper">
           <BrandLogo onClick={() => handleNavClick('inicio')} />
         </div>
 
-
-        <nav className={`nav-menu${menuOpen ? ' active' : ''}`}>
+        <nav 
+          id="mobile-nav-menu"
+          className={`nav-menu${menuOpen ? ' active' : ''}`}
+          aria-label="Navegación principal"
+        >
           <button 
             type="button" 
             className={`nav-link-btn${activePage === 'inicio' ? ' active' : ''}`}
@@ -69,13 +103,16 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
         <button
           type="button"
           className="nav-toggle"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav-menu"
           aria-label={menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <i className={menuOpen ? 'fas fa-xmark' : 'fas fa-bars'}></i>
+          <i className={menuOpen ? 'fas fa-xmark' : 'fas fa-bars'} aria-hidden="true"></i>
         </button>
       </div>
     </header>
   )
 }
+
 

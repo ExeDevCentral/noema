@@ -5,6 +5,16 @@
  */
 import { Resend } from 'resend';
 
+function escapeHtml(str) {
+  if (!str || typeof str !== 'string') return '';
+  return str
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
 function getServiceLabel(serviceKey) {
   const serviceLabels = {
     campo: 'Servicio de Campo (Relevamiento y Auditoría en Paraguay)',
@@ -12,10 +22,18 @@ function getServiceLabel(serviceKey) {
     opinion: 'Estudio de Opinión Pública y Clima Social',
     otro: 'Consulta Personalizada / Diagnóstico Especial'
   };
-  return serviceLabels[serviceKey] || serviceKey || 'Consulta General';
+  return serviceLabels[serviceKey] || escapeHtml(serviceKey) || 'Consulta General';
 }
 
 function buildNotificationHtml({ nombre, empresa, email, telefono, serviceLabel, mensaje, fechaEnvio }) {
+  const safeNombre = escapeHtml(nombre);
+  const safeEmpresa = escapeHtml(empresa);
+  const safeEmail = escapeHtml(email);
+  const safeTelefono = escapeHtml(telefono);
+  const safeServiceLabel = escapeHtml(serviceLabel);
+  const safeMensaje = escapeHtml(mensaje);
+  const safeFechaEnvio = escapeHtml(fechaEnvio);
+
   return `
     <!DOCTYPE html>
     <html lang="es">
@@ -35,44 +53,45 @@ function buildNotificationHtml({ nombre, empresa, email, telefono, serviceLabel,
             Nuevo Contacto Web
           </div>
           <h2 style="color: #1B2A38; margin: 0 0 8px 0; font-size: 20px;">Solicitud de Diagnóstico Recibida</h2>
-          <p style="color: #6c757d; font-size: 13px; margin: 0 0 24px 0;">Recibido el ${fechaEnvio} (Hora Asunción, PY)</p>
+          <p style="color: #6c757d; font-size: 13px; margin: 0 0 24px 0;">Recibido el ${safeFechaEnvio} (Hora Asunción, PY)</p>
           <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
             <tbody>
               <tr style="border-bottom: 1px solid #FAF8F5;">
                 <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; width: 35%; font-size: 14px;">Nombre completo:</td>
-                <td style="padding: 10px 0; color: #333333; font-size: 14px;">${nombre}</td>
+                <td style="padding: 10px 0; color: #333333; font-size: 14px;">${safeNombre}</td>
               </tr>
               <tr style="border-bottom: 1px solid #FAF8F5;">
                 <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Empresa / Organización:</td>
-                <td style="padding: 10px 0; color: #333333; font-size: 14px;">${empresa || 'No especificada'}</td>
+                <td style="padding: 10px 0; color: #333333; font-size: 14px;">${safeEmpresa || 'No especificada'}</td>
               </tr>
               <tr style="border-bottom: 1px solid #FAF8F5;">
                 <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Correo electrónico:</td>
-                <td style="padding: 10px 0; font-size: 14px;"><a href="mailto:${email}" style="color: #C88A6E; text-decoration: none; font-weight: 600;">${email}</a></td>
+                <td style="padding: 10px 0; font-size: 14px;"><a href="mailto:${safeEmail}" style="color: #C88A6E; text-decoration: none; font-weight: 600;">${safeEmail}</a></td>
               </tr>
               <tr style="border-bottom: 1px solid #FAF8F5;">
                 <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Teléfono / WhatsApp:</td>
                 <td style="padding: 10px 0; color: #333333; font-size: 14px;">
-                  ${telefono ? `<a href="tel:${telefono}" style="color: #1B2A38; text-decoration: none;">${telefono}</a>` : 'No provisto'}
+                  ${safeTelefono ? `<a href="tel:${safeTelefono}" style="color: #1B2A38; text-decoration: none;">${safeTelefono}</a>` : 'No provisto'}
                 </td>
               </tr>
               <tr>
                 <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Servicio de Interés:</td>
-                <td style="padding: 10px 0; color: #1B2A38; font-weight: 600; font-size: 14px;">${serviceLabel}</td>
+                <td style="padding: 10px 0; color: #1B2A38; font-weight: 600; font-size: 14px;">${safeServiceLabel}</td>
               </tr>
             </tbody>
           </table>
           <div style="background-color: #FAF8F5; border-left: 4px solid #C88A6E; padding: 18px; border-radius: 0 8px 8px 0; margin-top: 10px;">
             <p style="margin: 0 0 6px 0; font-weight: 700; color: #1B2A38; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Mensaje / Requerimientos:</p>
-            <p style="margin: 0; color: #2C3E50; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${mensaje}</p>
+            <p style="margin: 0; color: #2C3E50; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${safeMensaje}</p>
           </div>
           <div style="margin-top: 28px; text-align: center;">
-            <a href="mailto:${email}?subject=Re:%20Solicitud%20de%20Diagn%C3%B3stico%20-%20Noema%20Consultora" 
+            <a href="mailto:${safeEmail}?subject=Re:%20Solicitud%20de%20Diagn%C3%B3stico%20-%20Noema%20Consultora" 
                style="display: inline-block; background-color: #1B2A38; color: #FAF8F5; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.5px;">
-              Responder a ${nombre}
+              Responder a ${safeNombre}
             </a>
           </div>
         </div>
+
         <div style="background-color: #1B2A38; padding: 16px 24px; text-align: center; color: rgba(250, 248, 245, 0.7); font-size: 11px;">
           © ${new Date().getFullYear()} Noema Consultora — Asunción & Encarnación, Paraguay<br/>
           Sistema automatizado de captura de prospectos web
@@ -84,6 +103,11 @@ function buildNotificationHtml({ nombre, empresa, email, telefono, serviceLabel,
 }
 
 function buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje }) {
+  const safeNombre = escapeHtml(nombre);
+  const safeEmpresa = escapeHtml(empresa);
+  const safeServiceLabel = escapeHtml(serviceLabel);
+  const safeMensaje = escapeHtml(mensaje);
+
   return `
     <!DOCTYPE html>
     <html lang="es">
@@ -100,16 +124,16 @@ function buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje }) {
         </div>
         <div style="padding: 36px 30px; line-height: 1.6;">
           <h2 style="color: #1B2A38; margin: 0 0 16px 0; font-size: 22px; font-weight: 600;">Hemos recibido su consulta</h2>
-          <p style="color: #4A5568; font-size: 15px;">Estimado/a <strong>${nombre}</strong>${empresa ? ` (${empresa})` : ''},</p>
+          <p style="color: #4A5568; font-size: 15px;">Estimado/a <strong>${safeNombre}</strong>${safeEmpresa ? ` (${safeEmpresa})` : ''},</p>
           <p style="color: #4A5568; font-size: 15px;">
             Agradecemos su interés en los servicios de inteligencia estratégica de <strong>Noema Consultora</strong>.
           </p>
           <p style="color: #4A5568; font-size: 15px;">
-            Confirmamos la recepción de su solicitud para el área de <strong>${serviceLabel}</strong>. Nuestro equipo de consultores senior está analizando su requerimiento y se pondrá en contacto con usted en un plazo no mayor a <strong>24 horas hábiles</strong>.
+            Confirmamos la recepción de su solicitud para el área de <strong>${safeServiceLabel}</strong>. Nuestro equipo de consultores senior está analizando su requerimiento y se pondrá en contacto con usted en un plazo no mayor a <strong>24 horas hábiles</strong>.
           </p>
           <div style="background-color: #FAF8F5; border-radius: 8px; padding: 20px; margin: 24px 0; border: 1px solid rgba(200,138,110,0.2);">
             <p style="margin: 0 0 10px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #C88A6E; font-weight: 700;">Detalle de su solicitud:</p>
-            <p style="margin: 0; font-size: 14px; color: #2D3748; font-style: italic;">"${mensaje}"</p>
+            <p style="margin: 0; font-size: 14px; color: #2D3748; font-style: italic;">"${safeMensaje}"</p>
           </div>
           <div style="background: linear-gradient(135deg, #1B2A38 0%, #2A3F52 100%); color: #FAF8F5; border-radius: 8px; padding: 20px; text-align: center; margin: 28px 0;">
             <p style="margin: 0 0 6px 0; font-weight: 600; font-size: 15px; color: #FAF8F5;">¿Requiere asistencia inmediata para su proyecto?</p>
@@ -119,6 +143,7 @@ function buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje }) {
               💬 Contactar por WhatsApp (+595 972 536 004)
             </a>
           </div>
+
           <p style="margin-top: 28px; margin-bottom: 0; font-size: 14px; color: #4A5568;">
             Atentamente,<br/>
             <strong style="color: #1B2A38;">Equipo Ejecutivo — Noema Consultora</strong><br/>

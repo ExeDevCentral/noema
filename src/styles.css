@@ -331,33 +331,38 @@ img {
   }
 }
 
-/* Header & Navbar */
+/* Header & Navbar - Sticky Glassmorphism Banner */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   z-index: 1000;
-  padding: 1.25rem 0;
-  transition: var(--transition-normal);
-  background: rgba(250, 248, 245, 0.88);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border-light);
+  padding: 1.1rem 0;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: rgba(18, 30, 43, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(220, 160, 135, 0.22);
 }
 
 .navbar.scrolled {
-  padding: 0.85rem 0;
-  background: rgba(250, 248, 245, 0.96);
-  box-shadow: var(--shadow-sm);
+  padding: 0.75rem 0;
+  background: rgba(14, 23, 33, 0.98);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  border-bottom: 1px solid rgba(220, 160, 135, 0.32);
 }
 
 .nav-container {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
 }
+
 
 /* Header actions (theme toggle + WhatsApp) grouped right */
 .nav-actions {
@@ -2090,21 +2095,26 @@ textarea.form-control {
     padding: 0 1rem;
   }
 
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .navbar.scrolled {
+    padding: 0.55rem 0;
+  }
+
+  .brand-official-symbol-img {
+    width: 48px;
+  }
+
   .brand-title {
-    font-size: 1.05rem;
-  }
-
-  .nav-actions {
-    gap: 0.4rem;
-  }
-
-  .brand-symbol-svg {
-    width: 38px;
-    height: 38px;
+    font-size: 1.35rem;
+    letter-spacing: 0.28em;
   }
 
   .brand-subtitle {
     font-size: 0.58rem;
+    letter-spacing: 0.12em;
   }
 
   .hero-badge {
@@ -2112,6 +2122,7 @@ textarea.form-control {
     padding: 0.35rem 0.8rem;
     letter-spacing: 0.05em;
   }
+
 
   .hero-title {
     font-size: 1.85rem;
