@@ -3937,9 +3937,9 @@ body {
 
 .guarani-tooltip-bubble {
   position: absolute;
-  bottom: calc(100% + 10px);
+  top: calc(100% + 10px);
   left: 50%;
-  transform: translateX(-50%) translateY(4px);
+  transform: translateX(-50%) translateY(-4px);
   background: rgba(14, 23, 33, 0.98);
   border: 1px solid rgba(200, 138, 110, 0.5);
   color: #FFFFFF;
@@ -3961,18 +3961,19 @@ body {
 .guarani-tooltip-bubble::after {
   content: '';
   position: absolute;
-  top: 100%;
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
   border-width: 6px;
   border-style: solid;
-  border-color: rgba(14, 23, 33, 0.98) transparent transparent transparent;
+  border-color: transparent transparent rgba(14, 23, 33, 0.98) transparent;
 }
 
 .footer-guarani-wrapper:hover .guarani-tooltip-bubble,
 .footer-guarani-quote:focus .guarani-tooltip-bubble {
   opacity: 1;
   visibility: visible;
+
   transform: translateX(-50%) translateY(0);
 }
 

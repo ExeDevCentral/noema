@@ -1,4 +1,3 @@
-import ParaguayFlag from './ParaguayFlag'
 import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -19,11 +18,11 @@ export default function About({ onNavigate }: Readonly<AboutProps>) {
           <span className="banner-tag">{t.about.bannerTag}</span>
           <h1 className="banner-title">{t.about.bannerTitle}</h1>
           <p className="banner-subtitle">
-            <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
             {t.about.bannerSubtitle}
           </p>
         </div>
       </section>
+
 
       {/* Main Content Section */}
       <section className="section about-main-section">
