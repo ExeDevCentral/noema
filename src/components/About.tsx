@@ -1,3 +1,5 @@
+import ParaguayFlag from './ParaguayFlag'
+
 export default function About() {
   return (
     <div className="page-view about-page-view">
@@ -9,6 +11,7 @@ export default function About() {
           <span className="banner-tag">INFORMACIÓN INSTITUCIONAL</span>
           <h1 className="banner-title">Sobre NOEMA</h1>
           <p className="banner-subtitle">
+            <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
             Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay.
           </p>
         </div>

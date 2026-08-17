@@ -1,4 +1,5 @@
 import { PageType } from './Navbar'
+import ParaguayFlag from './ParaguayFlag'
 
 interface HeroProps {
   onNavigate?: (page: PageType) => void
@@ -20,7 +21,8 @@ export default function Hero({ onNavigate }: HeroProps) {
             </p>
 
             <p className="hero-tagline-text">
-              <strong>Cuantitativo</strong> · <strong>Cualitativo</strong> · <strong>Trabajo de campo</strong>
+              <ParaguayFlag size="sm" style={{ marginRight: '8px' }} />
+              <strong>Cuantitativo</strong> · <strong>Cualitativo</strong> · <strong>Trabajo de campo en Paraguay</strong>
             </p>
 
             {/* The 3 Lapacho Navigation Cards */}
@@ -163,7 +165,7 @@ export default function Hero({ onNavigate }: HeroProps) {
                     <i className="fas fa-location-dot"></i>
                   </div>
                   <h4>Conocimiento del contexto</h4>
-                  <p>Investigamos desde Paraguay, comprendiendo las particularidades de sus personas, mercados y realidades sociales.</p>
+                  <p>Investigamos desde Paraguay <ParaguayFlag size="sm" />, comprendiendo las particularidades de sus personas, mercados y realidades sociales.</p>
                 </div>
               </div>
             </div>

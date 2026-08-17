@@ -1,5 +1,6 @@
 import BrandLogo from './BrandLogo'
 import { PageType } from './Navbar'
+import ParaguayFlag from './ParaguayFlag'
 
 interface FooterProps {
   onNavigate: (page: PageType) => void
@@ -13,7 +14,7 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="footer-brand-col">
             <BrandLogo light onClick={() => onNavigate('inicio')} />
             <p className="footer-tagline">
-              Cuantitativo · Cualitativo · Trabajo de campo
+              Cuantitativo · Cualitativo · Trabajo de campo en Paraguay
             </p>
           </div>
 
@@ -41,9 +42,10 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
 
             <div className="footer-contact-item">
-              {/* Location Icon without the word Dirección */}
+              {/* Location Icon with Paraguay Flag */}
               <i className="fas fa-location-dot footer-icon"></i>
               <span className="footer-text">
+                <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
                 Encarnación, Paraguay
               </span>
             </div>

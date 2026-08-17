@@ -1,4 +1,5 @@
 import { FormEvent, useState } from 'react'
+import ParaguayFlag from './ParaguayFlag'
 
 const contactLinks = [
   {
@@ -113,7 +114,10 @@ export default function Contact() {
                       <i className={link.icon}></i>
                     </div>
                     <div className="contact-detail-text">
-                      <h5>{link.title}</h5>
+                      <h5>
+                        {link.flag && <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />}
+                        {link.title}
+                      </h5>
                       <p>{link.text}</p>
                     </div>
                     <i className="fas fa-arrow-up-right-from-square contact-detail-arrow"></i>

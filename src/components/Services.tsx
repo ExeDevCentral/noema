@@ -1,3 +1,5 @@
+import ParaguayFlag from './ParaguayFlag'
+
 export default function Services() {
   return (
     <div className="page-view services-page-view">
@@ -9,6 +11,7 @@ export default function Services() {
           <span className="banner-tag">SOLUCIONES DE INVESTIGACIÓN</span>
           <h1 className="banner-title">Servicios de Investigación</h1>
           <p className="banner-subtitle">
+            <ParaguayFlag size="sm" style={{ marginRight: '6px' }} />
             Investigación para empresas, organizaciones e instituciones en Paraguay.
           </p>
         </div>
@@ -48,7 +51,7 @@ export default function Services() {
                 <span className="work-mode-tag">01 · PARA AGENCIAS Y CONSULTORAS</span>
                 <h3 className="work-mode-title">Servicio de Campo</h3>
                 <p className="work-mode-desc">
-                  Somos un equipo especializado en la ejecución de trabajos de campo en Paraguay. Nos integramos a proyectos de otras agencias y consultoras para planificar, coordinar y realizar relevamientos cuantitativos y cualitativos, con seguimiento y control de calidad.
+                  Somos un equipo especializado en la ejecución de trabajos de campo en Paraguay <ParaguayFlag size="sm" />. Nos integramos a proyectos de otras agencias y consultoras para planificar, coordinar y realizar relevamientos cuantitativos y cualitativos, con seguimiento y control de calidad.
                 </p>
 
                 <div className="work-mode-divider"></div>
