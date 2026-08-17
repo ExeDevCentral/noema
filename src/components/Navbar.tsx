@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import BrandLogo from './BrandLogo'
-import ParaguayFlag from './ParaguayFlag'
 import { useLanguage } from '../context/LanguageContext'
+
 
 export type PageType = 'inicio' | 'sobre-noema' | 'servicios' | 'contacto'
 
@@ -32,10 +32,8 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
       <div className="container nav-container">
         <div className="nav-brand-wrapper">
           <BrandLogo onClick={() => handleNavClick('inicio')} />
-          <div className="nav-paraguay-badge" title="Paraguay" aria-label="Paraguay">
-            <ParaguayFlag size="md" />
-          </div>
         </div>
+
 
         <nav className={`nav-menu${menuOpen ? ' active' : ''}`}>
           <button 

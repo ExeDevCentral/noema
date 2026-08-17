@@ -1,11 +1,13 @@
+import ParaguayFlag from './ParaguayFlag'
+
 interface BrandLogoProps {
   light?: boolean
+  showFlag?: boolean
   onClick?: () => void
 }
 
-export default function BrandLogo({ light = false, onClick }: BrandLogoProps) {
-  const textColor = light ? '#FAF8F5' : '#FFFFFF'
-  const subtitleColor = light ? 'rgba(250, 248, 245, 0.88)' : '#DCA087'
+export default function BrandLogo({ showFlag = true, onClick }: Readonly<BrandLogoProps>) {
+
 
   return (
     <a 
@@ -18,22 +20,28 @@ export default function BrandLogo({ light = false, onClick }: BrandLogoProps) {
       }}
     >
       <img 
-        src="/assets/images/logo_symbol.png" 
+        src="/assets/images/logo_symbol_white.png" 
         alt="NOEMA Isotipo" 
-        className="brand-official-symbol-img"
+        className="brand-official-symbol-img brand-symbol-white"
         width="44"
-        height="48"
+        height="46"
       />
 
       <div className="brand-text-block">
-        <span className="brand-title" style={{ color: textColor }}>NOEMA</span>
-        <span className="brand-subtitle" style={{ color: subtitleColor }}>
+        <span className="brand-title">NOEMA</span>
+        <span className="brand-subtitle">
           INVESTIGACIÓN Y ESTUDIOS
         </span>
       </div>
-    </a>
 
+      {showFlag && (
+        <div className="brand-flag-badge-container" title="Paraguay" aria-label="Paraguay">
+          <ParaguayFlag size="md" />
+        </div>
+      )}
+    </a>
   )
 }
+
 
 
