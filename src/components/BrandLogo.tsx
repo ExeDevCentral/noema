@@ -11,7 +11,7 @@ export default function BrandLogo({ light = false, onClick }: BrandLogoProps) {
     <a 
       href="#inicio" 
       className="brand-logo" 
-      aria-label="Noema - Investigación y Estudio" 
+      aria-label="NOEMA - Investigación y Estudios" 
       onClick={(e) => { 
         e.preventDefault() 
         if (onClick) onClick() 
@@ -19,7 +19,7 @@ export default function BrandLogo({ light = false, onClick }: BrandLogoProps) {
     >
       <img 
         src="/assets/images/logo_symbol.png" 
-        alt="Noema Isotipo" 
+        alt="NOEMA Isotipo" 
         className="brand-official-symbol-img"
         width="44"
         height="48"
@@ -28,10 +28,11 @@ export default function BrandLogo({ light = false, onClick }: BrandLogoProps) {
       <div className="brand-text-block">
         <span className="brand-title" style={{ color: textColor }}>NOEMA</span>
         <span className="brand-subtitle" style={{ color: subtitleColor }}>
-          INVESTIGACIÓN Y ESTUDIO
+          INVESTIGACIÓN Y ESTUDIOS
         </span>
       </div>
     </a>
+
   )
 }
 
