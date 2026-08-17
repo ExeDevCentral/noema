@@ -167,13 +167,15 @@ export default function Contact({ onNavigate }: Readonly<ContactProps>) {
                   </p>
                 )}
 
-                <button type="submit" className="btn-luxury btn-luxury-primary" disabled={submitting} style={{ width: '100%', borderRadius: 'var(--radius-sm)', padding: '1rem', justifyContent: 'center' }}>
-                  {submitting ? (
-                    <><i className="fas fa-spinner fa-spin"></i> {t.contact.submittingBtn}</>
-                  ) : (
-                    <>{t.contact.submitBtn} <i className="fas fa-paper-plane ms-2"></i></>
-                  )}
-                </button>
+                <div className="contact-submit-wrapper">
+                  <button type="submit" className="btn-contact-submit" disabled={submitting}>
+                    {submitting ? (
+                      <><i className="fas fa-spinner fa-spin"></i> {t.contact.submittingBtn}</>
+                    ) : (
+                      <>{t.contact.submitBtn} <i className="fas fa-paper-plane ms-2"></i></>
+                    )}
+                  </button>
+                </div>
               </form>
 
               {/* Direct Info Pills */}
