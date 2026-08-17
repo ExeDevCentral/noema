@@ -44,56 +44,64 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
             <div className="work-modes-grid">
               {/* Card 1: Para Agencias y Consultoras / Servicio de Campo */}
               <div className="work-mode-card">
-                <div className="work-mode-header-aligned">
-                  <div className="work-mode-icon-box">
-                    <i className="fas fa-map-location-dot"></i>
+                <div className="work-mode-top-block">
+                  <div className="work-mode-header-aligned">
+                    <div className="work-mode-icon-box">
+                      <i className="fas fa-map-location-dot"></i>
+                    </div>
+                    <h3 className="work-mode-title-aligned">{t.services.mode1Title}</h3>
                   </div>
-                  <h3 className="work-mode-title-aligned">{t.services.mode1Title}</h3>
+
+                  <span className="work-mode-tag">{t.services.mode1Tag}</span>
+                  <p className="work-mode-desc">
+                    {t.services.mode1Desc}
+                  </p>
                 </div>
 
-                <span className="work-mode-tag">{t.services.mode1Tag}</span>
-                <p className="work-mode-desc">
-                  {t.services.mode1Desc}
-                </p>
+                <div className="work-mode-bottom-block">
+                  <div className="work-mode-divider"></div>
 
-                <div className="work-mode-divider"></div>
-
-                <ul className="work-mode-checklist">
-                  {t.services.mode1Items.map((item) => (
-                    <li key={item}>
-                      <i className="fas fa-check check-icon"></i>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="work-mode-checklist">
+                    {t.services.mode1Items.map((item) => (
+                      <li key={item}>
+                        <i className="fas fa-check check-icon"></i>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               {/* Card 2: Estudios a Medida / Servicio Integral */}
               <div className="work-mode-card featured-mode-card">
-                <div className="work-mode-header-aligned">
-                  <div className="work-mode-icon-box">
-                    <i className="fas fa-diagram-project"></i>
+                <div className="work-mode-top-block">
+                  <div className="work-mode-header-aligned">
+                    <div className="work-mode-icon-box">
+                      <i className="fas fa-diagram-project"></i>
+                    </div>
+                    <h3 className="work-mode-title-aligned">{t.services.mode2Title}</h3>
                   </div>
-                  <h3 className="work-mode-title-aligned">{t.services.mode2Title}</h3>
+
+                  <span className="work-mode-tag terracotta-tag">{t.services.mode2Tag}</span>
+                  <p className="work-mode-desc">
+                    {t.services.mode2Desc}
+                  </p>
                 </div>
 
+                <div className="work-mode-bottom-block">
+                  <div className="work-mode-divider"></div>
 
-                <span className="work-mode-tag terracotta-tag">{t.services.mode2Tag}</span>
-                <p className="work-mode-desc">
-                  {t.services.mode2Desc}
-                </p>
-
-                <div className="work-mode-divider"></div>
-
-                <ul className="work-mode-checklist">
-                  {t.services.mode2Items.map((item) => (
-                    <li key={item}>
-                      <i className="fas fa-check check-icon"></i>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <ul className="work-mode-checklist">
+                    {t.services.mode2Items.map((item) => (
+                      <li key={item}>
+                        <i className="fas fa-check check-icon"></i>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
+
             </div>
 
             {/* Back to Home Button */}
