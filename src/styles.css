@@ -3352,9 +3352,12 @@ body .nav-link-btn.active {
 .guarani-motto {
   font-family: var(--font-serif);
   font-style: italic;
-  color: var(--terracotta-light) !important;
-  font-size: 1rem;
-  margin-top: 4px;
+  color: #FFDFC9 !important;
+  font-size: 1.38rem;
+  font-weight: 500;
+  letter-spacing: 0.035em;
+  margin-top: 8px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
