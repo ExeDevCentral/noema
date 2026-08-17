@@ -1,55 +1,61 @@
 import BrandLogo from './BrandLogo'
-import PyFlag from 'country-flag-icons/react/3x2/PY'
+import { PageType } from './Navbar'
 
-export default function Footer() {
+interface FooterProps {
+  onNavigate: (page: PageType) => void
+}
+
+export default function Footer({ onNavigate }: FooterProps) {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-grid">
-          <div className="footer-brand">
-            <BrandLogo light />
-            <p>
-              Consultoría de investigación de mercado comprometida con la generación de evidencia objetiva e insights
-              accionables para la toma de decisiones ejecutivas en Paraguay y la región.
+        <div className="footer-grid-minimal">
+          <div className="footer-brand-col">
+            <BrandLogo light onClick={() => onNavigate('inicio')} />
+            <p className="footer-tagline">
+              Cuantitativo · Cualitativo · Trabajo de campo
             </p>
           </div>
 
-          <div className="footer-col">
-            <h5>Navegación</h5>
-            <ul className="footer-links">
-              <li><a href="#nosotros">Quiénes Somos</a></li>
-              <li><a href="#servicios">Servicios</a></li>
-              <li><a href="#contacto">Contacto</a></li>
-            </ul>
-          </div>
+          <div className="footer-contact-col">
+            <h5 className="footer-col-title">Contacto Directo</h5>
+            
+            <div className="footer-contact-item">
+              <i className="fas fa-envelope footer-icon"></i>
+              <a href="mailto:contacto@noemaconsultora.com.py" className="footer-link">
+                contacto@noemaconsultora.com.py
+              </a>
+            </div>
 
-          <div className="footer-col">
-            <h5>Servicios</h5>
-            <ul className="footer-links">
-              <li><a href="#servicios">Servicio de Campo</a></li>
-              <li><a href="#servicios">Servicio Integral</a></li>
-              <li><a href="#servicios">Relevamiento en Paraguay</a></li>
-              <li><a href="#servicios">Diseño + Ejecución</a></li>
-            </ul>
-          </div>
+            <div className="footer-contact-item">
+              {/* WhatsApp icon in subtle terracotta/ivory instead of bright green */}
+              <i className="fab fa-whatsapp footer-icon wa-subtle-icon"></i>
+              <a 
+                href="https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="footer-link"
+              >
+                +595 972 536 004
+              </a>
+            </div>
 
-          <div className="footer-col">
-            <h5>Contacto</h5>
-            <p style={{ fontSize: '0.875rem', color: 'rgba(250, 248, 245, 0.75)', marginBottom: '0.75rem' }}>
-              <i className="fas fa-envelope" style={{ color: 'var(--terracotta-light)', marginRight: '0.5rem' }}></i> contacto@noemaconsultora.com.py
-            </p>
-            <p style={{ fontSize: '0.875rem', color: 'rgba(250, 248, 245, 0.75)' }}>
-              <PyFlag style={{ width: 28, height: 19, borderRadius: 3, marginRight: '0.5rem', verticalAlign: 'middle', boxShadow: '0 2px 6px rgba(0,0,0,0.4)' }} />
-              Asunción, Paraguay
-            </p>
+            <div className="footer-contact-item">
+              {/* Location Icon without the word Dirección */}
+              <i className="fas fa-location-dot footer-icon"></i>
+              <span className="footer-text">
+                Encarnación, Paraguay
+              </span>
+            </div>
           </div>
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; 2026 Noema Consultora. Todos los derechos reservados.</p>
-          <p>Investigación de Mercado &amp; Inteligencia Estratégica en Paraguay</p>
+          <p>&copy; {new Date().getFullYear()} NOEMA — Investigación y Estudios. Todos los derechos reservados.</p>
+          <p className="guarani-motto">Ñeakãngeta ha pyʼamongeta</p>
         </div>
       </div>
     </footer>
   )
 }
+

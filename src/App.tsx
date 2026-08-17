@@ -1,20 +1,37 @@
-import Navbar from './components/Navbar'
+import { useEffect, useState } from 'react'
+import Navbar, { PageType } from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Services from './components/Services'
-import Methodology from './components/Methodology'
-import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CraftedBar from './components/CraftedBar'
 import BackToTop from './components/BackToTop'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import { useRevealOnScroll } from './hooks/useRevealOnScroll'
-import { useSmoothScrollAndSpy } from './hooks/useSmoothScroll'
 
 export default function App() {
+  const [activePage, setActivePage] = useState<PageType>('inicio')
   useRevealOnScroll()
-  useSmoothScrollAndSpy()
+
+  // Sync state with URL hash on load & hashchange
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (['inicio', 'sobre-noema', 'servicios', 'contacto'].includes(hash)) {
+        setActivePage(hash as PageType)
+      }
+    }
+    handleHash()
+    window.addEventListener('hashchange', handleHash)
+    return () => window.removeEventListener('hashchange', handleHash)
+  }, [])
+
+  const navigateTo = (page: PageType) => {
+    setActivePage(page)
+    window.location.hash = `#${page}`
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <>
@@ -26,19 +43,21 @@ export default function App() {
           <span></span><span></span><span></span><span></span>
         </div>
       </div>
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Methodology />
-        <FAQ />
-        <Contact />
+
+      <Navbar activePage={activePage} setActivePage={navigateTo} />
+
+      <main className="main-content-view">
+        {activePage === 'inicio' && <Hero onNavigate={navigateTo} />}
+        {activePage === 'sobre-noema' && <About />}
+        {activePage === 'servicios' && <Services />}
+        {activePage === 'contacto' && <Contact />}
       </main>
-      <Footer />
+
+      <Footer onNavigate={navigateTo} />
       <CraftedBar />
       <BackToTop />
       <FloatingWhatsApp />
     </>
   )
 }
+

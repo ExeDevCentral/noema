@@ -1,67 +1,89 @@
-const values = [
-  { icon: 'fa-microscope', title: 'Rigor Científico', text: 'Metodologías validadas y muestras estadísticamente representativas.' },
-  { icon: 'fa-brain', title: 'Empatía y Psicología', text: 'Comprensión profunda de las motivaciones reales del consumidor.' },
-  { icon: 'fa-chart-pie', title: 'Lectura Ejecutiva', text: 'Entregables sintetizados directos para la toma de decisiones directivas.' },
-  { icon: 'fa-shield-halved', title: 'Confidencialidad', text: 'Máxima protección y profesionalismo en el manejo de información estratégica.' },
+import Methodology from './Methodology'
+
+const pillars = [
+  {
+    icon: 'fa-bullseye',
+    title: 'Investigación a medida',
+    text: 'Cada proyecto parte de una pregunta y se construye con la metodología más adecuada para responderla.',
+  },
+  {
+    icon: 'fa-diagram-project',
+    title: 'Del diseño al campo',
+    text: 'Podemos desarrollar un estudio de manera integral o participar en etapas específicas, según las necesidades de cada proyecto.',
+  },
+  {
+    icon: 'fa-clipboard-check',
+    title: 'Campo con experiencia',
+    text: 'Planificamos, coordinamos y ejecutamos trabajos de campo cuantitativos y cualitativos, con especial atención a la calidad del proceso.',
+  },
+  {
+    icon: 'fa-earth-americas',
+    title: 'Conocimiento del contexto',
+    text: 'Investigamos desde Paraguay, comprendiendo las particularidades de sus personas, mercados y realidades sociales.',
+  },
 ]
 
 export default function About() {
   return (
-    <section id="nosotros" className="section">
-      <div className="container">
-        <div className="about-grid">
-          <div className="about-image-stack">
-            <div className="about-image-main">
-              <img
-                src="/assets/images/about/carmen_capli.jpg"
-                alt="Noema Consultora de Investigación de Mercado en Asunción Paraguay"
-                width="900"
-                height="672"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div className="about-quote-box">
-              <p>"Investigar el mercado en Paraguay y la región no es acumular datos, es encontrar la verdad estratégica detrás de cada tendencia."</p>
-              <span>Noema — Consultora Estratégica</span>
-            </div>
+    <div className="page-view about-page-view">
+      {/* Hero Banner with Lapacho Amarillo Image */}
+      <section className="page-hero-banner hero-lapacho-amarillo">
+        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.jpg')" }}></div>
+        <div className="banner-overlay"></div>
+        <div className="container banner-container">
+          <span className="banner-tag">INFORMACIÓN INSTITUCIONAL</span>
+          <h1 className="banner-title">Sobre NOEMA</h1>
+          <p className="banner-subtitle">
+            Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay.
+          </p>
+        </div>
+      </section>
+
+      {/* Main Content Section */}
+      <section className="section about-main-section">
+        <div className="container">
+          <div className="about-text-content-card">
+            <h2 className="section-title text-center">
+              Investigación rigurosa para comprender personas, opiniones y comportamientos.
+            </h2>
+            <div className="about-divider-line"></div>
+            
+            <p className="lead-paragraph">
+              <strong>Noema</strong> es una consultora de <strong>Investigación y Estudios</strong> que diseña y desarrolla 
+              proyectos cuantitativos y cualitativos para obtener información confiable, relevante y útil.
+            </p>
+            <p className="body-paragraph">
+              Trabajamos en las distintas etapas de un estudio, desde el diseño metodológico y la elaboración de instrumentos 
+              hasta el trabajo de campo, procesamiento y análisis de la información. Desarrollamos estudios integrales 
+              y también acompañamos proyectos en etapas específicas, de acuerdo con las necesidades de cada cliente.
+            </p>
           </div>
 
-          <div className="about-content">
-            <span className="section-tag">Sobre Noema</span>
-            <h2 className="section-title">Claridad conceptual y evidencia objetiva para su empresa en Paraguay.</h2>
-            <p className="about-text">
-              <strong>Noema</strong> nace con la misión de brindar inteligencia de mercado de alto nivel directivo en Paraguay. Convertimos datos complejos en{' '}
-              <strong>respuestas claras, objetivas y accionables</strong>.
-            </p>
-            <p className="about-text">
-              Trabajamos junto a empresas líderes, marcas en expansión y organismos en Asunción, Ciudad del Este,
-              Encarnación y la región para validar decisiones de inversión, medir posicionamiento de marca y comprender
-              la evolución del consumidor paraguayo y regional.
-            </p>
-
-            <div className="values-grid">
-              {values.map((v) => (
-                <div className="value-card" key={v.icon}>
-                  <div className="value-icon">
-                    <i className={`fas ${v.icon}`}></i>
-                  </div>
-                  <h4>{v.title}</h4>
-                  <p>{v.text}</p>
-                </div>
-              ))}
+          {/* Cómo Trabajamos Section */}
+          <div className="how-we-work-section">
+            <div className="section-header text-center">
+              <span className="section-tag">Metodología &amp; Valores</span>
+              <h2 className="section-title">Cómo trabajamos</h2>
             </div>
 
-            <div className="work-gallery" aria-label="Evidencia de trabajo Noema">
-              {['trabajo-01', 'trabajo-02', 'trabajo-03'].map((img) => (
-                <div className="work-gallery-item" key={img}>
-                  <img src={`/assets/images/trabajos/${img}.webp`} alt="Trabajo de investigación Noema" loading="lazy" decoding="async" />
+            <div className="pillars-grid">
+              {pillars.map((pillar) => (
+                <div className="pillar-card" key={pillar.title}>
+                  <div className="pillar-icon">
+                    <i className={`fas ${pillar.icon}`}></i>
+                  </div>
+                  <h3>{pillar.title}</h3>
+                  <p>{pillar.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Embedded Timeline */}
+      <Methodology />
+    </div>
   )
 }
+

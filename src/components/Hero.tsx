@@ -1,23 +1,91 @@
-export default function Hero() {
+import { PageType } from './Navbar'
+
+interface HeroProps {
+  onNavigate: (page: PageType) => void
+}
+
+export default function Hero({ onNavigate }: HeroProps) {
   return (
-    <section id="inicio" className="hero">
+    <section id="inicio" className="hero-section">
       <div className="container">
-        <div className="hero-grid">
-          <div className="hero-content">
-            <div className="hero-badge">
-              <i className="fas fa-chart-line"></i> Consultoría Estratégica &amp; Investigación de Mercado en Paraguay
+        <div className="hero-card-glow">
+          <div className="hero-badge">
+            <span className="badge-flag"></span>
+            INVESTIGACIÓN Y ESTUDIOS EN PARAGUAY
+          </div>
+
+          <h1 className="hero-title">
+            Investigamos para comprender.
+          </h1>
+
+          <p className="hero-description">
+            Diseñamos y desarrollamos estudios cuantitativos y cualitativos para obtener información confiable y relevante.
+          </p>
+
+          <div className="hero-pills-row">
+            <span className="hero-pill"><i className="fas fa-chart-pie me-2"></i>Cuantitativo</span>
+            <span className="hero-pill-dot">•</span>
+            <span className="hero-pill"><i className="fas fa-comments me-2"></i>Cualitativo</span>
+            <span className="hero-pill-dot">•</span>
+            <span className="hero-pill"><i className="fas fa-location-dot me-2"></i>Trabajo de campo</span>
+          </div>
+
+          <div className="hero-actions">
+            <button 
+              type="button" 
+              className="btn-primary-custom"
+              onClick={() => onNavigate('servicios')}
+            >
+              Ver Servicios de Investigación <i className="fas fa-arrow-right ms-2"></i>
+            </button>
+            <button 
+              type="button" 
+              className="btn-secondary-custom"
+              onClick={() => onNavigate('sobre-noema')}
+            >
+              Conocer Sobre NOEMA <i className="fas fa-chevron-right ms-2"></i>
+            </button>
+          </div>
+        </div>
+
+        {/* Quick Nav Cards to 3 main sections with Lapacho Images */}
+        <div className="hero-nav-cards-grid">
+          <div 
+            className="hero-nav-card card-amarillo"
+            onClick={() => onNavigate('sobre-noema')}
+          >
+            <div className="card-bg-overlay"></div>
+            <div className="card-content">
+              <span className="card-tag">INFORMACIÓN INSTITUCIONAL</span>
+              <h3>Sobre NOEMA</h3>
+              <p>Nuestra metodología, filosofía de trabajo y visión desde Paraguay.</p>
+              <span className="card-link">Ver más <i className="fas fa-arrow-right ms-1"></i></span>
             </div>
-            <h1 className="hero-title">
-              Transformamos datos complejos en decisiones de alto impacto.
-            </h1>
-            <p className="hero-description">
-              En <strong>Noema</strong> combinamos rigor estadístico cuantitativo y análisis cualitativo profundo
-              para guiar el crecimiento de marcas en Paraguay y la región MERCOSUR.
-            </p>
-            <div className="hero-actions">
-              <a href="#contacto" className="btn-luxury btn-luxury-primary">
-                Solicitar Diagnóstico Estratégico <i className="fas fa-arrow-right"></i>
-              </a>
+          </div>
+
+          <div 
+            className="hero-nav-card card-blanco"
+            onClick={() => onNavigate('servicios')}
+          >
+            <div className="card-bg-overlay"></div>
+            <div className="card-content">
+              <span className="card-tag">SOLUCIONES A MEDIDA</span>
+              <h3>Servicios de Investigación</h3>
+              <p>Estudios cuantitativos, cualitativos y servicio especializado de campo.</p>
+              <span className="card-link">Ver servicios <i className="fas fa-arrow-right ms-1"></i></span>
+            </div>
+          </div>
+
+          <div 
+            className="hero-nav-card card-rosado"
+            onClick={() => onNavigate('contacto')}
+          >
+            <div className="card-bg-overlay"></div>
+            <div className="card-content">
+              <span className="card-tag">ATENCIÓN DIRECTA</span>
+              <h3>Contacto</h3>
+              <p>Escríbenos para conversar sobre tu proyecto o estudio en Paraguay.</p>
+              <span className="card-link">Contactar <i className="fas fa-arrow-right ms-1"></i></span>
             </div>
           </div>
         </div>
@@ -25,3 +93,4 @@ export default function Hero() {
     </section>
   )
 }
+

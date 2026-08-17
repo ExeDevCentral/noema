@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react'
 import BrandLogo from './BrandLogo'
 
-export default function Navbar() {
+export type PageType = 'inicio' | 'sobre-noema' | 'servicios' | 'contacto'
+
+interface NavbarProps {
+  activePage: PageType
+  setActivePage: (page: PageType) => void
+}
+
+export default function Navbar({ activePage, setActivePage }: NavbarProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
@@ -11,22 +18,44 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const closeMenu = () => setMenuOpen(false)
+  const handleNavClick = (page: PageType) => {
+    setActivePage(page)
+    setMenuOpen(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
 
   return (
     <header className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container nav-container">
-        <BrandLogo />
+        <BrandLogo onClick={() => handleNavClick('inicio')} />
 
         <nav className={`nav-menu${menuOpen ? ' active' : ''}`}>
-          <a href="#nosotros" className="nav-link" onClick={closeMenu}>Quiénes Somos</a>
-          <a href="#servicios" className="nav-link" onClick={closeMenu}>Servicios</a>
-          <a href="#contacto" className="nav-link" onClick={closeMenu}>Contacto</a>
+          <button 
+            type="button" 
+            className={`nav-link-btn${activePage === 'sobre-noema' ? ' active' : ''}`}
+            onClick={() => handleNavClick('sobre-noema')}
+          >
+            Sobre NOEMA
+          </button>
+          <button 
+            type="button" 
+            className={`nav-link-btn${activePage === 'servicios' ? ' active' : ''}`}
+            onClick={() => handleNavClick('servicios')}
+          >
+            Servicios de Investigación
+          </button>
+          <button 
+            type="button" 
+            className={`nav-link-btn${activePage === 'contacto' ? ' active' : ''}`}
+            onClick={() => handleNavClick('contacto')}
+          >
+            Contacto
+          </button>
         </nav>
 
         <div className="nav-actions">
           <a
-            href="https://wa.me/595981400800"
+            href="https://wa.me/595981400800?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-whatsapp"
@@ -49,3 +78,4 @@ export default function Navbar() {
     </header>
   )
 }
+
