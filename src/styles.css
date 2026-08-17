@@ -370,44 +370,48 @@ img {
 .brand-logo {
   display: flex;
   align-items: center;
-  gap: 0.95rem;
+  gap: 1.1rem;
   text-decoration: none;
 }
 
 .brand-official-symbol-img {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 46px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   transition: transform var(--transition-fast);
 }
 
 .brand-logo:hover .brand-official-symbol-img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .brand-text-block {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .brand-title {
   font-family: var(--font-sans);
-  font-size: 1.85rem;
+  font-size: 1.62rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.38em;
   color: #FFFFFF;
   line-height: 1;
+  text-transform: uppercase;
+  margin-right: -0.38em; /* balances trailing letter spacing */
 }
 
 .brand-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--terracotta-light);
+  letter-spacing: 0.14em;
+  color: #DCA087;
   text-transform: uppercase;
   margin-top: 5px;
+  line-height: 1.2;
 }
 
 /* Nav Links */
