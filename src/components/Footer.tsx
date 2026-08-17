@@ -28,6 +28,9 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
                 className="footer-guarani-quote" 
                 data-tooltip="Razonar y reflexionar con el corazón"
                 aria-label="Ñeʼẽkãnguéta ha pyʼamongueta — Traducción: Razonar y reflexionar con el corazón"
+                onClick={(e) => {
+                  e.currentTarget.blur()
+                }}
               >
                 <span>«Ñeʼẽkãnguéta ha pyʼamongueta»</span>
                 <span className="guarani-tooltip-bubble">
@@ -36,6 +39,7 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
                 </span>
               </button>
             </div>
+
           </div>
 
 
