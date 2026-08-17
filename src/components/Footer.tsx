@@ -23,20 +23,21 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
             
             {/* Enhanced Guarani Motto with Tooltip */}
             <div className="footer-guarani-wrapper">
-              <p 
+              <button 
+                type="button"
                 className="footer-guarani-quote" 
                 data-tooltip="Razonar y reflexionar con el corazón"
-                tabIndex={0}
                 aria-label="Ñeʼẽkãnguéta ha pyʼamongueta — Traducción: Razonar y reflexionar con el corazón"
               >
-                «Ñeʼẽkãnguéta ha pyʼamongueta»
+                <span>«Ñeʼẽkãnguéta ha pyʼamongueta»</span>
                 <span className="guarani-tooltip-bubble">
                   <i className="fas fa-heart" style={{ color: 'var(--terracotta-accent)', marginRight: '6px' }}></i>
-                  Razonar y reflexionar con el corazón
+                  {' '}Razonar y reflexionar con el corazón
                 </span>
-              </p>
+              </button>
             </div>
           </div>
+
 
           {/* Col 2: Navigation Links */}
           <div className="footer-col">
@@ -89,9 +90,13 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
               <li>
                 <span className="footer-contact-link non-clickable">
                   <i className="fas fa-location-dot"></i>
-                  <span>Encarnación, Paraguay <ParaguayFlag size="sm" style={{ marginLeft: '4px' }} /></span>
+                  <span className="footer-location-text">
+                    Encarnación, Paraguay
+                    <ParaguayFlag size="sm" style={{ display: 'inline-flex', marginLeft: '6px', verticalAlign: 'middle' }} />
+                  </span>
                 </span>
               </li>
+
             </ul>
           </div>
         </div>
