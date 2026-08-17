@@ -1,9 +1,9 @@
-# Robots.txt for Noema Consultora (Optimized for Google, Brave, Bing & major crawlers)
+# Robots.txt for NOEMA - Investigación y Estudios (https://www.noema.com.py)
 User-agent: *
 Allow: /
 Disallow: /api/
 
-# Explicit Bot rules for Search Engines
+# Search engine specific directives
 User-agent: Googlebot
 Allow: /
 
@@ -16,5 +16,5 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# Sitemap Location
-Sitemap: https://noemaconsultora.com.py/sitemap.xml
+# Sitemap index
+Sitemap: https://www.noema.com.py/sitemap.xml
