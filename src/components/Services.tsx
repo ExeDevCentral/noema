@@ -45,7 +45,7 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
               {/* Card 1: Para Agencias y Consultoras / Servicio de Campo */}
               <div className="work-mode-card">
                 <div className="work-mode-header-aligned">
-                  <div className="work-mode-icon-box white-icon-box">
+                  <div className="work-mode-icon-box">
                     <i className="fas fa-map-location-dot"></i>
                   </div>
                   <h3 className="work-mode-title-aligned">{t.services.mode1Title}</h3>
@@ -71,11 +71,12 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
               {/* Card 2: Estudios a Medida / Servicio Integral */}
               <div className="work-mode-card featured-mode-card">
                 <div className="work-mode-header-aligned">
-                  <div className="work-mode-icon-box white-icon-box">
+                  <div className="work-mode-icon-box">
                     <i className="fas fa-diagram-project"></i>
                   </div>
                   <h3 className="work-mode-title-aligned">{t.services.mode2Title}</h3>
                 </div>
+
 
                 <span className="work-mode-tag terracotta-tag">{t.services.mode2Tag}</span>
                 <p className="work-mode-desc">
