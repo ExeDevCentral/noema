@@ -370,7 +370,7 @@ img {
 .brand-logo {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.15rem;
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -381,18 +381,20 @@ img {
 }
 
 .brand-official-symbol-img {
-  width: 54px;
+  width: 68px;
   height: auto;
-  aspect-ratio: 900 / 588;
+  aspect-ratio: 2048 / 1337;
   object-fit: contain;
   filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.55));
-  transition: transform 0.3s ease;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .brand-logo:hover .brand-official-symbol-img {
-  transform: scale(1.08);
+  transform: scale(1.05) translateZ(0);
 }
 
 .brand-text-block {
@@ -404,7 +406,7 @@ img {
 
 .brand-title {
   font-family: var(--font-sans);
-  font-size: 1.75rem;
+  font-size: 1.85rem;
   font-weight: 800;
   letter-spacing: 0.36em;
   color: #FFFFFF;
@@ -416,7 +418,7 @@ img {
 
 .brand-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.70rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
   color: #FFFFFF;
@@ -429,11 +431,12 @@ img {
 .brand-flag-badge-container {
   display: inline-flex;
   align-items: center;
-  margin-left: 10px;
-  padding-left: 12px;
+  margin-left: 12px;
+  padding-left: 14px;
   border-left: 1px solid rgba(255, 255, 255, 0.28);
   flex-shrink: 0;
 }
+
 
 
 
