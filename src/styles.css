@@ -3884,26 +3884,43 @@ body {
 .footer-guarani-wrapper {
   position: relative;
   display: inline-block;
+  margin-top: 14px;
 }
 
 .footer-guarani-quote {
+  background: rgba(26, 42, 58, 0.85);
+  border: 1px solid rgba(220, 160, 135, 0.4);
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.18rem; /* 18-20px range */
-  color: #DCA087;
+  font-size: 1.08rem;
+  color: #FFFFFF;
   cursor: pointer;
-  transition: color var(--transition-fast), background var(--transition-fast);
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
-  border-radius: 6px;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-guarani-quote span:first-child {
+  color: #FFFFFF;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 }
 
 .footer-guarani-quote:hover {
-  color: #FFDFC9;
-  background: rgba(200, 138, 110, 0.15);
+  background: rgba(200, 138, 110, 0.24);
+  border-color: rgba(220, 160, 135, 0.75);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4), 0 0 16px rgba(200, 138, 110, 0.22);
 }
+
+.footer-guarani-quote:hover span:first-child {
+  color: #FFDFC9;
+}
+
 
 .guarani-tooltip-bubble {
   position: absolute;
