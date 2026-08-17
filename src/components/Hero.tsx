@@ -28,11 +28,14 @@ export default function Hero({ onNavigate }: HeroProps) {
               {/* Card 1: Sobre NOEMA */}
               <div 
                 className="hero-nav-card" 
-                style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.jpg')" }}
                 onClick={() => onNavigate && onNavigate('sobre-noema')}
                 role="button"
                 tabIndex={0}
               >
+                <div 
+                  className="hero-card-bg-img" 
+                  style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.jpg')" }}
+                ></div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
                   <span className="hero-card-tag">INFORMACIÓN INSTITUCIONAL</span>
@@ -45,11 +48,14 @@ export default function Hero({ onNavigate }: HeroProps) {
               {/* Card 2: Servicios de Investigación */}
               <div 
                 className="hero-nav-card" 
-                style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }}
                 onClick={() => onNavigate && onNavigate('servicios')}
                 role="button"
                 tabIndex={0}
               >
+                <div 
+                  className="hero-card-bg-img" 
+                  style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }}
+                ></div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
                   <span className="hero-card-tag">SOLUCIONES A MEDIDA</span>
@@ -62,11 +68,14 @@ export default function Hero({ onNavigate }: HeroProps) {
               {/* Card 3: Contacto */}
               <div 
                 className="hero-nav-card" 
-                style={{ backgroundImage: "url('/assets/images/heroes/lapacho_rosado.jpg')" }}
                 onClick={() => onNavigate && onNavigate('contacto')}
                 role="button"
                 tabIndex={0}
               >
+                <div 
+                  className="hero-card-bg-img" 
+                  style={{ backgroundImage: "url('/assets/images/heroes/lapacho_rosado.jpg')" }}
+                ></div>
                 <div className="hero-card-overlay"></div>
                 <div className="hero-card-content">
                   <span className="hero-card-tag">ATENCIÓN DIRECTA</span>
