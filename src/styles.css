@@ -3879,35 +3879,8 @@ body {
    LUXURY REDESIGN ENHANCEMENTS
    ========================================================================== */
 
-/* Return to home button */
-.btn-back-home {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(22, 35, 48, 0.75);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(200, 138, 110, 0.4);
-  color: #FAF8F5;
-  font-family: var(--font-sans);
-  font-size: 0.92rem;
-  font-weight: 600;
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  margin-bottom: 24px;
-  transition: all var(--transition-fast);
-}
-
-.btn-back-home:hover {
-  background: rgba(200, 138, 110, 0.25);
-  border-color: var(--terracotta-light);
-  color: #FFFFFF;
-  transform: translateX(-4px);
-  box-shadow: 0 4px 14px rgba(200, 138, 110, 0.2);
-}
-
 /* Guarani Motto & Tooltip in Footer */
+
 .footer-guarani-wrapper {
   position: relative;
   display: inline-block;
@@ -4045,11 +4018,57 @@ select.form-control option {
     padding: 28px 20px;
     border-radius: 18px;
   }
-  .contact-direct-pills {
-    flex-direction: column;
-    align-items: stretch;
-  }
   .contact-pill {
     justify-content: center;
   }
 }
+
+/* ==========================================================================
+   Volver al Inicio Buttons (Unified across all pages)
+   ========================================================================== */
+.page-back-home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+  width: 100%;
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(30, 48, 68, 0.78);
+  border: 1px solid rgba(200, 138, 110, 0.45);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.32);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-back-home i {
+  font-size: 0.9rem;
+  color: #FFFFFF;
+  transition: transform 0.2s ease;
+}
+
+.btn-back-home:hover {
+  background: rgba(200, 138, 110, 0.24);
+  border-color: rgba(220, 160, 135, 0.75);
+  color: #FFDFC9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42), 0 0 18px rgba(200, 138, 110, 0.22);
+}
+
+.btn-back-home:hover i {
+  color: #FFDFC9;
+  transform: translateX(-4px);
+}
+

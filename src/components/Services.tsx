@@ -106,8 +106,9 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
             </div>
 
             {/* Back to Home Button */}
-            <div className="page-back-home-wrapper" style={{ marginTop: '48px' }}>
+            <div className="page-back-home-wrapper">
               <button 
+
                 type="button" 
                 className="btn-back-home"
                 onClick={() => onNavigate?.('inicio')}

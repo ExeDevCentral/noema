@@ -191,8 +191,9 @@ export default function Contact({ onNavigate }: Readonly<ContactProps>) {
             </div>
 
             {/* Back to Home Button */}
-            <div className="page-back-home-wrapper" style={{ marginTop: '40px' }}>
+            <div className="page-back-home-wrapper">
               <button 
+
                 type="button" 
                 className="btn-back-home"
                 onClick={() => onNavigate?.('inicio')}

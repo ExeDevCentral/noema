@@ -83,20 +83,21 @@ export default function About({ onNavigate }: Readonly<AboutProps>) {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Back to Home Button */}
-            <div className="page-back-home-wrapper">
-              <button 
-                type="button" 
-                className="btn-back-home"
-                onClick={() => onNavigate?.('inicio')}
-              >
-                <i className="fas fa-arrow-left"></i> Volver al inicio
-              </button>
-            </div>
+          {/* Back to Home Button */}
+          <div className="page-back-home-wrapper">
+            <button 
+              type="button" 
+              className="btn-back-home"
+              onClick={() => onNavigate?.('inicio')}
+            >
+              <i className="fas fa-arrow-left"></i> Volver al inicio
+            </button>
           </div>
         </div>
       </section>
+
     </div>
   )
 }
