@@ -88,7 +88,7 @@
 |---|---|
 | Fase 1 — Repo & GitHub | ⬜ Pendiente |
 | Fase 2 — Dominio | ⬜ Pendiente |
-| Fase 3 — Email (ImprovMX + Resend) | ⬜ Pendiente |
+| Fase 3 — Email (ImprovMX + Resend) | 🟩 Configurado (API Keys + Backend + Templates) |
 | Fase 4 — SEO & Analítica | ⬜ Pendiente |
 | Fase 5 — Seguridad | ⬜ Pendiente |
 | Fase 6 — QA & Monitoreo | ⬜ Pendiente |

@@ -52,10 +52,10 @@ export default function MaintenancePage({ onBypass }: MaintenancePageProps) {
               </a>
 
               <a
-                href="mailto:contacto@noemaconsultora.com.py"
+                href="mailto:contacto@noema.com.py"
                 className="btn-email-maintenance"
               >
-                <i className="fas fa-envelope me-2"></i> contacto@noemaconsultora.com.py
+                <i className="fas fa-envelope me-2"></i> contacto@noema.com.py
               </a>
             </div>
           </div>

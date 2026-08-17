@@ -20,12 +20,12 @@ export default function Contact() {
 
   const contactLinks = [
     {
-      href: 'mailto:contacto@noemaconsultora.com.py',
+      href: 'mailto:contacto@noema.com.py',
       target: undefined as string | undefined,
       icon: 'fa-envelope',
       title: t.contact.emailLabel.replace(' *', ''),
-      text: 'contacto@noemaconsultora.com.py',
-      label: 'contacto@noemaconsultora.com.py',
+      text: 'contacto@noema.com.py',
+      label: 'contacto@noema.com.py',
     },
     {
       href: 'https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación',

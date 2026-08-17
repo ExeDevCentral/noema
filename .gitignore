@@ -28,3 +28,5 @@ yarn-error.log*
 .vercel
 *.log
 vite-dev.log
+
+.vercel

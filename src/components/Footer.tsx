@@ -26,8 +26,8 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
             
             <div className="footer-contact-item">
               <i className="fas fa-envelope footer-icon"></i>
-              <a href="mailto:contacto@noemaconsultora.com.py" className="footer-link">
-                contacto@noemaconsultora.com.py
+              <a href="mailto:contacto@noema.com.py" className="footer-link">
+                contacto@noema.com.py
               </a>
             </div>
 

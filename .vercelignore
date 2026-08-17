@@ -1,0 +1,8 @@
+# Vercel Ignore
+node_modules
+.git
+backup_v1
+backup_v2
+*.zip
+*.bak
+*.log
