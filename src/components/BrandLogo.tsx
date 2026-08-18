@@ -12,43 +12,68 @@ function FlyingBird({ delay, startX, startY }: Readonly<{ delay: number; startX:
   return (
     <motion.svg
       className="brand-flying-bird"
-      viewBox="0 0 24 16"
+      viewBox="0 0 32 20"
       style={{ left: `${startX}px`, top: `${startY}px` }}
-      initial={{ opacity: 0, x: 0, y: 0, scale: 0.5 }}
+      initial={{ opacity: 0, x: 0, y: 0, scale: 0.6 }}
       animate={{
-        opacity: [0, 1, 0.9, 0],
-        x: [0, 12, 26],
-        y: [0, -14, -28],
-        scale: [0.5, 0.8, 0.6],
+        opacity: [0, 1, 1, 0],
+        x: [0, 18, 38],
+        y: [0, -18, -36],
+        scale: [0.6, 1.1, 0.7],
       }}
       exit={{ opacity: 0 }}
       transition={{
-        duration: 1.3,
+        duration: 1.6,
         delay,
-        ease: [0.22, 1, 0.36, 1],
+        repeat: Infinity,
+        repeatDelay: 0.8,
+        ease: 'easeOut',
       }}
     >
       <motion.path
-        d="M2,10 Q7,3 12,8 Q17,3 22,10"
+        d="M2,12 Q9,2 16,9 Q23,2 30,12"
         fill="none"
         stroke="#FFDFC9"
-        strokeWidth="2"
+        strokeWidth="2.4"
         strokeLinecap="round"
         strokeLinejoin="round"
         animate={{
           d: [
-            'M2,10 Q7,3 12,8 Q17,3 22,10',
-            'M2,5 Q7,11 12,7 Q17,11 22,5',
-            'M2,10 Q7,3 12,8 Q17,3 22,10',
+            'M2,12 Q9,2 16,9 Q23,2 30,12',
+            'M2,5 Q9,15 16,9 Q23,15 30,5',
+            'M2,12 Q9,2 16,9 Q23,2 30,12',
           ],
         }}
         transition={{
-          duration: 0.3,
+          duration: 0.35,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
       />
     </motion.svg>
+  )
+}
+
+function FloatingLeaf({ delay, startX, startY }: Readonly<{ delay: number; startX: number; startY: number }>) {
+  return (
+    <motion.div
+      className="brand-floating-leaf"
+      style={{ left: `${startX}px`, top: `${startY}px` }}
+      initial={{ opacity: 0, x: 0, y: 0, rotate: 0 }}
+      animate={{
+        opacity: [0, 0.9, 0.8, 0],
+        x: [0, 22, 45],
+        y: [0, 12, 28],
+        rotate: [0, 90, 220],
+      }}
+      transition={{
+        duration: 2,
+        delay,
+        repeat: Infinity,
+        repeatDelay: 0.5,
+        ease: 'easeOut',
+      }}
+    />
   )
 }
 
@@ -67,19 +92,34 @@ export default function BrandLogo({ showFlag = true, onClick }: Readonly<BrandLo
         if (onClick) onClick()
       }}
     >
-      {/* Tree Symbol Wrapper with Wind Sway & Flying Birds */}
+      {/* Tree Symbol Wrapper with Wind Sway, Leaves & Birds */}
       <div className="brand-symbol-interactive-box">
+        {/* Wind Aura Ripple */}
+        <motion.div
+          className="brand-wind-aura"
+          animate={{
+            scale: isHovered ? [0.9, 1.35, 1] : 1,
+            opacity: isHovered ? [0.2, 0.7, 0] : 0,
+          }}
+          transition={{
+            duration: 1.6,
+            repeat: isHovered ? Infinity : 0,
+            ease: 'easeOut',
+          }}
+        />
+
+        {/* Tree Wind Flex Animation */}
         <motion.div
           className="brand-symbol-wind-sway"
           animate={{
-            rotate: isHovered ? [0, -3.5, 2.8, -1.8, 1, 0] : 0,
-            scale: isHovered ? 1.05 : 1,
+            rotate: isHovered ? [0, -6, 5, -3.5, 2, 0] : 0,
+            skewX: isHovered ? [0, -4.5, 3.8, -2.5, 1.2, 0] : 0,
+            scale: isHovered ? 1.08 : 1,
           }}
           transition={{
-            duration: 1.5,
+            duration: 1.8,
             ease: 'easeInOut',
             repeat: isHovered ? Infinity : 0,
-            repeatDelay: 0.3,
           }}
           style={{ transformOrigin: 'bottom center' }}
         >
@@ -92,13 +132,15 @@ export default function BrandLogo({ showFlag = true, onClick }: Readonly<BrandLo
           />
         </motion.div>
 
-        {/* Minimalist Birds Taking Flight from Trees on Hover */}
+        {/* Birds taking flight and leaves floating */}
         <AnimatePresence>
           {isHovered && (
             <>
-              <FlyingBird delay={0.05} startX={22} startY={6} />
-              <FlyingBird delay={0.25} startX={14} startY={10} />
-              <FlyingBird delay={0.45} startX={30} startY={8} />
+              <FlyingBird delay={0.05} startX={16} startY={-4} />
+              <FlyingBird delay={0.35} startX={6} startY={6} />
+              <FlyingBird delay={0.7} startX={26} startY={2} />
+              <FloatingLeaf delay={0.15} startX={12} startY={16} />
+              <FloatingLeaf delay={0.65} startX={24} startY={20} />
             </>
           )}
         </AnimatePresence>

@@ -1,7 +1,7 @@
 import { motion, type Variants } from 'framer-motion'
 import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
-import TiltCard from './TiltCard'
+import LapachoCard from './LapachoCard'
 
 interface HeroProps {
   onNavigate?: (page: PageType) => void
@@ -54,76 +54,40 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
             {t.hero.tagline}
           </motion.p>
 
-          {/* The 3 Lapacho Navigation Cards with 3D Physics Tilt */}
+          {/* The 3 Lapacho Navigation Cards with Wind Sway, Flying Birds & Drifting Petals */}
           <motion.div className="hero-nav-cards-grid" variants={itemVariants}>
-            {/* Card 1: Sobre NOEMA */}
-            <TiltCard
-              className="hero-nav-card"
+            {/* Card 1: Sobre NOEMA (Lapacho Amarillo) */}
+            <LapachoCard
+              cardTag={t.hero.card1Tag}
+              title={t.hero.card1Title}
+              description={t.hero.card1Desc}
+              linkText={t.hero.card1Link}
+              imageSrc="/assets/images/heroes/lapacho_amarillo.jpg"
+              petalColor="#FFD54F"
               onClick={() => onNavigate?.('sobre-noema')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') onNavigate?.('sobre-noema')
-              }}
-            >
-              <div
-                className="hero-card-bg-img"
-                style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.jpg')" }}
-              />
-              <div className="hero-card-overlay" />
-              <div className="hero-card-content">
-                <span className="hero-card-tag">{t.hero.card1Tag}</span>
-                <h3>{t.hero.card1Title}</h3>
-                <p>{t.hero.card1Desc}</p>
-                <span className="card-link">{t.hero.card1Link}</span>
-              </div>
-            </TiltCard>
+            />
 
-            {/* Card 2: Servicios de Investigación */}
-            <TiltCard
-              className="hero-nav-card"
+            {/* Card 2: Servicios (Lapacho Blanco) */}
+            <LapachoCard
+              cardTag={t.hero.card2Tag}
+              title={t.hero.card2Title}
+              description={t.hero.card2Desc}
+              linkText={t.hero.card2Link}
+              imageSrc="/assets/images/heroes/lapacho_blanco.jpg"
+              petalColor="#FFFFFF"
               onClick={() => onNavigate?.('servicios')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') onNavigate?.('servicios')
-              }}
-            >
-              <div
-                className="hero-card-bg-img"
-                style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }}
-              />
-              <div className="hero-card-overlay" />
-              <div className="hero-card-content">
-                <span className="hero-card-tag">{t.hero.card2Tag}</span>
-                <h3>{t.hero.card2Title}</h3>
-                <p>{t.hero.card2Desc}</p>
-                <span className="card-link">{t.hero.card2Link}</span>
-              </div>
-            </TiltCard>
+            />
 
-            {/* Card 3: Contacto */}
-            <TiltCard
-              className="hero-nav-card"
+            {/* Card 3: Contacto (Lapacho Rosado) */}
+            <LapachoCard
+              cardTag={t.hero.card3Tag}
+              title={t.hero.card3Title}
+              description={t.hero.card3Desc}
+              linkText={t.hero.card3Link}
+              imageSrc="/assets/images/heroes/lapacho_rosado.jpg"
+              petalColor="#F48FB1"
               onClick={() => onNavigate?.('contacto')}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') onNavigate?.('contacto')
-              }}
-            >
-              <div
-                className="hero-card-bg-img"
-                style={{ backgroundImage: "url('/assets/images/heroes/lapacho_rosado.jpg')" }}
-              />
-              <div className="hero-card-overlay" />
-              <div className="hero-card-content">
-                <span className="hero-card-tag">{t.hero.card3Tag}</span>
-                <h3>{t.hero.card3Title}</h3>
-                <p>{t.hero.card3Desc}</p>
-                <span className="card-link">{t.hero.card3Link}</span>
-              </div>
-            </TiltCard>
+            />
           </motion.div>
         </motion.div>
       </div>
