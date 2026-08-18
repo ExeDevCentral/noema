@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import ParaguayFlag from './ParaguayFlag'
 import BrandLogo from './BrandLogo'
 import { PageType } from './Navbar'
@@ -9,6 +11,7 @@ interface FooterProps {
 
 export default function Footer({ onNavigate }: Readonly<FooterProps>) {
   const { t } = useLanguage()
+  const [isGuaraniHovered, setIsGuaraniHovered] = useState(false)
 
   return (
     <footer className="footer">
@@ -21,23 +24,47 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
               {t.footer.description}
             </p>
             
-            {/* Enhanced Guarani Motto with Tooltip */}
+            {/* Minimalist Morphing Guarani Pill */}
             <div className="footer-guarani-wrapper">
-              <button 
+              <motion.button
+                layout
                 type="button"
-                className="footer-guarani-quote" 
-                data-tooltip="Razonar y reflexionar con el corazón"
+                className="footer-guarani-morph-pill"
                 aria-label="Ñeʼẽkãnguéta ha pyʼamongueta — Traducción: Razonar y reflexionar con el corazón"
-                onClick={(e) => {
-                  e.currentTarget.blur()
-                }}
+                onMouseEnter={() => setIsGuaraniHovered(true)}
+                onMouseLeave={() => setIsGuaraniHovered(false)}
+                onClick={() => setIsGuaraniHovered((prev) => !prev)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ layout: { duration: 0.28, ease: [0.16, 1, 0.3, 1] } }}
               >
-                <span>«Ñeʼẽkãnguéta ha pyʼamongueta»</span>
-                <span className="guarani-tooltip-bubble">
-                  <i className="fas fa-heart" style={{ color: 'var(--terracotta-accent)', marginRight: '6px' }}></i>
-                  {' '}Razonar y reflexionar con el corazón
-                </span>
-              </button>
+                <AnimatePresence mode="wait" initial={false}>
+                  {!isGuaraniHovered ? (
+                    <motion.span
+                      key="guarani"
+                      className="guarani-phrase-text"
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                    >
+                      «Ñeʼẽkãnguéta ha pyʼamongueta»
+                    </motion.span>
+                  ) : (
+                    <motion.span
+                      key="spanish"
+                      className="guarani-translation-text"
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                    >
+                      <i className="fas fa-heart text-terracotta" style={{ color: 'var(--terracotta)', marginRight: '7px' }} />
+                      Razonar y reflexionar con el corazón
+                    </motion.span>
+                  )}
+                </AnimatePresence>
+              </motion.button>
             </div>
 
           </div>
