@@ -13,7 +13,17 @@ interface LapachoCardProps {
 }
 
 // Drifting Lapacho Petal in the wind
-function DriftingPetal({ delay, startX, startY, color }: Readonly<{ delay: number; startX: number; startY: number; color: string }>) {
+function DriftingPetal({
+  delay,
+  startX,
+  startY,
+  color,
+}: Readonly<{
+  delay: number
+  startX: number
+  startY: number
+  color: string
+}>) {
   return (
     <motion.div
       className="lapacho-wind-petal"
@@ -23,20 +33,27 @@ function DriftingPetal({ delay, startX, startY, color }: Readonly<{ delay: numbe
         backgroundColor: color,
         boxShadow: `0 0 8px ${color}`,
       }}
-      initial={{ opacity: 0, x: 0, y: 0, rotate: 0 }}
+      initial={{
+        opacity: 0,
+        x: 0,
+        y: 0,
+        rotate: 0,
+        scale: 0.7,
+      }}
       animate={{
         opacity: [0, 0.9, 0.85, 0],
-        x: [0, 32, 70],
-        y: [0, 24, 52],
+        x: [0, 25, 55],
+        y: [0, 18, 42],
         rotate: [0, 140, 360],
+        scale: [0.7, 1, 0.8],
       }}
       exit={{ opacity: 0 }}
       transition={{
-        duration: 2.5,
+        duration: 2.8,
         delay,
         repeat: Infinity,
-        repeatDelay: 0.3,
-        ease: 'easeOut',
+        repeatDelay: 0.2,
+        ease: 'easeInOut',
       }}
     />
   )
@@ -73,10 +90,10 @@ export default function LapachoCard({
           className="hero-card-bg-img"
           style={{ backgroundImage: `url('${imageSrc}')` }}
           animate={{
-            scale: isHovered ? 1.04 : 1,
+            scale: isHovered ? 1.025 : 1,
           }}
           transition={{
-            duration: 0.6,
+            duration: 0.7,
             ease: [0.16, 1, 0.3, 1],
           }}
         />
@@ -84,13 +101,20 @@ export default function LapachoCard({
         {/* Drifting petals blown by wind from tree canopy on Hover */}
         <AnimatePresence>
           {isHovered && (
-            <div className="lapacho-effects-layer" aria-hidden="true">
+            <motion.div
+              className="lapacho-effects-layer"
+              aria-hidden="true"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+            >
               <DriftingPetal delay={0.05} startX={32} startY={22} color={petalColor} />
               <DriftingPetal delay={0.35} startX={48} startY={28} color={petalColor} />
               <DriftingPetal delay={0.65} startX={25} startY={35} color={petalColor} />
               <DriftingPetal delay={0.95} startX={56} startY={18} color={petalColor} />
               <DriftingPetal delay={1.25} startX={40} startY={32} color={petalColor} />
-            </div>
+            </motion.div>
           )}
         </AnimatePresence>
 

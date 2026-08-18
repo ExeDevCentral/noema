@@ -2863,26 +2863,28 @@ body .nav-link-btn.active {
   background-size: cover;
   background-position: center 28%;
   z-index: 1;
-  transform-origin: center bottom;
+  transform-origin: center center;
+  pointer-events: none;
+  will-change: transform;
 }
 
 /* Lapacho Interactive Wind Effects Layer */
 .lapacho-effects-layer {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  pointer-events: none;
+  z-index: 3;
   overflow: hidden;
+  pointer-events: none;
+  will-change: opacity;
 }
 
 .lapacho-wind-petal {
   position: absolute;
   width: 8px;
-  height: 6px;
-  border-radius: 50% 10% 50% 10%;
+  height: 8px;
+  border-radius: 50% 20% 50% 20%;
   pointer-events: none;
-  z-index: 3;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+  will-change: transform, opacity;
 }
 
 .hero-card-overlay {
