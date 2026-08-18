@@ -3866,11 +3866,11 @@ body {
 
 .footer-guarani-morph-pill {
   position: relative;
-  background: rgba(22, 35, 48, 0.85);
-  border: 1px solid rgba(220, 160, 135, 0.38);
-  padding: 8px 20px;
+  background: rgba(22, 35, 48, 0.88);
+  border: 1px solid rgba(220, 160, 135, 0.42);
+  padding: 9px 24px;
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   cursor: pointer;
@@ -3878,38 +3878,40 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
+  min-height: 46px;
   overflow: hidden;
   transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .footer-guarani-morph-pill:hover {
-  background: rgba(30, 48, 68, 0.95);
-  border-color: rgba(220, 160, 135, 0.75);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4), 0 0 16px rgba(200, 138, 110, 0.22);
+  background: rgba(30, 48, 68, 0.96);
+  border-color: rgba(220, 160, 135, 0.8);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 18px rgba(200, 138, 110, 0.25);
 }
 
 .guarani-phrase-text {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 1.18rem;
+  font-weight: 600;
   color: #FFFFFF;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.025em;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .guarani-translation-text {
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: 0.98rem;
   font-weight: 600;
   color: #FFDFC9;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 
