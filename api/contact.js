@@ -225,13 +225,26 @@ export default async function handler(req, res) {
   if (req.method === 'OPTIONS') return res.status(200).end();
   if (req.method !== 'POST') return res.status(405).json({ error: 'Método no permitido.' });
 
+  // Safe body extraction: protects against malformed JSON or empty string requests
+  let body = {};
   try {
-    const { nombre, empresa, email, telefono, servicio, mensaje } = req.body || {};
+    const rawBody = req.body;
+    if (typeof rawBody === 'string') {
+      body = JSON.parse(rawBody || '{}');
+    } else if (rawBody && typeof rawBody === 'object') {
+      body = rawBody;
+    }
+  } catch {
+    return res.status(400).json({ error: 'El cuerpo de la solicitud no contiene un formato JSON válido.' });
+  }
+
+  try {
+    const { nombre, empresa, email, telefono, servicio, mensaje } = body;
     if (!nombre || !email || !mensaje) {
       return res.status(400).json({ error: 'Por favor complete todos los campos obligatorios.' });
     }
 
-    const recipientEmail = process.env.NOTIFICATION_EMAIL || 'luisanacapli@gmail.com';
+    const recipientEmail = process.env.NOTIFICATION_EMAIL || 'apikeynoema@gmail.com';
     const senderEmail = process.env.SENDER_EMAIL || 'onboarding@resend.dev';
     const resendApiKey = process.env.RESEND_API_KEY;
     const serviceLabel = getServiceLabel(servicio);
