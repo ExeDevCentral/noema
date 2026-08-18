@@ -2653,9 +2653,6 @@ body .nav-link-btn.active {
   }
 }
 
-/* ==========================================================================
-   Page Hero Banners - Minimalista, Sintético, Limpio, Sobrio & Formal
-   ========================================================================== */
 .page-hero-banner {
   position: relative;
   height: 380px;
@@ -2663,60 +2660,24 @@ body .nav-link-btn.active {
   align-items: center;
   overflow: hidden;
   margin-top: 80px;
-  border-bottom: 1px solid rgba(243, 239, 234, 0.1);
   background-color: #162330;
-  isolation: isolate;
-}
-
-.page-hero-banner::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(22, 35, 48, 0.8) 50%, #162330 90%, #162330 100%);
-  z-index: 2;
-  pointer-events: none;
+  border-bottom: 1px solid rgba(220, 160, 135, 0.22);
 }
 
 .banner-bg-image {
   position: absolute;
-  top: -6%;
-  left: -6%;
-  width: 112%;
-  height: 112%;
+  inset: 0;
   background-size: cover;
   background-position: center;
-  animation: kenBurnsSlowZoom 28s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
-  will-change: transform;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  filter: brightness(1.05) contrast(1.02) saturate(1.05);
-}
-
-.hero-lapacho-amarillo .banner-bg-image {
-  animation-name: kenBurnsSlowZoom;
-  animation-duration: 28s;
-}
-
-.hero-lapacho-blanco .banner-bg-image {
-  animation-name: kenBurnsSlowPan;
-  animation-duration: 32s;
-}
-
-.hero-lapacho-rosado .banner-bg-image {
-  animation-name: kenBurnsSlowZoom;
-  animation-duration: 26s;
+  filter: brightness(0.92) contrast(1.02);
 }
 
 .banner-overlay {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 50% 40%, transparent 20%, rgba(20, 36, 52, 0.45) 65%, rgba(22, 35, 48, 0.95) 100%),
-    linear-gradient(180deg, rgba(20, 36, 52, 0.15) 0%, rgba(20, 36, 52, 0.4) 45%, rgba(22, 35, 48, 0.9) 75%, #162330 100%);
+    radial-gradient(ellipse at 50% 35%, rgba(22, 35, 48, 0.15) 0%, rgba(22, 35, 48, 0.55) 55%, #162330 100%),
+    linear-gradient(180deg, rgba(22, 35, 48, 0.25) 0%, rgba(22, 35, 48, 0.6) 55%, #162330 92%, #162330 100%);
   z-index: 1;
   pointer-events: none;
 }

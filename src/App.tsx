@@ -45,7 +45,7 @@ export default function App() {
   const navigateTo = (page: PageType) => {
     setActivePage(page)
     window.location.hash = `#${page}`
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo(0, 0)
   }
 
   if (showMaintenance) {
