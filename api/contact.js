@@ -166,28 +166,44 @@ async function dispatchResendEmails(resend, config, payload) {
   let adminResult = null;
   let clientResult = null;
 
-  try {
-    adminResult = await resend.emails.send({
-      from: senderEmail.includes('<') ? senderEmail : `Noema Consultora <${senderEmail}>`,
-      to: recipientEmail,
-      replyTo: email,
-      subject: `[Lead Web] Solicitud Diagnóstico: ${empresa || nombre} — Noema`,
-      html: notificationHtml,
-    });
-  } catch (error_) {
-    console.warn('Error al despachar notificación con Resend:', error_.message);
+  // Try primary sender first, fallback to onboarding@resend.dev if domain not yet verified in Resend
+  const fromAddresses = [
+    senderEmail.includes('<') ? senderEmail : `Noema Consultora <${senderEmail}>`,
+    'Noema Consultora <onboarding@resend.dev>'
+  ];
+
+  for (const from of fromAddresses) {
+    try {
+      adminResult = await resend.emails.send({
+        from,
+        to: recipientEmail,
+        replyTo: email,
+        subject: `[Lead Web] Solicitud Diagnóstico: ${empresa || nombre} — Noema`,
+        html: notificationHtml,
+      });
+
+      if (adminResult?.data?.id) {
+        console.log(`✅ Notificación admin enviada exitosamente con id: ${adminResult.data.id} desde ${from}`);
+        break;
+      }
+      if (adminResult?.error) {
+        console.warn(`Aviso Resend con remitente ${from}:`, adminResult.error);
+      }
+    } catch (err) {
+      console.warn(`Error al intentar enviar desde ${from}:`, err.message);
+    }
   }
 
+  // Attempt auto-response to client if possible
   try {
     clientResult = await resend.emails.send({
-      from: senderEmail.includes('<') ? senderEmail : `Noema Consultora <${senderEmail}>`,
+      from: fromAddresses[0],
       to: email,
       subject: `Confirmación de Solicitud de Diagnóstico — Noema Consultora`,
       html: autoResponseHtml,
     });
   } catch (error_) {
-    // En sandbox sin dominio verificado no se puede enviar a correos externos aún
-    console.warn('Nota: Confirmación al cliente requiere dominio verificado en resend.com/domains');
+    console.warn('Nota: Confirmación al cliente requiere dominio verificado en resend.com/domains:', error_?.message);
   }
 
   return { adminResult, clientResult };
@@ -208,7 +224,7 @@ export default async function handler(req, res) {
     }
 
     const recipientEmail = process.env.NOTIFICATION_EMAIL || 'luisanacapli@gmail.com';
-    const senderEmail = process.env.SENDER_EMAIL || 'Noema Consultora <contacto@noema.com.py>';
+    const senderEmail = process.env.SENDER_EMAIL || 'onboarding@resend.dev';
     const resendApiKey = process.env.RESEND_API_KEY;
     const serviceLabel = getServiceLabel(servicio);
 
@@ -231,15 +247,16 @@ export default async function handler(req, res) {
 
       return res.status(200).json({
         success: true,
-        message: 'Solicitud enviada y confirmación procesada correctamente con Resend.',
-        adminSent: !adminResult?.error,
-        clientConfirmationSent: !clientResult?.error
+        message: 'Solicitud enviada y procesada correctamente.',
+        emailDelivered: Boolean(adminResult?.data?.id),
+        adminResult: adminResult?.data || adminResult?.error,
+        clientResult: clientResult?.data || null
       });
     }
 
     return res.status(200).json({ success: true, message: 'Solicitud recibida correctamente.' });
   } catch (error) {
-    console.error('Error al procesar mensaje:', error);
-    return res.status(500).json({ error: 'Ocurrió un error interno al enviar el correo.' });
+    console.error('Error procesando formulario:', error);
+    return res.status(500).json({ error: 'Ocurrió un error interno al procesar el mensaje.' });
   }
 }
