@@ -35,17 +35,6 @@ export default function TiltCard({
   const rotateX = useTransform(smoothY, [-0.5, 0.5], [maxTilt, -maxTilt])
   const rotateY = useTransform(smoothX, [-0.5, 0.5], [-maxTilt, maxTilt])
 
-  // Dynamic light reflection position & opacity
-  const glareX = useTransform(smoothX, [-0.5, 0.5], ['0%', '100%'])
-  const glareY = useTransform(smoothY, [-0.5, 0.5], ['0%', '100%'])
-  const glareOpacity = useTransform(smoothX, (val) => (val === 0 ? 0 : 0.15))
-
-  const glareGradient = useTransform(
-    [glareX, glareY],
-    ([latestX, latestY]: string[]) =>
-      `radial-gradient(circle 320px at ${latestX} ${latestY}, rgba(255, 255, 255, 0.45), transparent 75%)`
-  )
-
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
     const rect = cardRef.current.getBoundingClientRect()
@@ -84,23 +73,6 @@ export default function TiltCard({
       transition={{ scale: { type: 'spring', stiffness: 400, damping: 25 } }}
     >
       {children}
-
-      {/* Dynamic Specular Glare Reflection */}
-      <motion.div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          pointerEvents: 'none',
-          zIndex: 4,
-          borderRadius: 'inherit',
-          opacity: glareOpacity,
-          background: glareGradient,
-        }}
-      />
     </motion.div>
   )
 }

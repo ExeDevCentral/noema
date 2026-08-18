@@ -2878,15 +2878,6 @@ body .nav-link-btn.active {
   overflow: hidden;
 }
 
-.lapacho-sky-bird {
-  position: absolute;
-  width: 26px;
-  height: 15px;
-  pointer-events: none;
-  z-index: 3;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
-}
-
 .lapacho-wind-petal {
   position: absolute;
   width: 8px;
@@ -2895,17 +2886,6 @@ body .nav-link-btn.active {
   pointer-events: none;
   z-index: 3;
   filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
-}
-
-.lapacho-sun-glare {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 65%;
-  background: radial-gradient(circle at 40% 20%, rgba(255, 245, 220, 0.5) 0%, rgba(255, 220, 180, 0.2) 40%, transparent 75%);
-  pointer-events: none;
-  z-index: 2;
 }
 
 .hero-card-overlay {

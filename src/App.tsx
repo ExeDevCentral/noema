@@ -66,13 +66,13 @@ export default function App() {
       <Navbar activePage={activePage} setActivePage={navigateTo} />
 
       <main className="main-content-view">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={activePage}
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.85 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.28, ease: 'easeInOut' }}
+            exit={{ opacity: 0.85 }}
+            transition={{ duration: 0.12, ease: 'easeOut' }}
           >
             {activePage === 'inicio' && <Hero onNavigate={navigateTo} />}
             {activePage === 'sobre-noema' && <About onNavigate={navigateTo} />}

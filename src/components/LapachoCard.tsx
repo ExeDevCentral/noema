@@ -82,16 +82,6 @@ export default function LapachoCard({
           }}
         />
 
-        {/* Ambient Sun & Wind Shimmer Glow on Tree Canopy */}
-        <motion.div
-          className="lapacho-sun-glare"
-          animate={{
-            opacity: isHovered ? 0.35 : 0,
-            scale: isHovered ? 1.15 : 1,
-          }}
-          transition={{ duration: 0.5 }}
-        />
-
         {/* Drifting petals blown by wind from tree canopy on Hover */}
         <AnimatePresence>
           {isHovered && (
