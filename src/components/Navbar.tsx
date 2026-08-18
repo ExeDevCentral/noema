@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react'
+import { motion } from 'framer-motion'
 import BrandLogo from './BrandLogo'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -8,6 +9,13 @@ interface NavbarProps {
   activePage: PageType
   setActivePage: (page: PageType) => void
 }
+
+const navItems: Array<{ key: PageType; labelKey: 'inicio' | 'sobreNoema' | 'servicios' | 'contacto' }> = [
+  { key: 'inicio', labelKey: 'inicio' },
+  { key: 'sobre-noema', labelKey: 'sobreNoema' },
+  { key: 'servicios', labelKey: 'servicios' },
+  { key: 'contacto', labelKey: 'contacto' },
+]
 
 export default function Navbar({ activePage, setActivePage }: Readonly<NavbarProps>) {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -70,34 +78,37 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
           className={`nav-menu${menuOpen ? ' active' : ''}`}
           aria-label="Navegación principal"
         >
-          <button 
-            type="button" 
-            className={`nav-link-btn${activePage === 'inicio' ? ' active' : ''}`}
-            onClick={() => handleNavClick('inicio')}
-          >
-            {t.nav.inicio}
-          </button>
-          <button 
-            type="button" 
-            className={`nav-link-btn${activePage === 'sobre-noema' ? ' active' : ''}`}
-            onClick={() => handleNavClick('sobre-noema')}
-          >
-            {t.nav.sobreNoema}
-          </button>
-          <button 
-            type="button" 
-            className={`nav-link-btn${activePage === 'servicios' ? ' active' : ''}`}
-            onClick={() => handleNavClick('servicios')}
-          >
-            {t.nav.servicios}
-          </button>
-          <button 
-            type="button" 
-            className={`nav-link-btn${activePage === 'contacto' ? ' active' : ''}`}
-            onClick={() => handleNavClick('contacto')}
-          >
-            {t.nav.contacto}
-          </button>
+          {navItems.map((item) => {
+            const isActive = activePage === item.key
+            return (
+              <button
+                key={item.key}
+                type="button"
+                className={`nav-link-btn${isActive ? ' active' : ''}`}
+                style={{ position: 'relative' }}
+                onClick={() => handleNavClick(item.key)}
+              >
+                {isActive && (
+                  <motion.span
+                    layoutId="active-nav-pill"
+                    className="nav-active-pill"
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      borderRadius: 9999,
+                      background: 'rgba(200, 138, 110, 0.22)',
+                      border: '1px solid rgba(232, 191, 172, 0.35)',
+                      zIndex: 0,
+                    }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span style={{ position: 'relative', zIndex: 1 }}>
+                  {t.nav[item.labelKey]}
+                </span>
+              </button>
+            )
+          })}
         </nav>
 
         <button
@@ -108,11 +119,12 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
           aria-label={menuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
           onClick={() => setMenuOpen((open) => !open)}
         >
-          <i className={menuOpen ? 'fas fa-xmark' : 'fas fa-bars'} aria-hidden="true"></i>
+          <i className={menuOpen ? 'fas fa-xmark' : 'fas fa-bars'} aria-hidden="true" />
         </button>
       </div>
     </header>
   )
 }
+
 
 

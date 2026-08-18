@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -12,8 +13,8 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
     <div className="page-view services-page-view">
       {/* Hero Banner with Lapacho Blanco Image */}
       <section className="page-hero-banner hero-lapacho-blanco">
-        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }}></div>
-        <div className="banner-overlay"></div>
+        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }} />
+        <div className="banner-overlay" />
         <div className="container banner-container">
           <h1 className="banner-title">{t.services.bannerTitle}</h1>
           <p className="banner-subtitle">
@@ -29,7 +30,7 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
             <h2 className="section-title text-center" style={{ whiteSpace: 'normal', maxWidth: '900px', margin: '0 auto 1.5rem auto' }}>
               {t.services.introTitle}
             </h2>
-            <div className="about-divider-line"></div>
+            <div className="about-divider-line" />
             
             <p className="lead-paragraph">
               {t.services.introLead}
@@ -43,11 +44,14 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
           <div className="work-modes-section">
             <div className="work-modes-grid">
               {/* Card 1: Para Agencias y Consultoras / Servicio de Campo */}
-              <div className="work-mode-card">
+              <motion.div
+                className="work-mode-card"
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              >
                 <div className="work-mode-top-block">
                   <div className="work-mode-header-aligned">
                     <div className="work-mode-icon-box">
-                      <i className="fas fa-map-location-dot"></i>
+                      <i className="fas fa-map-location-dot" />
                     </div>
                     <h3 className="work-mode-title-aligned">{t.services.mode1Title}</h3>
                   </div>
@@ -59,25 +63,28 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
                 </div>
 
                 <div className="work-mode-bottom-block">
-                  <div className="work-mode-divider"></div>
+                  <div className="work-mode-divider" />
 
                   <ul className="work-mode-checklist">
                     {t.services.mode1Items.map((item) => (
                       <li key={item}>
-                        <i className="fas fa-check check-icon"></i>
+                        <i className="fas fa-check check-icon" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Card 2: Estudios a Medida / Servicio Integral */}
-              <div className="work-mode-card">
+              <motion.div
+                className="work-mode-card"
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              >
                 <div className="work-mode-top-block">
                   <div className="work-mode-header-aligned">
                     <div className="work-mode-icon-box">
-                      <i className="fas fa-diagram-project"></i>
+                      <i className="fas fa-diagram-project" />
                     </div>
                     <h3 className="work-mode-title-aligned">{t.services.mode2Title}</h3>
                   </div>
@@ -89,32 +96,31 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
                 </div>
 
                 <div className="work-mode-bottom-block">
-                  <div className="work-mode-divider"></div>
+                  <div className="work-mode-divider" />
 
                   <ul className="work-mode-checklist">
                     {t.services.mode2Items.map((item) => (
                       <li key={item}>
-                        <i className="fas fa-check check-icon"></i>
+                        <i className="fas fa-check check-icon" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
-
-
+              </motion.div>
             </div>
 
             {/* Back to Home Button */}
             <div className="page-back-home-wrapper">
-              <button 
-
+              <motion.button 
                 type="button" 
                 className="btn-back-home"
                 onClick={() => onNavigate?.('inicio')}
+                whileHover={{ x: -4 }}
+                whileTap={{ scale: 0.98 }}
               >
-                <i className="fas fa-arrow-left"></i> Volver al inicio
-              </button>
+                <i className="fas fa-arrow-left" /> Volver al inicio
+              </motion.button>
             </div>
           </div>
         </div>
@@ -122,4 +128,5 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
     </div>
   )
 }
+
 

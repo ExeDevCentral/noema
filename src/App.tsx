@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import Navbar, { PageType } from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -54,23 +55,32 @@ export default function App() {
   return (
     <LanguageProvider>
       <div className="ambient-bg" aria-hidden="true">
-        <div className="ambient-glow"></div>
-        <div className="ambient-grain"></div>
+        <div className="ambient-glow" />
+        <div className="ambient-grain" />
         <div className="ambient-particles">
-          <span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span>
+          <span /><span /><span /><span />
+          <span /><span /><span /><span />
         </div>
       </div>
 
       <Navbar activePage={activePage} setActivePage={navigateTo} />
 
       <main className="main-content-view">
-        {activePage === 'inicio' && <Hero onNavigate={navigateTo} />}
-        {activePage === 'sobre-noema' && <About onNavigate={navigateTo} />}
-        {activePage === 'servicios' && <Services onNavigate={navigateTo} />}
-        {activePage === 'contacto' && <Contact onNavigate={navigateTo} />}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activePage}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+          >
+            {activePage === 'inicio' && <Hero onNavigate={navigateTo} />}
+            {activePage === 'sobre-noema' && <About onNavigate={navigateTo} />}
+            {activePage === 'servicios' && <Services onNavigate={navigateTo} />}
+            {activePage === 'contacto' && <Contact onNavigate={navigateTo} />}
+          </motion.div>
+        </AnimatePresence>
       </main>
-
 
       <Footer onNavigate={navigateTo} />
       <CraftedBar />
