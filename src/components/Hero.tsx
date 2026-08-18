@@ -1,4 +1,3 @@
-import { motion, type Variants } from 'framer-motion'
 import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
 import LapachoCard from './LapachoCard'
@@ -7,52 +6,24 @@ interface HeroProps {
   onNavigate?: (page: PageType) => void
 }
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.05,
-    },
-  },
-}
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  },
-}
-
 export default function Hero({ onNavigate }: Readonly<HeroProps>) {
   const { t } = useLanguage()
 
   return (
     <section id="inicio" className="hero-section hero-pure-statement">
       <div className="container">
-        <motion.div
-          className="hero-statement-wrapper"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1 className="hero-title-main" variants={itemVariants}>
+        <div className="hero-statement-wrapper">
+          <h1 className="hero-title-main">
             {t.hero.titleMain}
-          </motion.h1>
+          </h1>
 
-          <motion.p className="hero-description-main" variants={itemVariants}>
+          <p className="hero-description-main">
             {t.hero.descriptionMain}
-          </motion.p>
+          </p>
 
-          <motion.p className="hero-tagline-text" variants={itemVariants}>
+          <p className="hero-tagline-text">
             {t.hero.tagline}
-          </motion.p>
+          </p>
 
           {/* The 3 Lapacho Navigation Cards */}
           <div className="hero-nav-cards-grid">
@@ -89,7 +60,7 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               onClick={() => onNavigate?.('contacto')}
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
