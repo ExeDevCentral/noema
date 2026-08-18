@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
 import Navbar, { PageType } from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -66,20 +65,10 @@ export default function App() {
       <Navbar activePage={activePage} setActivePage={navigateTo} />
 
       <main className="main-content-view">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.div
-            key={activePage}
-            initial={{ opacity: 0.85 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0.85 }}
-            transition={{ duration: 0.12, ease: 'easeOut' }}
-          >
-            {activePage === 'inicio' && <Hero onNavigate={navigateTo} />}
-            {activePage === 'sobre-noema' && <About onNavigate={navigateTo} />}
-            {activePage === 'servicios' && <Services onNavigate={navigateTo} />}
-            {activePage === 'contacto' && <Contact onNavigate={navigateTo} />}
-          </motion.div>
-        </AnimatePresence>
+        {activePage === 'inicio' && <Hero onNavigate={navigateTo} />}
+        {activePage === 'sobre-noema' && <About onNavigate={navigateTo} />}
+        {activePage === 'servicios' && <Services onNavigate={navigateTo} />}
+        {activePage === 'contacto' && <Contact onNavigate={navigateTo} />}
       </main>
 
       <Footer onNavigate={navigateTo} />
