@@ -2686,8 +2686,8 @@ body .nav-link-btn.active {
   align-items: center;
   overflow: hidden;
   margin-top: 80px;
-  background-color: #223549;
-  border-bottom: 1px solid rgba(220, 160, 135, 0.18);
+  background-color: transparent;
+  border: none;
 }
 
 .banner-bg-image {
