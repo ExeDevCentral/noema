@@ -166,35 +166,44 @@ async function dispatchResendEmails(resend, config, payload) {
   let adminResult = null;
   let clientResult = null;
 
-  // Try primary sender first, fallback to onboarding@resend.dev if domain not yet verified in Resend
+  // Potential sender addresses
   const fromAddresses = [
     senderEmail.includes('<') ? senderEmail : `Noema Consultora <${senderEmail}>`,
     'Noema Consultora <onboarding@resend.dev>'
   ];
 
-  for (const from of fromAddresses) {
-    try {
-      adminResult = await resend.emails.send({
-        from,
-        to: recipientEmail,
-        replyTo: email,
-        subject: `[Lead Web] Solicitud Diagnóstico: ${empresa || nombre} — Noema`,
-        html: notificationHtml,
-      });
+  // Primary recipient + Sandbox verified fallback recipient
+  const recipients = [
+    recipientEmail,
+    'apikeynoema@gmail.com'
+  ];
 
-      if (adminResult?.data?.id) {
-        console.log(`✅ Notificación admin enviada exitosamente con id: ${adminResult.data.id} desde ${from}`);
-        break;
+  let delivered = false;
+
+  for (const recipient of recipients) {
+    if (delivered) break;
+    for (const from of fromAddresses) {
+      try {
+        adminResult = await resend.emails.send({
+          from,
+          to: recipient,
+          replyTo: email,
+          subject: `[Lead Web] Solicitud Diagnóstico: ${empresa || nombre} — Noema`,
+          html: notificationHtml,
+        });
+
+        if (adminResult?.data?.id) {
+          console.log(`✅ Notificación enviada con éxito id: ${adminResult.data.id} a ${recipient} desde ${from}`);
+          delivered = true;
+          break;
+        }
+      } catch (err) {
+        console.warn(`Intento a ${recipient} desde ${from} falló:`, err.message);
       }
-      if (adminResult?.error) {
-        console.warn(`Aviso Resend con remitente ${from}:`, adminResult.error);
-      }
-    } catch (err) {
-      console.warn(`Error al intentar enviar desde ${from}:`, err.message);
     }
   }
 
-  // Attempt auto-response to client if possible
+  // Attempt auto-response to client (works once domain is verified on Resend)
   try {
     clientResult = await resend.emails.send({
       from: fromAddresses[0],
@@ -202,12 +211,11 @@ async function dispatchResendEmails(resend, config, payload) {
       subject: `Confirmación de Solicitud de Diagnóstico — Noema Consultora`,
       html: autoResponseHtml,
     });
-  } catch (error_) {
-    console.warn('Nota: Confirmación al cliente requiere dominio verificado en resend.com/domains:', error_?.message);
-  }
+  } catch (_) {}
 
   return { adminResult, clientResult };
 }
+
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
