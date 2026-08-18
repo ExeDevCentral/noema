@@ -54,8 +54,8 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
             {t.hero.tagline}
           </motion.p>
 
-          {/* The 3 Lapacho Navigation Cards with Wind Sway, Flying Birds & Drifting Petals */}
-          <motion.div className="hero-nav-cards-grid" variants={itemVariants}>
+          {/* The 3 Lapacho Navigation Cards */}
+          <div className="hero-nav-cards-grid">
             {/* Card 1: Sobre NOEMA (Lapacho Amarillo) */}
             <LapachoCard
               cardTag={t.hero.card1Tag}
@@ -88,7 +88,7 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               petalColor="#F48FB1"
               onClick={() => onNavigate?.('contacto')}
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
