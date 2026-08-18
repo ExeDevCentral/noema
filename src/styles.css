@@ -395,10 +395,36 @@ img {
   text-decoration: none;
   cursor: pointer;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 .brand-logo:hover {
   transform: translateY(-2px);
+}
+
+.brand-symbol-interactive-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.brand-symbol-wind-sway {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform-origin: bottom center;
+}
+
+.brand-flying-bird {
+  position: absolute;
+  width: 15px;
+  height: 10px;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
 }
 
 .brand-official-symbol-img {
@@ -407,7 +433,7 @@ img {
   aspect-ratio: 600 / 540;
   object-fit: contain;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.55));
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: filter 0.3s ease;
   will-change: transform;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -416,7 +442,7 @@ img {
 }
 
 .brand-logo:hover .brand-official-symbol-img {
-  transform: scale(1.06) translateZ(0);
+  filter: drop-shadow(0 4px 14px rgba(220, 160, 135, 0.45));
 }
 
 .brand-text-block {
