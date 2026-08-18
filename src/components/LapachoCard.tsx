@@ -6,7 +6,7 @@ interface LapachoCardProps {
   cardTag: string
   title: string
   description: string
-  linkText: string
+  linkText?: string
   imageSrc: string
   petalColor: string
   onClick?: () => void
@@ -63,7 +63,6 @@ export default function LapachoCard({
   cardTag,
   title,
   description,
-  linkText,
   imageSrc,
   petalColor,
   onClick,
@@ -124,7 +123,6 @@ export default function LapachoCard({
           <span className="hero-card-tag">{cardTag}</span>
           <h3>{title}</h3>
           <p>{description}</p>
-          <span className="card-link">{linkText}</span>
         </div>
       </TiltCard>
     </div>

@@ -16,7 +16,6 @@ export default function About({ onNavigate }: Readonly<AboutProps>) {
         <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.jpg')" }} />
         <div className="banner-overlay" />
         <div className="container banner-container">
-          <span className="banner-tag">{t.about.bannerTag}</span>
           <h1 className="banner-title">{t.about.bannerTitle}</h1>
           <p className="banner-subtitle">
             {t.about.bannerSubtitle}

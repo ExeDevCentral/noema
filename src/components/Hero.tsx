@@ -32,7 +32,6 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               cardTag={t.hero.card1Tag}
               title={t.hero.card1Title}
               description={t.hero.card1Desc}
-              linkText={t.hero.card1Link}
               imageSrc="/assets/images/heroes/lapacho_amarillo.jpg"
               petalColor="#FFD54F"
               onClick={() => onNavigate?.('sobre-noema')}
@@ -43,7 +42,6 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               cardTag={t.hero.card2Tag}
               title={t.hero.card2Title}
               description={t.hero.card2Desc}
-              linkText={t.hero.card2Link}
               imageSrc="/assets/images/heroes/lapacho_blanco.jpg"
               petalColor="#FFFFFF"
               onClick={() => onNavigate?.('servicios')}
@@ -54,7 +52,6 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               cardTag={t.hero.card3Tag}
               title={t.hero.card3Title}
               description={t.hero.card3Desc}
-              linkText={t.hero.card3Link}
               imageSrc="/assets/images/heroes/lapacho_rosado.jpg"
               petalColor="#F48FB1"
               onClick={() => onNavigate?.('contacto')}

@@ -91,7 +91,7 @@ function buildNotificationHtml({ nombre, empresa, email, telefono, serviceLabel,
         </div>
 
         <div style="background-color: #1B2A38; padding: 14px 20px; text-align: center; color: rgba(250, 248, 245, 0.6); font-size: 11px;">
-          NOEMA · Encarnación, Paraguay · contacto@noema.com.py
+          NOEMA · Encarnación, Paraguay · carmen@noema.com.py
         </div>
       </div>
     </body>
@@ -137,7 +137,7 @@ function buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje }) {
           <div style="margin: 20px 0; padding: 14px 16px; background-color: #F8F5F0; border-radius: 6px; font-size: 13px; color: #1B2A38; border: 1px solid rgba(200,138,110,0.25);">
             <p style="margin: 0 0 8px 0; font-weight: 700; color: #1B2A38;">Canales de atención directa:</p>
             <p style="margin: 0 0 4px 0;">💬 <strong>WhatsApp:</strong> <a href="https://wa.me/595972536004" style="color: #C88A6E; text-decoration: none;">+595 972 536 004</a></p>
-            <p style="margin: 0 0 4px 0;">✉️ <strong>Correo:</strong> <a href="mailto:contacto@noema.com.py" style="color: #C88A6E; text-decoration: none;">contacto@noema.com.py</a></p>
+            <p style="margin: 0 0 4px 0;">✉️ <strong>Correo:</strong> <a href="mailto:carmen@noema.com.py" style="color: #C88A6E; text-decoration: none;">carmen@noema.com.py</a></p>
             <p style="margin: 0;">📍 <strong>Ubicación:</strong> Encarnación, Paraguay</p>
           </div>
 
@@ -149,7 +149,7 @@ function buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje }) {
         </div>
         <div style="background-color: #1B2A38; padding: 14px 20px; text-align: center; color: rgba(250, 248, 245, 0.6); font-size: 11px;">
           © ${new Date().getFullYear()} NOEMA · Todos los derechos reservados.<br/>
-          contacto@noema.com.py · +595 972 536 004
+          carmen@noema.com.py · +595 972 536 004
         </div>
       </div>
     </body>
@@ -159,9 +159,8 @@ function buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje }) {
 
 async function dispatchResendEmails(resend, config, payload) {
   const { senderEmail, recipientEmail } = config;
-  const { nombre, empresa, email, notificationHtml, autoResponseHtml } = payload;
+  const { nombre, empresa, email, notificationHtml } = payload;
   let adminResult = null;
-  let clientResult = null;
 
   // Potential sender addresses
   const fromAddresses = [
@@ -200,17 +199,7 @@ async function dispatchResendEmails(resend, config, payload) {
     }
   }
 
-  // Attempt auto-response to client (works once domain is verified on Resend)
-  try {
-    clientResult = await resend.emails.send({
-      from: fromAddresses[0],
-      to: email,
-      subject: `Confirmación de Solicitud de Diagnóstico — Noema Consultora`,
-      html: autoResponseHtml,
-    });
-  } catch (_) {}
-
-  return { adminResult, clientResult };
+  return { adminResult };
 }
 
 
@@ -255,12 +244,11 @@ export default async function handler(req, res) {
     if (resendApiKey) {
       const resend = new Resend(resendApiKey);
       const notificationHtml = buildNotificationHtml({ nombre, empresa, email, telefono, serviceLabel, mensaje, fechaEnvio });
-      const autoResponseHtml = buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje });
 
-      const { adminResult, clientResult } = await dispatchResendEmails(
+      const { adminResult } = await dispatchResendEmails(
         resend,
         { senderEmail, recipientEmail },
-        { nombre, empresa, email, serviceLabel, mensaje, notificationHtml, autoResponseHtml }
+        { nombre, empresa, email, serviceLabel, mensaje, notificationHtml }
       );
 
       return res.status(200).json({
@@ -268,7 +256,6 @@ export default async function handler(req, res) {
         message: 'Solicitud enviada y procesada correctamente.',
         emailDelivered: Boolean(adminResult?.data?.id),
         adminResult: adminResult?.data || adminResult?.error,
-        clientResult: clientResult?.data || null
       });
     }
 

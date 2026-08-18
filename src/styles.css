@@ -1906,37 +1906,40 @@ textarea.form-control {
 /* Mobile Nav: hamburger menu until tablet (1024px) */
 @media (max-width: 1024px) {
   .navbar {
-    background: rgba(16, 26, 37, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(200, 138, 110, 0.2);
+    background: #0e1722;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(200, 138, 110, 0.25);
   }
 
   .nav-menu {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
     height: 100dvh;
-    background: rgba(14, 23, 33, 0.98);
+    background: #0e1722;
+    background: linear-gradient(180deg, #111d2c 0%, #0a1118 100%);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1.2rem;
+    gap: 1.25rem;
     padding: 6rem 2rem 3rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    border-bottom: 1px solid rgba(200, 138, 110, 0.25);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+    border-bottom: none;
     overflow-y: auto;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-12px);
+    transform: translateY(-10px);
     pointer-events: none;
     transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
                 visibility 0.35s;
-    z-index: 999;
+    z-index: 1050;
   }
 
   .nav-menu.active {
@@ -1953,40 +1956,43 @@ textarea.form-control {
     width: 44px;
     height: 44px;
     background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(200, 138, 110, 0.35);
-    border-radius: 10px;
+    border: 1px solid rgba(200, 138, 110, 0.4);
+    border-radius: 12px;
     color: #FFFFFF;
     font-size: 1.25rem;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1100;
+    position: relative;
     transition: all 0.3s ease;
   }
 
   .nav-toggle:hover {
-    background: rgba(200, 138, 110, 0.2);
+    background: rgba(200, 138, 110, 0.25);
     border-color: var(--terracotta-light);
   }
 
   .nav-menu .nav-link-btn {
     width: 100%;
     max-width: 320px;
-    padding: 1.1rem 1.5rem;
-    font-size: 1.25rem;
+    padding: 1.15rem 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
     text-align: center;
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    color: #FAF8F5;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(220, 160, 135, 0.25);
+    border-radius: 14px;
     transition: all 0.25s ease;
+    letter-spacing: 0.02em;
   }
 
   .nav-menu .nav-link-btn:hover,
   .nav-menu .nav-link-btn.active {
     color: #FFDFC9;
-    background: rgba(200, 138, 110, 0.25);
+    background: rgba(200, 138, 110, 0.3);
     border-color: var(--terracotta-light);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   }
 
   .btn-whatsapp {
@@ -3807,41 +3813,20 @@ body {
   .nav-mobile-lang-wrapper {
     display: flex;
   }
-  .nav-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #FFFFFF;
+  .page-hero-banner {
+    min-height: 320px;
+    padding: 100px 0 44px 0;
+    margin-top: 56px;
   }
-  .nav-menu {
-    position: fixed;
-    top: 72px;
-    left: 0;
-    width: 100%;
-    background: rgba(22, 35, 48, 0.98);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    flex-direction: column;
-    padding: 2rem 1.5rem;
-    gap: 1.25rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transform: translateY(-120%);
-    opacity: 0;
-    pointer-events: none;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-    z-index: 999;
+  .banner-title {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin-bottom: 10px;
   }
-  .nav-menu.active {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .nav-link-btn {
-    font-size: 1.1rem;
-    color: #FFFFFF;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
+  .banner-subtitle {
+    font-size: 1rem;
+    line-height: 1.6;
+    padding: 0 12px;
   }
   .hero-nav-cards-grid {
     grid-template-columns: 1fr;
@@ -3955,14 +3940,26 @@ body {
 }
 
 .guarani-translation-text {
-  font-family: var(--font-sans);
-  font-size: 0.98rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.18rem;
   font-weight: 600;
   color: #FFDFC9;
-  letter-spacing: 0.015em;
+  letter-spacing: 0.025em;
   white-space: nowrap;
   display: inline-flex;
   align-items: center;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.guarani-motto {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--terracotta-light);
+  letter-spacing: 0.025em;
+  margin-top: 8px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 

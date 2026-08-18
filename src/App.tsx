@@ -8,23 +8,11 @@ import Footer from './components/Footer'
 import CraftedBar from './components/CraftedBar'
 import BackToTop from './components/BackToTop'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
-import MaintenancePage from './components/MaintenancePage'
 import { LanguageProvider } from './context/LanguageContext'
 import { useRevealOnScroll } from './hooks/useRevealOnScroll'
 
 export default function App() {
   const [activePage, setActivePage] = useState<PageType>('inicio')
-  const [showMaintenance, setShowMaintenance] = useState(() => {
-    // In local development, always show full website
-    if (import.meta.env.DEV) return false
-    // In production, check if ?preview=true is in URL or #preview
-    const params = new URLSearchParams(window.location.search)
-    if (params.get('preview') === 'true' || window.location.hash === '#preview') {
-      return false
-    }
-    // Default to true in production
-    return true
-  })
 
   useRevealOnScroll()
 
@@ -45,10 +33,6 @@ export default function App() {
     setActivePage(page)
     window.location.hash = `#${page}`
     window.scrollTo(0, 0)
-  }
-
-  if (showMaintenance) {
-    return <MaintenancePage onBypass={() => setShowMaintenance(false)} />
   }
 
   return (

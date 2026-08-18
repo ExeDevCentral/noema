@@ -60,7 +60,7 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
                       transition={{ duration: 0.18, ease: 'easeOut' }}
                     >
                       <i className="fas fa-heart text-terracotta" style={{ color: 'var(--terracotta)', marginRight: '7px' }} />
-                      Razonar y reflexionar con el corazón
+                      <span>Razonar y reflexionar con el corazón</span>
                     </motion.span>
                   )}
                 </AnimatePresence>
@@ -102,9 +102,9 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
             <h4 className="footer-col-title">{t.footer.contactTitle}</h4>
             <ul className="footer-contact-list">
               <li>
-                <a href="mailto:contacto@noema.com.py" className="footer-contact-link">
+                <a href="mailto:carmen@noema.com.py" className="footer-contact-link">
                   <i className="fas fa-envelope"></i>
-                  <span>contacto@noema.com.py</span>
+                  <span>carmen@noema.com.py</span>
                 </a>
               </li>
               <li>
@@ -117,6 +117,12 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
                   <i className="fa-brands fa-whatsapp"></i>
                   <span>+595 972 536 004</span>
                 </a>
+              </li>
+              <li>
+                <span className="footer-contact-link non-clickable">
+                  <i className="fas fa-clock"></i>
+                  <span>{t.contact.scheduleText}</span>
+                </span>
               </li>
               <li>
                 <span className="footer-contact-link non-clickable">

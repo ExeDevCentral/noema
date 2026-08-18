@@ -1,6 +1,5 @@
 import { FormEvent, useState } from 'react'
 import { PageType } from './Navbar'
-import ParaguayFlag from './ParaguayFlag'
 import { useLanguage } from '../context/LanguageContext'
 
 const initialForm = {
@@ -177,19 +176,6 @@ export default function Contact({ onNavigate }: Readonly<ContactProps>) {
                   </button>
                 </div>
               </form>
-
-              {/* Direct Info Pills */}
-              <div className="contact-direct-pills">
-                <a href="mailto:contacto@noema.com.py" className="contact-pill">
-                  <i className="fas fa-envelope"></i> contacto@noema.com.py
-                </a>
-                <span className="contact-pill">
-                  <i className="fas fa-clock"></i> Lunes a Viernes 08:00 - 17:00 hs
-                </span>
-                <span className="contact-pill">
-                  <i className="fas fa-location-dot"></i> Encarnación, Paraguay <ParaguayFlag size="sm" style={{ marginLeft: '4px' }} />
-                </span>
-              </div>
             </div>
 
             {/* Back to Home Button */}
