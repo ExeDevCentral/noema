@@ -73,12 +73,11 @@ export default function LapachoCard({
           className="hero-card-bg-img"
           style={{ backgroundImage: `url('${imageSrc}')` }}
           animate={{
-            scale: isHovered ? 1.08 : 1,
-            x: isHovered ? [0, 3, -3, 2, 0] : 0,
+            scale: isHovered ? 1.04 : 1,
           }}
           transition={{
-            scale: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-            x: { duration: 3, repeat: isHovered ? Infinity : 0, ease: 'easeInOut' },
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
           }}
         />
 

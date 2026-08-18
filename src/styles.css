@@ -2681,21 +2681,21 @@ body .nav-link-btn.active {
 
 .page-hero-banner {
   position: relative;
-  height: 380px;
+  min-height: 480px;
+  padding: 80px 0 60px 0;
   display: flex;
   align-items: center;
   overflow: hidden;
   margin-top: 80px;
-  background-color: transparent;
+  background-color: #223549;
   border: none;
 }
 
 .banner-bg-image {
   position: absolute;
-  top: -8%;
-  left: -8%;
-  width: 116%;
-  height: 116%;
+  inset: -12px;
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
   background-size: cover;
   background-position: center 30%;
   filter: brightness(0.92) contrast(1.02);
@@ -2752,7 +2752,6 @@ body .nav-link-btn.active {
 }
 
 .banner-subtitle {
-  font-size: 1.22rem;
   color: #FFFFFF;
   max-width: 700px;
   margin: 0 auto;
