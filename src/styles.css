@@ -3389,7 +3389,7 @@ body .nav-link-btn.active {
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   background-size: cover;
   background-position: center;
-  background-image: url('/assets/images/analytics/analytics_insights.jpg');
+  background-image: url('/assets/images/analytics_insights.jpg');
 }
 
 .research-topic-card .topic-card-bg {

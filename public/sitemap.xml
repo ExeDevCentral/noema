@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.noema.com.py/</loc>
-    <lastmod>2026-08-17</lastmod>
+    <lastmod>2026-08-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.noema.com.py/assets/images/logo_brand_official.png</image:loc>
+      <image:title>NOEMA — Investigación y Estudios · Logo Oficial</image:title>
+      <image:caption>Logo oficial de NOEMA - Consultora de Investigación y Estudios en Paraguay</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.noema.com.py/assets/images/logo_schema_official.png</image:loc>
+      <image:title>NOEMA — Logo Institucional</image:title>
+      <image:caption>Identidad visual de NOEMA</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.noema.com.py/og-image.jpg</image:loc>
+      <image:title>NOEMA — Investigación y Estudios · Paraguay</image:title>
+      <image:caption>Consultora de Investigación y Estudios en Paraguay</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.noema.com.py/#inicio</loc>
