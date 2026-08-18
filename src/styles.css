@@ -2686,8 +2686,8 @@ body .nav-link-btn.active {
   align-items: center;
   overflow: hidden;
   margin-top: 80px;
-  background-color: #162330;
-  border-bottom: 1px solid rgba(220, 160, 135, 0.22);
+  background-color: #223549;
+  border-bottom: 1px solid rgba(220, 160, 135, 0.18);
 }
 
 .banner-bg-image {
@@ -2710,8 +2710,8 @@ body .nav-link-btn.active {
   position: absolute;
   inset: 0;
   background: 
-    radial-gradient(ellipse at 50% 35%, rgba(22, 35, 48, 0.15) 0%, rgba(22, 35, 48, 0.55) 55%, #162330 100%),
-    linear-gradient(180deg, rgba(22, 35, 48, 0.25) 0%, rgba(22, 35, 48, 0.6) 55%, #162330 92%, #162330 100%);
+    radial-gradient(ellipse at 50% 35%, rgba(34, 53, 73, 0.15) 0%, rgba(34, 53, 73, 0.52) 55%, #223549 100%),
+    linear-gradient(180deg, rgba(34, 53, 73, 0.2) 0%, rgba(34, 53, 73, 0.55) 50%, #223549 100%);
   z-index: 1;
   pointer-events: none;
 }

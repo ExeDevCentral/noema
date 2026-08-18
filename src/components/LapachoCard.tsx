@@ -12,53 +12,6 @@ interface LapachoCardProps {
   onClick?: () => void
 }
 
-// Minimalist Bird silhouette that flies across the tree sky
-function SkyBird({ delay, startX, startY }: Readonly<{ delay: number; startX: number; startY: number }>) {
-  return (
-    <motion.svg
-      className="lapacho-sky-bird"
-      viewBox="0 0 28 16"
-      style={{ left: `${startX}%`, top: `${startY}%` }}
-      initial={{ opacity: 0, x: 0, y: 0, scale: 0.5 }}
-      animate={{
-        opacity: [0, 0.95, 0.9, 0],
-        x: [0, 35, 75],
-        y: [0, -22, -48],
-        scale: [0.5, 0.85, 0.65],
-      }}
-      exit={{ opacity: 0 }}
-      transition={{
-        duration: 2.2,
-        delay,
-        repeat: Infinity,
-        repeatDelay: 0.6,
-        ease: 'easeOut',
-      }}
-    >
-      <motion.path
-        d="M2,11 Q8,2 14,8 Q20,2 26,11"
-        fill="none"
-        stroke="rgba(255, 255, 255, 0.95)"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        animate={{
-          d: [
-            'M2,11 Q8,2 14,8 Q20,2 26,11',
-            'M2,5 Q8,14 14,8 Q20,14 26,5',
-            'M2,11 Q8,2 14,8 Q20,2 26,11',
-          ],
-        }}
-        transition={{
-          duration: 0.32,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}
-      />
-    </motion.svg>
-  )
-}
-
 // Drifting Lapacho Petal in the wind
 function DriftingPetal({ delay, startX, startY, color }: Readonly<{ delay: number; startX: number; startY: number; color: string }>) {
   return (
@@ -68,21 +21,21 @@ function DriftingPetal({ delay, startX, startY, color }: Readonly<{ delay: numbe
         left: `${startX}%`,
         top: `${startY}%`,
         backgroundColor: color,
-        boxShadow: `0 0 6px ${color}`,
+        boxShadow: `0 0 8px ${color}`,
       }}
       initial={{ opacity: 0, x: 0, y: 0, rotate: 0 }}
       animate={{
-        opacity: [0, 0.85, 0.8, 0],
-        x: [0, 30, 65],
-        y: [0, 25, 55],
+        opacity: [0, 0.9, 0.85, 0],
+        x: [0, 32, 70],
+        y: [0, 24, 52],
         rotate: [0, 140, 360],
       }}
       exit={{ opacity: 0 }}
       transition={{
-        duration: 2.6,
+        duration: 2.5,
         delay,
         repeat: Infinity,
-        repeatDelay: 0.4,
+        repeatDelay: 0.3,
         ease: 'easeOut',
       }}
     />
@@ -139,19 +92,15 @@ export default function LapachoCard({
           transition={{ duration: 0.5 }}
         />
 
-        {/* Birds flying across tree canopy on Hover */}
+        {/* Drifting petals blown by wind from tree canopy on Hover */}
         <AnimatePresence>
           {isHovered && (
             <div className="lapacho-effects-layer" aria-hidden="true">
-              <SkyBird delay={0.05} startX={18} startY={28} />
-              <SkyBird delay={0.35} startX={8} startY={36} />
-              <SkyBird delay={0.7} startX={25} startY={22} />
-
-              {/* Drifting petals blown by wind from tree canopy */}
-              <DriftingPetal delay={0.1} startX={35} startY={25} color={petalColor} />
-              <DriftingPetal delay={0.4} startX={48} startY={30} color={petalColor} />
-              <DriftingPetal delay={0.8} startX={28} startY={38} color={petalColor} />
-              <DriftingPetal delay={1.1} startX={55} startY={20} color={petalColor} />
+              <DriftingPetal delay={0.05} startX={32} startY={22} color={petalColor} />
+              <DriftingPetal delay={0.35} startX={48} startY={28} color={petalColor} />
+              <DriftingPetal delay={0.65} startX={25} startY={35} color={petalColor} />
+              <DriftingPetal delay={0.95} startX={56} startY={18} color={petalColor} />
+              <DriftingPetal delay={1.25} startX={40} startY={32} color={petalColor} />
             </div>
           )}
         </AnimatePresence>
