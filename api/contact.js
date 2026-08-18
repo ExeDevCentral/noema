@@ -17,10 +17,10 @@ function escapeHtml(str) {
 
 function getServiceLabel(serviceKey) {
   const serviceLabels = {
-    campo: 'Servicio de Campo (Relevamiento y Auditoría en Paraguay)',
-    integral: 'Servicio Integral (Diseño Metodológico + Ejecución completa)',
-    opinion: 'Estudio de Opinión Pública y Clima Social',
-    otro: 'Consulta Personalizada / Diagnóstico Especial'
+    campo: 'Servicio de Campo',
+    integral: 'Servicio Integral de Investigación',
+    opinion: 'Estudio de Opinión Pública / Social',
+    otro: 'Otro tipo de relevamiento'
   };
   return serviceLabels[serviceKey] || escapeHtml(serviceKey) || 'Consulta General';
 }
@@ -40,61 +40,58 @@ function buildNotificationHtml({ nombre, empresa, email, telefono, serviceLabel,
     <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>Nuevo Lead - Noema</title>
+      <title>Nueva Consulta - NOEMA</title>
     </head>
-    <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #FAF8F5; color: #1B2A38; margin:0; padding: 24px;">
-      <div style="max-width: 620px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #E8BFAC; box-shadow: 0 4px 20px rgba(27,42,56,0.06);">
-        <div style="background-color: #1B2A38; padding: 28px 24px; text-align: center; border-bottom: 3px solid #C88A6E;">
-          <h1 style="color: #FAF8F5; margin: 0; font-size: 26px; letter-spacing: 4px; font-weight: 700;">N O E M A</h1>
-          <p style="color: #C88A6E; margin: 6px 0 0 0; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Consultora de Investigación de Mercado & Opinión Pública</p>
+    <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #FAF8F5; color: #1B2A38; margin:0; padding: 20px;">
+      <div style="max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 10px; overflow: hidden; border: 1px solid #E8BFAC; box-shadow: 0 4px 16px rgba(27,42,56,0.06);">
+        <div style="background-color: #1B2A38; padding: 24px 20px; text-align: center; border-bottom: 3px solid #C88A6E;">
+          <h1 style="color: #FAF8F5; margin: 0; font-size: 24px; letter-spacing: 4px; font-weight: 700;">N O E M A</h1>
+          <p style="color: #C88A6E; margin: 6px 0 0 0; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Investigación de Mercado & Opinión Pública</p>
         </div>
-        <div style="padding: 32px 28px;">
-          <div style="display: inline-block; background-color: rgba(200,138,110,0.15); color: #C88A6E; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">
-            Nuevo Contacto Web
-          </div>
-          <h2 style="color: #1B2A38; margin: 0 0 8px 0; font-size: 20px;">Solicitud de Diagnóstico Recibida</h2>
-          <p style="color: #6c757d; font-size: 13px; margin: 0 0 24px 0;">Recibido el ${safeFechaEnvio} (Hora Asunción, PY)</p>
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+        <div style="padding: 28px 24px;">
+          <h2 style="color: #1B2A38; margin: 0 0 4px 0; font-size: 18px; font-weight: 700;">Nueva Consulta desde la Web</h2>
+          <p style="color: #718096; font-size: 12px; margin: 0 0 20px 0;">Recibido el ${safeFechaEnvio}</p>
+
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 14px;">
             <tbody>
               <tr style="border-bottom: 1px solid #FAF8F5;">
-                <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; width: 35%; font-size: 14px;">Nombre completo:</td>
-                <td style="padding: 10px 0; color: #333333; font-size: 14px;">${safeNombre}</td>
+                <td style="padding: 8px 0; font-weight: 700; color: #1B2A38; width: 35%;">Nombre:</td>
+                <td style="padding: 8px 0; color: #2D3748;">${safeNombre}</td>
               </tr>
               <tr style="border-bottom: 1px solid #FAF8F5;">
-                <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Empresa / Organización:</td>
-                <td style="padding: 10px 0; color: #333333; font-size: 14px;">${safeEmpresa || 'No especificada'}</td>
+                <td style="padding: 8px 0; font-weight: 700; color: #1B2A38;">Organización:</td>
+                <td style="padding: 8px 0; color: #2D3748;">${safeEmpresa || 'No especificada'}</td>
               </tr>
               <tr style="border-bottom: 1px solid #FAF8F5;">
-                <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Correo electrónico:</td>
-                <td style="padding: 10px 0; font-size: 14px;"><a href="mailto:${safeEmail}" style="color: #C88A6E; text-decoration: none; font-weight: 600;">${safeEmail}</a></td>
+                <td style="padding: 8px 0; font-weight: 700; color: #1B2A38;">Correo:</td>
+                <td style="padding: 8px 0;"><a href="mailto:${safeEmail}" style="color: #C88A6E; text-decoration: none; font-weight: 600;">${safeEmail}</a></td>
               </tr>
               <tr style="border-bottom: 1px solid #FAF8F5;">
-                <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Teléfono / WhatsApp:</td>
-                <td style="padding: 10px 0; color: #333333; font-size: 14px;">
-                  ${safeTelefono ? `<a href="tel:${safeTelefono}" style="color: #1B2A38; text-decoration: none;">${safeTelefono}</a>` : 'No provisto'}
-                </td>
+                <td style="padding: 8px 0; font-weight: 700; color: #1B2A38;">Teléfono:</td>
+                <td style="padding: 8px 0; color: #2D3748;">${safeTelefono || 'No provisto'}</td>
               </tr>
               <tr>
-                <td style="padding: 10px 0; font-weight: 700; color: #1B2A38; font-size: 14px;">Servicio de Interés:</td>
-                <td style="padding: 10px 0; color: #1B2A38; font-weight: 600; font-size: 14px;">${safeServiceLabel}</td>
+                <td style="padding: 8px 0; font-weight: 700; color: #1B2A38;">Servicio:</td>
+                <td style="padding: 8px 0; color: #1B2A38; font-weight: 600;">${safeServiceLabel}</td>
               </tr>
             </tbody>
           </table>
-          <div style="background-color: #FAF8F5; border-left: 4px solid #C88A6E; padding: 18px; border-radius: 0 8px 8px 0; margin-top: 10px;">
-            <p style="margin: 0 0 6px 0; font-weight: 700; color: #1B2A38; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Mensaje / Requerimientos:</p>
-            <p style="margin: 0; color: #2C3E50; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${safeMensaje}</p>
+
+          <div style="background-color: #FAF8F5; border-left: 3px solid #C88A6E; padding: 14px 16px; border-radius: 4px; margin-bottom: 24px;">
+            <p style="margin: 0 0 4px 0; font-weight: 700; color: #C88A6E; font-size: 11px; text-transform: uppercase; letter-spacing: 1px;">Mensaje:</p>
+            <p style="margin: 0; color: #2D3748; font-size: 13px; line-height: 1.5; white-space: pre-wrap;">${safeMensaje}</p>
           </div>
-          <div style="margin-top: 28px; text-align: center;">
-            <a href="mailto:${safeEmail}?subject=Re:%20Solicitud%20de%20Diagn%C3%B3stico%20-%20Noema%20Consultora" 
-               style="display: inline-block; background-color: #1B2A38; color: #FAF8F5; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 0.5px;">
+
+          <div style="text-align: center;">
+            <a href="mailto:${safeEmail}?subject=Re:%20Consulta%20-%20NOEMA" 
+               style="display: inline-block; background-color: #1B2A38; color: #FAF8F5; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 13px;">
               Responder a ${safeNombre}
             </a>
           </div>
         </div>
 
-        <div style="background-color: #1B2A38; padding: 16px 24px; text-align: center; color: rgba(250, 248, 245, 0.7); font-size: 11px;">
-          © ${new Date().getFullYear()} Noema Consultora — Asunción & Encarnación, Paraguay<br/>
-          Sistema automatizado de captura de prospectos web
+        <div style="background-color: #1B2A38; padding: 14px 20px; text-align: center; color: rgba(250, 248, 245, 0.6); font-size: 11px;">
+          NOEMA · Encarnación, Paraguay · contacto@noema.com.py
         </div>
       </div>
     </body>
@@ -114,44 +111,44 @@ function buildAutoResponseHtml({ nombre, empresa, serviceLabel, mensaje }) {
     <head>
       <meta charset="utf-8"/>
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>Confirmación de Solicitud - Noema Consultora</title>
+      <title>Consulta Recibida - NOEMA</title>
     </head>
-    <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #FAF8F5; color: #1B2A38; margin:0; padding: 24px;">
-      <div style="max-width: 620px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #E8BFAC; box-shadow: 0 4px 20px rgba(27,42,56,0.06);">
-        <div style="background-color: #1B2A38; padding: 32px 24px; text-align: center; border-bottom: 3px solid #C88A6E;">
-          <h1 style="color: #FAF8F5; margin: 0; font-size: 28px; letter-spacing: 4px; font-weight: 700;">N O E M A</h1>
-          <p style="color: #C88A6E; margin: 8px 0 0 0; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Consultora de Investigación de Mercado & Opinión Pública</p>
+    <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #FAF8F5; color: #1B2A38; margin:0; padding: 20px;">
+      <div style="max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 10px; overflow: hidden; border: 1px solid #E8BFAC; box-shadow: 0 4px 16px rgba(27,42,56,0.06);">
+        <div style="background-color: #1B2A38; padding: 24px 20px; text-align: center; border-bottom: 3px solid #C88A6E;">
+          <h1 style="color: #FAF8F5; margin: 0; font-size: 24px; letter-spacing: 4px; font-weight: 700;">N O E M A</h1>
+          <p style="color: #C88A6E; margin: 6px 0 0 0; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">Investigación de Mercado & Opinión Pública</p>
         </div>
-        <div style="padding: 36px 30px; line-height: 1.6;">
-          <h2 style="color: #1B2A38; margin: 0 0 16px 0; font-size: 22px; font-weight: 600;">Hemos recibido su consulta</h2>
-          <p style="color: #4A5568; font-size: 15px;">Estimado/a <strong>${safeNombre}</strong>${safeEmpresa ? ` (${safeEmpresa})` : ''},</p>
-          <p style="color: #4A5568; font-size: 15px;">
-            Agradecemos su interés en los servicios de inteligencia estratégica de <strong>Noema Consultora</strong>.
+        <div style="padding: 28px 24px; line-height: 1.6;">
+          <h2 style="color: #1B2A38; margin: 0 0 14px 0; font-size: 18px; font-weight: 700;">Hemos recibido tu consulta</h2>
+          <p style="color: #2D3748; font-size: 14px; margin: 0 0 12px 0;">Hola <strong>${safeNombre}</strong>${safeEmpresa ? ` (${safeEmpresa})` : ''}:</p>
+          <p style="color: #4A5568; font-size: 14px; margin: 0 0 14px 0;">
+            Confirmamos la recepción de tu mensaje sobre <strong>${safeServiceLabel}</strong> enviado desde nuestro sitio web (<strong>noema.com.py</strong>).
           </p>
-          <p style="color: #4A5568; font-size: 15px;">
-            Confirmamos la recepción de su solicitud para el área de <strong>${safeServiceLabel}</strong>. Nuestro equipo de consultores senior está analizando su requerimiento y se pondrá en contacto con usted en un plazo no mayor a <strong>24 horas hábiles</strong>.
+          <p style="color: #4A5568; font-size: 14px; margin: 0 0 16px 0;">
+            Nuestro equipo revisará tu solicitud y se comunicará contigo a la brevedad (Lunes a Viernes de 08:00 a 17:00 hs).
           </p>
-          <div style="background-color: #FAF8F5; border-radius: 8px; padding: 20px; margin: 24px 0; border: 1px solid rgba(200,138,110,0.2);">
-            <p style="margin: 0 0 10px 0; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #C88A6E; font-weight: 700;">Detalle de su solicitud:</p>
-            <p style="margin: 0; font-size: 14px; color: #2D3748; font-style: italic;">"${safeMensaje}"</p>
-          </div>
-          <div style="background: linear-gradient(135deg, #1B2A38 0%, #2A3F52 100%); color: #FAF8F5; border-radius: 8px; padding: 20px; text-align: center; margin: 28px 0;">
-            <p style="margin: 0 0 6px 0; font-weight: 600; font-size: 15px; color: #FAF8F5;">¿Requiere asistencia inmediata para su proyecto?</p>
-            <p style="margin: 0 0 14px 0; font-size: 13px; color: rgba(250,248,245,0.8);">Comuníquese directamente con nuestra dirección ejecutiva.</p>
-            <a href="https://wa.me/595972536004?text=Hola%20Noema,%20acabo%20de%20enviar%20una%20solicitud%20de%20diagnóstico%20desde%20la%20web" 
-               style="display: inline-block; background-color: #25D366; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 25px; font-weight: 700; font-size: 13px; letter-spacing: 0.5px;">
-              💬 Contactar por WhatsApp (+595 972 536 004)
-            </a>
+
+          <div style="background-color: #FAF8F5; border-left: 3px solid #C88A6E; padding: 12px 16px; margin: 18px 0; border-radius: 4px;">
+            <p style="margin: 0 0 4px 0; font-size: 11px; font-weight: 700; color: #C88A6E; text-transform: uppercase; letter-spacing: 1px;">Tu mensaje:</p>
+            <p style="margin: 0; font-size: 13px; color: #2D3748; line-height: 1.5; white-space: pre-wrap;">${safeMensaje}</p>
           </div>
 
-          <p style="margin-top: 28px; margin-bottom: 0; font-size: 14px; color: #4A5568;">
-            Atentamente,<br/>
-            <strong style="color: #1B2A38;">Equipo Ejecutivo — Noema Consultora</strong><br/>
-            <span style="font-size: 13px; color: #718096;">Asunción & Encarnación, Paraguay · Cobertura MERCOSUR</span>
+          <div style="margin: 20px 0; padding: 14px 16px; background-color: #F8F5F0; border-radius: 6px; font-size: 13px; color: #1B2A38; border: 1px solid rgba(200,138,110,0.25);">
+            <p style="margin: 0 0 8px 0; font-weight: 700; color: #1B2A38;">Canales de atención directa:</p>
+            <p style="margin: 0 0 4px 0;">💬 <strong>WhatsApp:</strong> <a href="https://wa.me/595972536004" style="color: #C88A6E; text-decoration: none;">+595 972 536 004</a></p>
+            <p style="margin: 0 0 4px 0;">✉️ <strong>Correo:</strong> <a href="mailto:contacto@noema.com.py" style="color: #C88A6E; text-decoration: none;">contacto@noema.com.py</a></p>
+            <p style="margin: 0;">📍 <strong>Ubicación:</strong> Encarnación, Paraguay</p>
+          </div>
+
+          <p style="margin: 20px 0 0 0; font-size: 13px; color: #4A5568;">
+            Saludos cordiales,<br/>
+            <strong style="color: #1B2A38;">Equipo NOEMA</strong><br/>
+            <span style="font-size: 12px; color: #718096;">Investigación y estudios de opinión en Paraguay</span>
           </p>
         </div>
-        <div style="background-color: #1B2A38; padding: 18px 24px; text-align: center; color: rgba(250, 248, 245, 0.6); font-size: 11px;">
-          © ${new Date().getFullYear()} Noema Consultora. Todos los derechos reservados.<br/>
+        <div style="background-color: #1B2A38; padding: 14px 20px; text-align: center; color: rgba(250, 248, 245, 0.6); font-size: 11px;">
+          © ${new Date().getFullYear()} NOEMA · Todos los derechos reservados.<br/>
           contacto@noema.com.py · +595 972 536 004
         </div>
       </div>
