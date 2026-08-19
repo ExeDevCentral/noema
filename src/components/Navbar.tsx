@@ -277,15 +277,6 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
                       <span>carmen@noema.com.py</span>
                     </div>
                   </a>
-
-                  {/* Language switch inside mobile drawer */}
-                  <div className="mobile-lang-row">
-                    <span className="mobile-lang-label">
-                      <i className="fas fa-globe" style={{ marginRight: '6px', color: 'var(--terracotta-light)' }} />{' '}
-                      Idioma / Ñeʼẽ:
-                    </span>
-                    <LanguageSwitcher variant="navbar" />
-                  </div>
                 </div>
 
                 {/* Drawer Footer Stamp */}
