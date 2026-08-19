@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import BrandLogo from './BrandLogo'
-import LanguageSwitcher from './LanguageSwitcher'
 import ParaguayFlag from './ParaguayFlag'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -149,20 +148,6 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
 
           {/* Right Header Actions */}
           <div className="nav-actions-group">
-            <div className="nav-desktop-actions">
-              <LanguageSwitcher variant="navbar" />
-              <a
-                href="https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-whatsapp-nav"
-                aria-label="Escribinos por WhatsApp"
-                title="Escribinos por WhatsApp"
-              >
-                <i className="fa-brands fa-whatsapp" aria-hidden="true" />
-              </a>
-            </div>
-
             {/* Mobile Hamburger Toggle Button */}
             <button
               type="button"
