@@ -31,6 +31,7 @@
   <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="bravebot" content="index, follow, max-snippet:-1, max-image-preview:large">
   <meta name="bingbot" content="index, follow">
+  <meta name="google-site-verification" content="google75ef63c70014e517">
 
   <!-- Geolocation & Regional SEO for Paraguay -->
   <meta name="geo.region" content="PY">
@@ -45,8 +46,12 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 
-  <!-- Canonical URL & Open Graph / Social Media Preview (WhatsApp, Facebook, Instagram, LinkedIn) -->
+  <!-- Canonical URL & Multiregional Alternates -->
   <link rel="canonical" href="https://www.noema.com.py/">
+  <link rel="alternate" hreflang="es-PY" href="https://www.noema.com.py/">
+  <link rel="alternate" hreflang="x-default" href="https://www.noema.com.py/">
+
+  <!-- Open Graph / Social Media Preview (WhatsApp, Facebook, Instagram, LinkedIn) -->
   <meta property="og:site_name" content="NOEMA — Investigación y Estudios">
   <meta property="og:locale" content="es_PY">
   <meta property="og:type" content="website">
@@ -65,11 +70,9 @@
   <meta name="twitter:title" content="NOEMA | Investigación y Estudios · Paraguay">
   <meta name="twitter:description" content="Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay. Relevamiento de campo y consultoría metodológica integral.">
   <meta name="twitter:image" content="https://www.noema.com.py/og-image.jpg">
-  <meta name="twitter:image:alt" content="NOEMA — Investigación y Estudios · Paraguay">
+  <meta property="twitter:image:alt" content="NOEMA — Investigación y Estudios · Paraguay">
 
-
-
-  <!-- Structured Data JSON-LD (Schema.org ProfessionalService & Organization for Google & Brave) -->
+  <!-- Structured Data JSON-LD (Schema.org ProfessionalService, WebSite, Breadcrumbs, FAQPage) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -78,19 +81,24 @@
         "@type": "ProfessionalService",
         "@id": "https://www.noema.com.py/#organization",
         "name": "NOEMA — Investigación y Estudios",
+        "legalName": "NOEMA — Investigación y Estudios",
         "alternateName": "Noema Consultora",
         "url": "https://www.noema.com.py/",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.noema.com.py/assets/images/logo_brand_official.png"
+          "url": "https://www.noema.com.py/assets/images/logo_brand_official.png",
+          "width": "512",
+          "height": "512"
         },
-        "image": "https://www.noema.com.py/assets/images/logo_brand_official.png",
+        "image": "https://www.noema.com.py/og-image.jpg",
         "description": "Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay. Especialistas en servicio de campo, relevamientos cuantitativos y cualitativos, y consultoría metodológica integral.",
         "telephone": "+595972536004",
         "email": "carmen@noema.com.py",
+        "priceRange": "$$",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Asunción & Encarnación",
+          "addressRegion": "Itapúa / Central",
           "addressCountry": "PY"
         },
         "geo": {
@@ -107,6 +115,17 @@
             "@type": "AdministrativeArea",
             "name": "MERCOSUR"
           }
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+595972536004",
+          "contactType": "customer service",
+          "email": "carmen@noema.com.py",
+          "areaServed": "PY",
+          "availableLanguage": ["Spanish", "Guarani"]
+        },
+        "sameAs": [
+          "https://wa.me/595972536004"
         ],
         "openingHoursSpecification": [
           {
@@ -145,10 +164,79 @@
         "@id": "https://www.noema.com.py/#website",
         "url": "https://www.noema.com.py/",
         "name": "NOEMA — Investigación y Estudios",
+        "description": "Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay.",
         "publisher": {
           "@id": "https://www.noema.com.py/#organization"
         },
         "inLanguage": "es-PY"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.noema.com.py/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://www.noema.com.py/#inicio"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Sobre NOEMA",
+            "item": "https://www.noema.com.py/#sobre-noema"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Servicios",
+            "item": "https://www.noema.com.py/#servicios"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Contacto",
+            "item": "https://www.noema.com.py/#contacto"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://www.noema.com.py/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo requiere un estudio de mercado estándar con Noema?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El tiempo habitual de ejecución oscila entre 15 y 30 días hábiles según la complejidad del muestreo. Para proyectos urgentes contamos con nuestro servicio Express Diagnóstico que entrega resultados preliminares en 10-12 días hábiles."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo garantizan la representatividad y calidad de los datos en Paraguay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aplicamos controles de calidad estrictos bajo estándares ISO 20252 y ESOMAR. Cada respuesta pasa por filtros informáticos de consistencia, geolocalización, verificación de tiempo de llenado y auditoría directa a muestras aleatorias en Asunción y principales departamentos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué formato se entregan los informes estratégicos finales?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entregamos un Informe Ejecutivo en presentación PDF sintetizada pensado para Directorio, la base de datos limpia en formato SPSS/Excel y, según el servicio contratado, un Dashboard interactivo dinámico para consultas internas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Realizan investigaciones de mercado en todo el territorio paraguayo y región?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, contamos con cobertura completa en Asunción, Gran Asunción, Ciudad del Este, Encarnación y departamentos del interior, además de coordinación regional para el mercado MERCOSUR."
+            }
+          }
+        ]
       }
     ]
   }
@@ -162,6 +250,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+  <style>
+    .crawler-fallback {
+      padding: 2rem;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #162330;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+  </style>
 
   <!-- Pre-paint theme init (always dark luxury canvas) -->
   <script>
@@ -171,6 +268,19 @@
   </script>
 </head>
 <body>
+  <noscript>
+    <div class="crawler-fallback">
+      <h1>NOEMA — Investigación y Estudios · Paraguay</h1>
+      <p>Investigación y estudios diseñados para generar evidencia confiable y relevante en Paraguay. Relevamiento de campo y consultoría metodológica integral en Asunción, Encarnación y todo el territorio nacional.</p>
+      <h2>Servicios Principales</h2>
+      <ul>
+        <li><strong>Servicio de Campo:</strong> Relevamiento cuantitativo y cualitativo, encuestas, focus groups y supervisión directa.</li>
+        <li><strong>Servicio Integral:</strong> Diseño metodológico, estudios de mercado, opinión pública e informes estratégicos.</li>
+      </ul>
+      <h2>Contacto</h2>
+      <p>Email: carmen@noema.com.py | Teléfono: +595 972 536 004 | Paraguay</p>
+    </div>
+  </noscript>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
