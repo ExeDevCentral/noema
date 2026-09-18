@@ -124,17 +124,68 @@ Cada vez que quieras ver el sitio otra vez:
 
 ---
 
+## 🚀 Paso 7 (opcional): Generar la versión de producción
+
+Si algún día necesitás el sitio preparado para subir a internet, en la terminal de VS Code escribí:
+
+```
+npm run build
+```
+
+Esto crea una carpeta **`dist/`** con el sitio listo para producción (más liviano que el modo desarrollo). Para verlo localmente:
+
+```
+npm run preview
+```
+
+Luego abrí la dirección que aparece en la terminal (ej. `http://localhost:4173`).
+
+> La versión en internet (https://noema.com.py) se actualiza sola cada vez que se suben los cambios a GitHub (git push) — Vercel se encarga del resto.
+
+---
+
 ## 📁 Estructura del proyecto
 
 ```
 noema-main/
-├── src/              → El código del sitio (páginas, menú, contacto)
-├── public/           → Imágenes y archivos del sitio
+├── src/              → El código del sitio (páginas, menú, contacto, estilos)
+├── public/           → Imágenes, fuentes y archivos que se publican tal cual
+├── scripts/          → Herramientas de mantenimiento (no tocar, ver abajo)
+├── dist/             → El sitio ya compilado para producción (generado con npm run build)
+├── assets-in/        → Archivos fuente temporales (fuentes originales, no se sube a GitHub)
 ├── api/              → El formulario de contacto
 ├── index.html        → La página principal
 ├── package.json      → Lista de programas que necesita
 └── vercel.json       → Configuración para subir a internet
 ```
+
+---
+
+## ⚡ Optimizaciones de rendimiento aplicadas
+
+El sitio está optimizado para cargar rápido, sobre todo en celulares:
+
+- **Imágenes en WebP** con tamaño y calidad ajustados por uso (hero, cards, fondos). La imagen principal (LCP) se precarga con prioridad alta.
+- **Iconos (Font Awesome) recortados a medida**: solo se usan los 23 iconos que aparecen en el sitio, servidos desde el propio sitio en un archivo de ~5 KiB (antes se descargaba una librería de 273 KiB desde un servidor externo).
+- **Fuentes propias instaladas y optimizadas** (Cormorant + Libre Franklin) — el sitio no depende de servidores externos.
+- **Sin librerías de animación pesadas**: todas las animaciones (pétalos de lapacho, el ave del logo, efectos hover) se hacen con CSS puro y SMIL. El JavaScript pasó de **101 kB → 57 kB** (comprimido).
+- **Código limpiado** de elementos sin usar (dead code) y con acceso auditado (a11y) en perfecto estado.
+
+Resultado: Web de **~788 KB** de peso total en el reporte de Google PageSpeed, con mejoras de rendimiento en móvil y sin pedidos de archivos a terceros en la carga inicial.
+
+---
+
+## 🛠️ Herramientas de mantenimiento (`scripts/`)
+
+| Script | Para qué sirve |
+|--------|----------------|
+| `npm run build` | Compila el sitio para producción |
+| `node scripts/optimize_images.js` | Comprime/redimensiona las imágenes a WebP |
+| `node scripts/subset_fa.js` | Regenera el subset de iconos Font Awesome |
+| `node scripts/generate_favicons.js` | Regenera los favicons desde el logo |
+| `node scripts/generate_og_banner.js` | Regenera el banner para compartir en redes |
+
+> Estas herramientas ya están configuradas y no hace falta usarlas normalmente.
 
 ---
 
