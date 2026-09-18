@@ -13,7 +13,7 @@ export default function About({ onNavigate }: Readonly<AboutProps>) {
     <div className="page-view about-page-view">
       {/* Hero Banner with Lapacho Amarillo Image */}
       <section className="page-hero-banner hero-lapacho-amarillo">
-        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.jpg')" }} />
+        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_amarillo.webp')" }} />
         <div className="banner-overlay" />
         <div className="container banner-container">
           <h1 className="banner-title">{t.about.bannerTitle}</h1>

@@ -30,7 +30,7 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
                 layout
                 type="button"
                 className="footer-guarani-morph-pill"
-                aria-label="Ñeʼẽkãnguéta ha pyʼamongueta — Traducción: Razonar y reflexionar con el corazón"
+                aria-label="«Ñeʼẽkãnguéta ha pyʼamongueta» — Traducción: Razonar y reflexionar con el corazón"
                 onMouseEnter={() => setIsGuaraniHovered(true)}
                 onMouseLeave={() => setIsGuaraniHovered(false)}
                 onClick={() => setIsGuaraniHovered((prev) => !prev)}
@@ -72,7 +72,7 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
 
           {/* Col 2: Navigation Links */}
           <div className="footer-col">
-            <h4 className="footer-col-title">{t.footer.navTitle}</h4>
+            <h3 className="footer-col-title">{t.footer.navTitle}</h3>
             <ul className="footer-nav-list">
               <li>
                 <button type="button" className="footer-link-btn" onClick={() => { onNavigate?.('inicio'); window.scrollTo({ top: 0, behavior: 'smooth' }) }}>
@@ -99,7 +99,7 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
 
           {/* Col 3: Direct Contact */}
           <div className="footer-col">
-            <h4 className="footer-col-title">{t.footer.contactTitle}</h4>
+            <h3 className="footer-col-title">{t.footer.contactTitle}</h3>
             <ul className="footer-contact-list">
               <li>
                 <a href="mailto:carmen@noema.com.py" className="footer-contact-link">

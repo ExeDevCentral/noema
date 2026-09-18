@@ -84,7 +84,7 @@ export default function BrandLogo({ showFlag = true, onClick }: Readonly<BrandLo
     <a
       href="#inicio"
       className="brand-logo"
-      aria-label="NOEMA - Investigación y Estudios"
+      aria-label="NOEMA INVESTIGACIÓN Y ESTUDIOS"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={(e) => {
@@ -124,7 +124,7 @@ export default function BrandLogo({ showFlag = true, onClick }: Readonly<BrandLo
           style={{ transformOrigin: 'bottom center' }}
         >
           <img
-            src="/assets/images/logo_symbol_white.png"
+            src="/assets/images/logo_symbol_white.webp"
             alt="NOEMA Isotipo"
             className="brand-official-symbol-img brand-symbol-white"
             width="54"
@@ -147,12 +147,12 @@ export default function BrandLogo({ showFlag = true, onClick }: Readonly<BrandLo
       </div>
 
       <div className="brand-text-block">
-        <span className="brand-title">NOEMA</span>
+        <span className="brand-title">NOEMA</span>{' '}
         <span className="brand-subtitle">INVESTIGACIÓN Y ESTUDIOS</span>
       </div>
 
       {showFlag && (
-        <div className="brand-flag-badge-container" title="Paraguay" aria-label="Paraguay">
+        <div className="brand-flag-badge-container">
           <ParaguayFlag size="md" />
         </div>
       )}

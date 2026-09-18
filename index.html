@@ -21,10 +21,10 @@
   <meta name="theme-color" content="#162330">
   <meta name="msapplication-TileColor" content="#162330">
 
-  <!-- Preload Lapacho Hero Banner Images for instant glitch-free rendering -->
-  <link rel="preload" as="image" href="/assets/images/heroes/lapacho_amarillo.jpg">
-  <link rel="preload" as="image" href="/assets/images/heroes/lapacho_blanco.jpg">
-  <link rel="preload" as="image" href="/assets/images/heroes/lapacho_rosado.jpg">
+  <!-- Preload Lapacho Hero Card Images (WebP, prioritized for LCP) -->
+  <link rel="preload" as="image" type="image/webp" href="/assets/images/heroes/lapacho_amarillo-card.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/assets/images/heroes/lapacho_blanco-card.webp" fetchpriority="high">
+  <link rel="preload" as="image" type="image/webp" href="/assets/images/heroes/lapacho_rosado-card.webp" fetchpriority="low">
 
   <!-- Search Engine Crawling & Indexing Directives (Google, Brave, Bing, DuckDuckGo) -->
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -242,13 +242,9 @@
   }
   </script>
 
-  <!-- Performance Preconnect & Preload Optimization -->
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Self-hosted Fonts (font-display: swap defined in src/fonts.css) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
   <style>
     .crawler-fallback {

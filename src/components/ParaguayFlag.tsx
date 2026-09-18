@@ -34,12 +34,15 @@ export default function ParaguayFlag({ size = 'sm', className = '', style }: Par
         ...style 
       }}
       title="República del Paraguay"
+      role="img"
       aria-label="Bandera oficial de la República del Paraguay"
     >
       <svg 
         viewBox="0 0 60 36" 
         width={dimensions.width} 
         height={dimensions.height} 
+        aria-hidden="true"
+        focusable="false"
         style={{ 
           borderRadius: `${dimensions.radius}px`, 
           boxShadow: '0 1px 4px rgba(0, 0, 0, 0.4), inset 0 0 0 0.5px rgba(255, 255, 255, 0.25)',

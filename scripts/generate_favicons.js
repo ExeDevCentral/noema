@@ -40,7 +40,7 @@ function createIco(pngBuffers) {
 async function generateAllAssets() {
   console.log('🚀 Starting generation of official NOEMA brand assets & favicon suite...');
 
-  const symbolWhitePath = path.join(assetsImagesDir, 'logo_symbol_white.png');
+  const symbolWhitePath = path.join(rootDir, 'assets-in/fotografias/originales-heroes/logo_symbol_white.png');
   const originalOfficialPath = path.join(assetsImagesDir, 'logo_official_original.png');
 
   // 1. Clean trimmed white symbol
@@ -143,7 +143,7 @@ async function generateAllAssets() {
 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="48" height="48" rx="10" fill="#162330"/>
   <rect x="1" y="1" width="46" height="46" rx="9" stroke="#C88A6E" stroke-opacity="0.3" stroke-width="1"/>
-  <image href="/assets/images/logo_symbol_white.png" x="6" y="6" width="36" height="36" preserveAspectRatio="xMidYMid meet"/>
+  <image href="/assets/images/logo_symbol_white.webp" x="6" y="6" width="36" height="36" preserveAspectRatio="xMidYMid meet"/>
 </svg>
 `.trim();
   fs.writeFileSync(path.join(publicDir, 'favicon.svg'), svgFaviconContent);

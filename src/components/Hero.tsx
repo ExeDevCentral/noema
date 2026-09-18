@@ -32,7 +32,7 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               cardTag={t.hero.card1Tag}
               title={t.hero.card1Title}
               description={t.hero.card1Desc}
-              imageSrc="/assets/images/heroes/lapacho_amarillo.jpg"
+              imageSrc="/assets/images/heroes/lapacho_amarillo-card.webp"
               petalColor="#FFD54F"
               onClick={() => onNavigate?.('sobre-noema')}
             />
@@ -42,7 +42,7 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               cardTag={t.hero.card2Tag}
               title={t.hero.card2Title}
               description={t.hero.card2Desc}
-              imageSrc="/assets/images/heroes/lapacho_blanco.jpg"
+              imageSrc="/assets/images/heroes/lapacho_blanco-card.webp"
               petalColor="#FFFFFF"
               onClick={() => onNavigate?.('servicios')}
             />
@@ -52,7 +52,7 @@ export default function Hero({ onNavigate }: Readonly<HeroProps>) {
               cardTag={t.hero.card3Tag}
               title={t.hero.card3Title}
               description={t.hero.card3Desc}
-              imageSrc="/assets/images/heroes/lapacho_rosado.jpg"
+              imageSrc="/assets/images/heroes/lapacho_rosado-card.webp"
               petalColor="#F48FB1"
               onClick={() => onNavigate?.('contacto')}
             />

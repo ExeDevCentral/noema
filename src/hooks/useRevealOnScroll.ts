@@ -6,10 +6,8 @@ export const REVEAL_SELECTORS = [
   '.about-image-stack',
   '.value-card',
   '.service-card',
-  '.methodology-step',
   '.contact-info-card',
   '.contact-form-wrapper',
-  '.faq-item',
 ]
 
 /**

@@ -59,7 +59,7 @@ export default function Contact({ onNavigate }: Readonly<ContactProps>) {
     <div className="page-view contact-page-view">
       {/* Hero Banner with Lapacho Rosado Image */}
       <section className="page-hero-banner hero-lapacho-rosado">
-        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_rosado.jpg')" }}></div>
+        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_rosado.webp')" }}></div>
         <div className="banner-overlay"></div>
         <div className="container banner-container">
           <h1 className="banner-title">{t.contact.bannerTitle}</h1>

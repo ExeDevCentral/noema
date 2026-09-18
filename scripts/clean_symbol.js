@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 async function cleanSymbol() {
-  const symbolPath = path.resolve(__dirname, '../public/assets/images/logo_symbol_white.png')
+  const symbolPath = path.resolve(__dirname, '../assets-in/fotografias/originales-heroes/logo_symbol_white.png')
   
   const meta = await sharp(symbolPath).metadata()
   console.log('Original dimensions:', meta.width, meta.height)

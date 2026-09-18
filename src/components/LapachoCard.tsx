@@ -121,7 +121,7 @@ export default function LapachoCard({
 
         <div className="hero-card-content">
           <span className="hero-card-tag">{cardTag}</span>
-          <h3>{title}</h3>
+          <h2>{title}</h2>
           <p>{description}</p>
         </div>
       </TiltCard>

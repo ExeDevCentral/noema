@@ -9,7 +9,7 @@ async function generateOGBanner() {
   const width = 1200
   const height = 630
 
-  const symbolPath = path.resolve(__dirname, '../public/assets/images/logo_symbol_white.png')
+  const symbolPath = path.resolve(__dirname, '../assets-in/fotografias/originales-heroes/logo_symbol_white.png')
   
   // Resize the official white symbol
   const symbolWidth = 140

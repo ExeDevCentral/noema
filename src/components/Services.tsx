@@ -13,7 +13,7 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
     <div className="page-view services-page-view">
       {/* Hero Banner with Lapacho Blanco Image */}
       <section className="page-hero-banner hero-lapacho-blanco">
-        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.jpg')" }} />
+        <div className="banner-bg-image" style={{ backgroundImage: "url('/assets/images/heroes/lapacho_blanco.webp')" }} />
         <div className="banner-overlay" />
         <div className="container banner-container">
           <h1 className="banner-title">{t.services.bannerTitle}</h1>
