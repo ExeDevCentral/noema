@@ -21,7 +21,7 @@ async function main() {
     await sharp(src)
       .rotate()
       .resize({ width: 860 })
-      .webp({ quality: 72 })
+      .webp({ quality: 60 })
       .toFile(path.join(heroesDir, `${h}-card.webp`))
     console.log(`\u2705 ${h}-card.webp`)
   }
