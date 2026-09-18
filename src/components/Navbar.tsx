@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import BrandLogo from './BrandLogo'
 import ParaguayFlag from './ParaguayFlag'
 import { useLanguage } from '../context/LanguageContext'
@@ -124,8 +123,7 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
                   onClick={() => handleNavClick(item.key)}
                 >
                   {isActive && (
-                    <motion.span
-                      layoutId="active-nav-pill"
+                    <span
                       className="nav-active-pill"
                       style={{
                         position: 'absolute',
@@ -135,7 +133,6 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
                         border: '1px solid rgba(232, 191, 172, 0.35)',
                         zIndex: 0,
                       }}
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
                   <span style={{ position: 'relative', zIndex: 1 }}>
@@ -164,16 +161,11 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
       </header>
 
       {/* Luxury Fullscreen Mobile Drawer */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            id="mobile-nav-drawer"
-            className="mobile-drawer-overlay"
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
-          >
+      <div
+        id="mobile-nav-drawer"
+        className={`mobile-drawer-overlay${menuOpen ? ' open' : ''}`}
+        aria-hidden={!menuOpen}
+      >
             <div className="mobile-drawer-inner">
               {/* Drawer Top Header */}
               <div className="mobile-drawer-header">
@@ -200,14 +192,12 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
                   {navItems.map((item, index) => {
                     const isActive = activePage === item.key
                     return (
-                      <motion.button
+                      <button
                         key={item.key}
                         type="button"
                         className={`mobile-nav-card${isActive ? ' active' : ''}`}
                         onClick={() => handleNavClick(item.key)}
-                        initial={{ opacity: 0, x: -16 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.04 * index, duration: 0.22 }}
+                        style={{ animationDelay: `${(0.04 * index).toFixed(2)}s` }}
                       >
                         <div className="mobile-nav-icon-box">
                           <i className={item.icon} aria-hidden="true" />
@@ -219,7 +209,7 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
                         <div className="mobile-nav-chevron">
                           <i className="fas fa-chevron-right" aria-hidden="true" />
                         </div>
-                      </motion.button>
+                      </button>
                     )
                   })}
                 </nav>
@@ -275,9 +265,7 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
                 </div>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
     </>
   )
 }

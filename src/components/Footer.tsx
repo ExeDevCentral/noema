@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import ParaguayFlag from './ParaguayFlag'
 import BrandLogo from './BrandLogo'
 import { PageType } from './Navbar'
@@ -26,45 +25,31 @@ export default function Footer({ onNavigate }: Readonly<FooterProps>) {
             
             {/* Minimalist Morphing Guarani Pill */}
             <div className="footer-guarani-wrapper">
-              <motion.button
-                layout
+              <button
                 type="button"
                 className="footer-guarani-morph-pill"
                 aria-label="«Ñeʼẽkãnguéta ha pyʼamongueta» — Traducción: Razonar y reflexionar con el corazón"
                 onMouseEnter={() => setIsGuaraniHovered(true)}
                 onMouseLeave={() => setIsGuaraniHovered(false)}
                 onClick={() => setIsGuaraniHovered((prev) => !prev)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ layout: { duration: 0.28, ease: [0.16, 1, 0.3, 1] } }}
               >
-                <AnimatePresence mode="wait" initial={false}>
                   {!isGuaraniHovered ? (
-                    <motion.span
+                    <span
                       key="guarani"
-                      className="guarani-phrase-text"
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                      className="guarani-phrase-text lang-swap"
                     >
                       «Ñeʼẽkãnguéta ha pyʼamongueta»
-                    </motion.span>
+                    </span>
                   ) : (
-                    <motion.span
+                    <span
                       key="spanish"
-                      className="guarani-translation-text"
-                      initial={{ opacity: 0, y: 5 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -5 }}
-                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                      className="guarani-translation-text lang-swap"
                     >
                       <i className="fas fa-heart text-terracotta" style={{ color: 'var(--terracotta)', marginRight: '7px' }} />
                       <span>Razonar y reflexionar con el corazón</span>
-                    </motion.span>
+                    </span>
                   )}
-                </AnimatePresence>
-              </motion.button>
+              </button>
             </div>
 
           </div>

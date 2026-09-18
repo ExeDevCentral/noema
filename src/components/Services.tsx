@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -44,9 +43,8 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
           <div className="work-modes-section">
             <div className="work-modes-grid">
               {/* Card 1: Para Agencias y Consultoras / Servicio de Campo */}
-              <motion.div
+              <div
                 className="work-mode-card"
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
               >
                 <div className="work-mode-top-block">
                   <div className="work-mode-header-aligned">
@@ -74,12 +72,11 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
 
               {/* Card 2: Estudios a Medida / Servicio Integral */}
-              <motion.div
+              <div
                 className="work-mode-card"
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
               >
                 <div className="work-mode-top-block">
                   <div className="work-mode-header-aligned">
@@ -107,20 +104,18 @@ export default function Services({ onNavigate }: Readonly<ServicesProps>) {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             {/* Back to Home Button */}
             <div className="page-back-home-wrapper">
-              <motion.button 
+              <button 
                 type="button" 
                 className="btn-back-home"
                 onClick={() => onNavigate?.('inicio')}
-                whileHover={{ x: -4 }}
-                whileTap={{ scale: 0.98 }}
               >
                 <i className="fas fa-arrow-left" /> Volver al inicio
-              </motion.button>
+              </button>
             </div>
           </div>
         </div>

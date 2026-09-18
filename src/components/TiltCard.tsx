@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
 interface TiltCardProps {
   children: React.ReactNode
@@ -21,58 +20,53 @@ export default function TiltCard({
   maxTilt = 7,
 }: Readonly<TiltCardProps>) {
   const cardRef = useRef<HTMLDivElement>(null)
+  const hoveredRef = useRef(false)
+  const pressedRef = useRef(false)
 
-  // Raw mouse coordinates normalized from -0.5 to 0.5
-  const mouseX = useMotionValue(0)
-  const mouseY = useMotionValue(0)
+  const currentScale = () => (pressedRef.current ? 0.985 : hoveredRef.current ? 1.025 : 1)
 
-  // Spring physics for buttery smooth motion
-  const springConfig = { damping: 22, stiffness: 280, mass: 0.6 }
-  const smoothX = useSpring(mouseX, springConfig)
-  const smoothY = useSpring(mouseY, springConfig)
-
-  // Transform to 3D rotation angles
-  const rotateX = useTransform(smoothY, [-0.5, 0.5], [maxTilt, -maxTilt])
-  const rotateY = useTransform(smoothX, [-0.5, 0.5], [-maxTilt, maxTilt])
+  const applyTilt = (rx: number, ry: number) => {
+    const el = cardRef.current
+    if (!el) return
+    el.style.transform = `rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) scale(${currentScale().toFixed(4)})`
+  }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    const width = rect.width
-    const height = rect.height
-    const clientX = e.clientX - rect.left
-    const clientY = e.clientY - rect.top
-
-    mouseX.set(clientX / width - 0.5)
-    mouseY.set(clientY / height - 0.5)
+    const el = cardRef.current
+    if (!el) return
+    const rect = el.getBoundingClientRect()
+    const nx = (e.clientX - rect.left) / rect.width - 0.5
+    const ny = (e.clientY - rect.top) / rect.height - 0.5
+    applyTilt(-ny * 2 * maxTilt, nx * 2 * maxTilt)
   }
 
   const handleMouseLeave = () => {
-    mouseX.set(0)
-    mouseY.set(0)
+    hoveredRef.current = false
+    applyTilt(0, 0)
   }
 
   return (
-    <motion.div
+    <div
       ref={cardRef}
       className={`tilt-card-wrapper ${className}`}
       onClick={onClick}
       onKeyDown={onKeyDown}
       role={role}
       tabIndex={tabIndex}
+      onMouseEnter={() => {
+        hoveredRef.current = true
+      }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{
-        transformStyle: 'preserve-3d',
-        perspective: 1000,
-        rotateX,
-        rotateY,
+      onMouseDown={() => {
+        pressedRef.current = true
       }}
-      whileHover={{ scale: 1.025 }}
-      whileTap={{ scale: 0.985 }}
-      transition={{ scale: { type: 'spring', stiffness: 400, damping: 25 } }}
+      onMouseUp={() => {
+        pressedRef.current = false
+      }}
+      style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
     >
       {children}
-    </motion.div>
+    </div>
   )
 }

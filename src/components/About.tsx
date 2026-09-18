@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import { PageType } from './Navbar'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -46,67 +45,61 @@ export default function About({ onNavigate }: Readonly<AboutProps>) {
 
               <div className="home-pillars-2x2-grid">
                 {/* 1. Investigación a medida */}
-                <motion.div
+                <div
                   className="home-pillar-card"
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-sliders" />
                   </div>
                   <h4>{t.hero.pillar1Title}</h4>
                   <p>{t.hero.pillar1Desc}</p>
-                </motion.div>
+                </div>
 
                 {/* 2. Del diseño al campo */}
-                <motion.div
+                <div
                   className="home-pillar-card"
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-layer-group" />
                   </div>
                   <h4>{t.hero.pillar2Title}</h4>
                   <p>{t.hero.pillar2Desc}</p>
-                </motion.div>
+                </div>
 
                 {/* 3. Campo con experiencia */}
-                <motion.div
+                <div
                   className="home-pillar-card"
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-users-viewfinder" />
                   </div>
                   <h4>{t.hero.pillar3Title}</h4>
                   <p>{t.hero.pillar3Desc}</p>
-                </motion.div>
+                </div>
 
                 {/* 4. Conocimiento del contexto */}
-                <motion.div
+                <div
                   className="home-pillar-card"
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
                 >
                   <div className="home-pillar-icon-box">
                     <i className="fas fa-location-dot" />
                   </div>
                   <h4>{t.hero.pillar4Title}</h4>
                   <p>{t.hero.pillar4Desc}</p>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Back to Home Button */}
           <div className="page-back-home-wrapper">
-            <motion.button 
+            <button 
               type="button" 
               className="btn-back-home"
               onClick={() => onNavigate?.('inicio')}
-              whileHover={{ x: -4 }}
-              whileTap={{ scale: 0.98 }}
             >
               <i className="fas fa-arrow-left" /> Volver al inicio
-            </motion.button>
+            </button>
           </div>
         </div>
       </section>
