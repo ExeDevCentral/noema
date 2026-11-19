@@ -38,7 +38,15 @@ xdg-open index.html
 
 ---
 
+## 📱 Mobile Executive Ergonomics (`< 768px`)
+
+- **Minimalist Mobile Bottom Dock**: Consolidates stacked floating buttons (`FloatingWhatsApp` + `BackToTop`) on mobile viewports into a clean 5-action thumb-zone dock (`Inicio`, `Sobre Noema`, `Servicios`, `Contacto`, `WhatsApp`) with safe-area bottom spacing and zero visual overlap.
+
+---
+
 ## 👨‍💻 Author
 
 **Exequiel Echevarria**
 - GitHub: [@ExeDevCentral](https://github.com/ExeDevCentral)
+
+<!-- ExeDevCentral Audit & Quality Stamp: 2026-11-19 (Mobile UX & Zero-Overlap Verification) -->
