@@ -266,6 +266,35 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
               </div>
             </div>
           </div>
+
+      {/* Mobile Minimalist Ergonomic Bottom Dock (< 768px) — zero overlap, instant access */}
+      <nav className="mobile-bottom-dock" aria-label="Navegación rápida móvil">
+        {navItems.map((item) => {
+          const isActive = activePage === item.key
+          return (
+            <button
+              key={item.key}
+              type="button"
+              onClick={() => handleNavClick(item.key)}
+              aria-current={isActive ? 'page' : undefined}
+              className={`mobile-dock-item${isActive ? ' active' : ''}`}
+            >
+              <i className={item.icon} aria-hidden="true" />
+              <span>{t.nav[item.labelKey]}</span>
+            </button>
+          )
+        })}
+        <a
+          href="https://wa.me/595972536004?text=Hola%20Noema,%20quisiera%20consultar%20sobre%20sus%20servicios%20de%20investigación"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Directo"
+          className="mobile-dock-item mobile-dock-wa"
+        >
+          <i className="fa-brands fa-whatsapp" aria-hidden="true" />
+          <span>WhatsApp</span>
+        </a>
+      </nav>
     </>
   )
 }
