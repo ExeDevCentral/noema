@@ -41,5 +41,10 @@
     "subset-font": "^2.7.0",
     "typescript": "~5.6.3",
     "vite": "^5.4.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ExeDevCentral/noema.git"
+  },
+  "homepage": "https://noema-ivory.vercel.app"
 }
