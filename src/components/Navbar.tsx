@@ -119,25 +119,10 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
                   key={item.key}
                   type="button"
                   className={`nav-link-btn${isActive ? ' active' : ''}`}
-                  style={{ position: 'relative' }}
+                  aria-current={isActive ? 'page' : undefined}
                   onClick={() => handleNavClick(item.key)}
                 >
-                  {isActive && (
-                    <span
-                      className="nav-active-pill"
-                      style={{
-                        position: 'absolute',
-                        inset: 0,
-                        borderRadius: 9999,
-                        background: 'rgba(200, 138, 110, 0.22)',
-                        border: '1px solid rgba(232, 191, 172, 0.35)',
-                        zIndex: 0,
-                      }}
-                    />
-                  )}
-                  <span style={{ position: 'relative', zIndex: 1 }}>
-                    {t.nav[item.labelKey]}
-                  </span>
+                  {t.nav[item.labelKey]}
                 </button>
               )
             })}
@@ -298,7 +283,6 @@ export default function Navbar({ activePage, setActivePage }: Readonly<NavbarPro
     </>
   )
 }
-
 
 
 
